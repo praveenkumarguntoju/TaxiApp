@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+var promise = require('promise');
 // mongoose.connect('mongodb://127.0.0.1:27017/my_database');
 // mongoose.createConnection('mongodb://chintu:chintu123@ds161164.mlab.com:61164/taxidetails');
 
