@@ -11,6 +11,9 @@
     "e2e": "ng e2e",
     "postinstall": "ng build"
   },
+   "Procfile":{
+   "web": "node server.js"
+  },
   "private": true,
   "dependencies": {
     "@angular/cli": "1.0.2",
