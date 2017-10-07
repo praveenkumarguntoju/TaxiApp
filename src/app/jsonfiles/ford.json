@@ -1,0 +1,22 @@
+{
+  "make": "ford",
+  "models": [{
+    "model": "ford_edge",
+    "name": "Edge",
+    "is_hidden": false,
+    "is_in_navigation": true,
+    "image": "http://buyersguide.caranddriver.com/media/assets/submodel/7925.jpg"
+  }, {
+    "model": "ford_escape",
+    "name": "Escape",
+    "is_hidden": false,
+    "is_in_navigation": true,
+    "image": "http://buyersguide.caranddriver.com/media/assets/submodel/7018.jpg"
+  }, {
+    "model": "ford_escort",
+    "name": "Escort",
+    "is_hidden": true,
+    "is_in_navigation": false,
+    "image": "http://media.caranddriver.com/images/13q2/510830/ford-escort-concept-photos-and-info-news-car-and-driver-photo-512773-s-original.jpg"
+  }]
+}

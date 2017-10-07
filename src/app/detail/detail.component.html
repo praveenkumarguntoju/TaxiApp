@@ -1,0 +1,193 @@
+<p>
+  detail works!
+</p>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-          target="#myNavbar">
+        <span class="icon-bar"></span>
+                         
+      </button>
+      <a class="navbar-brand">Start</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a (click)="onEdit(x)" > <span class="glyphicon glyphicon-edit"></span> Edit</a> </li>
+        <li><a (click)="onDisplay(x)"><span class="glyphicon glyphicon-eye-open"></span> Display</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container">
+<div class="panel-default jumbotron">
+    <div class="panel-body">
+    </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                <h4><span class="label ">First Name</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <input [(ngModel)]="driverDetails.DRVFNAME"
+                           class="form-control iedit"
+                           type="text"
+                           [disabled]="displayDetail"/>
+                    </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label ">Last Name</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <input [(ngModel)]="driverDetails.DRVLNAME"
+                           class="form-control iedit"
+                           type="text"
+                           [disabled]="displayDetail"/>
+
+                </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+
+                </div>
+                <div class="col-md-6" style="margin-top: -50px;">
+                   <img   src="{{imageUrl}}" 
+                    class="img-fluid rounded-circle" alt="Image"  height="80">
+
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label ">Car Number</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <h4><span class="label">{{driverDetails.CARNUM}}</span></h4>
+                </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label ">Car Name</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <h4><span class="label">{{driverDetails.CARNAME}}</span></h4>
+                </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label">Address</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <input [(ngModel)]="driverDetails.ADDRS1"
+                           class="form-control iedit"
+                           type="text"
+                           [disabled]="displayDetail"
+                    />
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label ">Alternate Address</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <input [(ngModel)]="driverDetails.ADDRS2"
+                           class="form-control iedit"
+                           type="text"
+                           [disabled]="displayDetail"
+                    />
+
+                </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label ">City</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <input [(ngModel)]="driverDetails.CITY"
+                           class="form-control iedit"
+                           type="text"
+                           [disabled]="displayDetail"
+                    />
+
+                </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label">Zip Code</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <input [(ngModel)]="driverDetails.ZIPCODE"
+                           class="form-control iedit"
+                           type="text"
+                           [disabled]="displayDetail" />
+                 </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label ">Country</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <input [(ngModel)]="driverDetails.COUNTRY"
+                           class="form-control iedit"
+                           type="text"
+                           [disabled]="displayDetail"/>
+
+                </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label ">Mobile Number</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <input [(ngModel)]="driverDetails.PHNO"
+                           class="form-control iedit"
+                           type="text"
+                           [disabled]="displayDetail" />
+
+                </div>
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="col-md-6">
+                    <h4><span class="label">Age</span></h4>
+                </div>
+                <div class="col-md-6">
+                    <input [(ngModel)]="driverDetails.DRVAGE"
+                           class="form-control iedit"
+                           type="text"
+                           [disabled]="displayDetail"/>
+
+                </div>
+
+            </div>
+</div>
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 pull-right">
+            <button  class="btn btn-primary navbar-btn"  (click)="updateDetails($event)">Update</button>
+            </div>
+        </div>
+    </div>
+</div>
+

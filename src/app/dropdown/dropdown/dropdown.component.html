@@ -1,0 +1,79 @@
+<p>
+  dropdown works!
+</p>
+
+
+<select [(ngModel)] = 'SelectedCar' (ngModelChange)="onSelected($event)">
+  <option *ngFor="let item of cars"  [class.listVisible]="item.is_in_navigation" [class.listHide]="!(item.is_in_navigation)" 
+         [ngValue]="item">{{item.name}}</option>
+</select>
+
+<!--<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" style="min-width:15%;height:30px" type="button" data-toggle="dropdown">
+		{{car?.name}}
+  <span class="caret pull-right"></span>
+	</button>
+  <ul class="dropdown-menu">
+				<div *ngFor="let item of cars" >
+    <li *ngIf="item.is_in_navigation" (click)="onSelected(item)">{{item.name}}</li>
+				</div>
+  </ul>
+</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<a type="button" class="btn btn-success">button</a>
+	</div>
+</div>
+
+<div class="row" *ngFor="let item of cars">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<ul class="list-group">
+		<div class="list-group">
+     <a href="#" class="list-group-item clearfix">
+    <div class="pull-left"> 
+             <p class="list-group-item-text">{{item.make}}</p>
+						 <p class="list-group-item-text">{{item.name}}</p>
+    </div>
+    <!<div class="pull-right">
+           <img src="{{recipe.path}}" class="img-responsive list-image" alt="Image">
+           </div>-->
+<!--</a>
+   </div>
+	</ul>
+	</div>
+</div>-->
+
+
+
+<!--<div class="v-dropdown">
+  <span class="v-dropdown-values">
+           	{{car?.name}}
+    </span>
+  <span class="v-dropdown-btn pull-right " (click)="onbtnClick()">
+       <i class="caret"></i>
+    </span>
+
+  <div class="v-dropdown-list" *ngIf="listOpen">
+    <ul>
+      <div *ngFor="let item of cars" >
+      <li *ngIf="item.is_in_navigation" (click)="onSelected(item)">
+        <span class="v-item-text">{{item.name}}
+        </span>
+      </li>
+      </div>
+    </ul>
+  </div>
+</div>-->

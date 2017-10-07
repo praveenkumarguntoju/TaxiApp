@@ -1,0 +1,16 @@
+[{
+  "make": "acura",
+  "name": "Acura",
+  "is_hidden": false,
+  "is_in_navigation": true
+}, {
+  "make": "ford",
+  "name": "Ford",
+  "is_hidden": false,
+  "is_in_navigation": true
+}, {
+  "make": "ariel",
+  "name": "Ariel",
+  "is_hidden": true,
+  "is_in_navigation": false
+}]

@@ -1,0 +1,22 @@
+{
+  "make": "acura",
+  "models": [{
+    "model": "acura_ilx",
+    "name": "ILX",
+    "is_hidden": false,
+    "is_in_navigation": true,
+    "image": "http://buyersguide.caranddriver.com/media/assets/submodel/7655.jpg"
+  }, {
+    "model": "acura_mdx",
+    "name": "MDX",
+    "is_hidden": false,
+    "is_in_navigation": true,
+    "image": "http://buyersguide.caranddriver.com/media/assets/submodel/7631.jpg"
+  }, {
+    "model": "acura_integra",
+    "name": "Integra",
+    "is_hidden": true,
+    "is_in_navigation": false,
+    "image": "http://media.caranddriver.com/images/media/267321/1997-acura-integra-type-r-archived-test-review-car-and-driver-photo-629489-s-original.jpg"
+  }]
+}
