@@ -11,7 +11,12 @@ const api = require('./src/expressRouting/routes/api');
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+  next()
+});
+ app.use('/', api);
 
   // Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
