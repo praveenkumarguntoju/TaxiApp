@@ -8,8 +8,8 @@ app.use(bodyParser.json());
 const api = require('./src/expressRouting/routes/api');
 
 // Create link to Angular build directory
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
+// var distDir = __dirname + "/dist/";
+// app.use(express.static(distDir));
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
