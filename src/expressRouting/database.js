@@ -1,10 +1,10 @@
 const mongoose = require("mongoose");
 // mongoose.connect('mongodb://127.0.0.1:27017/my_database');
-mongoose.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/taxidetails');
+mongoose.createConnection('mongodb://chintu:chintu123@ds161164.mlab.com:61164/taxidetails');
 
  var db = mongoose.connection;
  db.on('error', console.error.bind(console, 'connection error:'));
- db.once('open', function() {
+ db.once('openUri', function() {
   // we're connected!
   console.log("connection succesful");
 });
