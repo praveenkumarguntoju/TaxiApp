@@ -5,12 +5,11 @@ var bodyParser = require('body-parser')
 var app = express();
 app.use(bodyParser.json());
 
-const api = require('./src/expressRouting/routes/api');
 
-// Create link to Angular build directory
+
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
-
+const api = require('./src/expressRouting/routes/api');
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*")
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
