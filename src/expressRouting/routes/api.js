@@ -1,5 +1,5 @@
 const express = require('express');
-const driverDetails = require('../database');
+// const driverDetails = require('../database');
 var fs   = require("fs");
 const router = express.Router();
 
