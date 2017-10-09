@@ -7,7 +7,7 @@ var app = express();
 app.use(bodyParser.json());
 
 var db;
-mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/taxidetails', function (err, database) {
    if (err) {
     console.log(err);
     process.exit(1);
