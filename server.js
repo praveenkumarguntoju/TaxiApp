@@ -61,12 +61,12 @@ switch(action) {
     case 'getData':
         console.log('app');
             var docsdata;
-     db.drivers.find({}).toArray(function(err, docs) {
-    if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
-    } else {
+     db.collection("drivers").find({}).toArray(function(err, docs) {
+     if (err) {
+            handleError(res, err.message, "Failed to get contacts.");
+       } else {
       res.status(200).json(docs);
-    }
+         }
   });
 //             driverDetails.find({}, function (err, docs) {
 //                 docsdata = docs;
