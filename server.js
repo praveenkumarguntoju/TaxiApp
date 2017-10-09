@@ -38,12 +38,12 @@ app.use(function(req, res, next) {
 switch(action) {
     case 'create':
 
-        driverDetails.update(
-            {picFile:data.picFile},
-            function(err, numberAffected){
-            });
+//         driverDetails.update(
+//             {picFile:data.picFile},
+//             function(err, numberAffected){
+//             });
 
-        driverDetails.create(data, function (err) {
+        db.collection("drivers").insertOne(data, function(err, res) {
              if (err) {
                        console.log(err);
                        return handleError(err);
