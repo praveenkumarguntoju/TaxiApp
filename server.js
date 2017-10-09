@@ -1,13 +1,20 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser')
+var bodyParser = require('body-parser');
+var mongodb = require("mongodb");
 
 var app = express();
 app.use(bodyParser.json());
 
-
-
-var distDir = __dirname + "/dist/";
+var db;
+mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
+   if (err) {
+    console.log(err);
+    process.exit(1);
+  };
+   db = database;
+  console.log("Database connection ready");
+ var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 const api = require('./src/expressRouting/routes/api');
 app.use(function(req, res, next) {
@@ -22,6 +29,14 @@ app.use(function(req, res, next) {
     var port = server.address().port;
     console.log("App now running on port", port);
   });
+  
+});
+
+
+
+
+
+
 
 
 
