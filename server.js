@@ -14,32 +14,11 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   };
    db = database;
   console.log("Database connection ready");
-  db.createCollection(
-   "driverDetails",
-    {
-    DRVFNAME:String,
-    DRVLNAME:String,
-    DRVAGE:Number,
-    CARNUM:{
-        type:String,
-        unique:true
-    },
-    CARNAME:String,
-    ADDRS1:String,
-    ADDRS2:String,
-    CITY:String,
-    ZIPCODE:Number,
-    COUNTRY:String,
-    PHNO:Number,
-    picFile:{type:String}
-},{ strict: false }
-);
-  
- 
-  
-  
-  
-  
+ db.createCollection("drivers", function(err, res) {
+    if (err) throw err;
+    console.log("Collection created!");
+    db.close();
+  });
  var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 const api = require('./src/expressRouting/routes/api');
