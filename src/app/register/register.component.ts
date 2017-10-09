@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  API = 'http://localhost:3000';
+//   API = 'http://localhost:3000';
   self = this;
   driverDetails: any = {
         'DRVFNAME': '',
@@ -74,7 +74,7 @@ export class RegisterComponent implements OnInit {
        const headers = new Headers({ 'Content-Type': 'application/json' });
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: headers});
-        this.http.post(`${this.API}/app`, body, options)
+        this.http.post(`app`, body, options)
         .map(res => res.json())
         .subscribe(data => {
         console.log(data);
