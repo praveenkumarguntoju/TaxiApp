@@ -7,9 +7,11 @@
     "start": "node server.js",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
-    "postinstall": "ng build"
+    "e2e": "ng e2e"
   },
+   "Procfile":{
+     "web":"node server.js"
+   },
   "private": true,
   "dependencies": {
     "@angular/cli": "1.0.2",
