@@ -9,7 +9,6 @@
     "mLab"
   ],
   "repository": "https://github.com/praveenkumarguntoju/TaxiApp",
-  "success_url": "/",
   "formation": {
     "web": {
       "quantity": 1,
