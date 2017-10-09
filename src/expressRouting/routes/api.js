@@ -34,7 +34,7 @@ switch(action) {
     case 'getData':
         console.log('app');
             var docsdata;
-     db.collection(drivers).find({}).toArray(function(err, docs) {
+     db.drivers.find({}).toArray(function(err, docs) {
     if (err) {
       handleError(res, err.message, "Failed to get contacts.");
     } else {
