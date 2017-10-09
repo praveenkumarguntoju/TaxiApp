@@ -10,9 +10,6 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
-   "Procfile":{
-     "web":"node server.js"
-   },
   "private": true,
   "dependencies": {
     "@angular/cli": "1.0.2",
