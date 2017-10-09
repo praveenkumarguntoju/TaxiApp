@@ -35,11 +35,19 @@ switch(action) {
         console.log('app');
             var docsdata;
             console.log(driverDetails);
-            driverDetails.find({}, function (err, docs) {
-                docsdata = docs;
-                console.log(docsdata);
-                res.send({driverData: docsdata});
-            });
+    
+     db.collection(driverDetails).find({}).toArray(function(err, docs) {
+    if (err) {
+      handleError(res, err.message, "Failed to get contacts.");
+    } else {
+      res.status(200).json(docs);
+    }
+  });
+//             driverDetails.find({}, function (err, docs) {
+//                 docsdata = docs;
+//                 console.log(docsdata);
+//                 res.send({driverData: docsdata});
+//             });
          break;
 
     case 'getDetail':
