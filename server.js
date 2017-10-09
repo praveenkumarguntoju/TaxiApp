@@ -14,6 +14,32 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
   };
    db = database;
   console.log("Database connection ready");
+  db.createCollection(
+   "driverDetails",
+    {
+    DRVFNAME:String,
+    DRVLNAME:String,
+    DRVAGE:Number,
+    CARNUM:{
+        type:String,
+        unique:true
+    },
+    CARNAME:String,
+    ADDRS1:String,
+    ADDRS2:String,
+    CITY:String,
+    ZIPCODE:Number,
+    COUNTRY:String,
+    PHNO:Number,
+    picFile:{type:String}
+},{ strict: false }
+);
+  
+ 
+  
+  
+  
+  
  var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
 const api = require('./src/expressRouting/routes/api');
