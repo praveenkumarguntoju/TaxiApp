@@ -2,17 +2,17 @@
   "name": "book-a-cab",
   "version": "0.0.0",
   "license": "MIT",
-  "main":"./server.js",
+  "main":"server.js",
   "scripts": {
     "ng": "ng",
-    "start": "node ./server.js",
+    "start": "node server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "procfile":{
-  "web": "node ./server.js"
+  "web": "node server.js"
   },
   "private": true,
   "dependencies": {
