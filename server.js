@@ -60,14 +60,15 @@ switch(action) {
         break;
     case 'getData':
         console.log('app');
-            var docsdata;
-     db.collection("drivers").find({}).toArray(function(err, docs) {
-     if (err) {
-            handleError(res, err.message, "Failed to get contacts.");
-       } else {
-      res.status(200).json(docs);
-         }
-  });
+//             var docsdata;
+//      db.collection("drivers").find({}).toArray(function(err, docs) {
+//      if (err) {
+//             handleError(res, err.message, "Failed to get contacts.");
+//        } else {
+//       res.status(200).json(docs);
+//          }
+//   });
+     res.status(200);
 //             driverDetails.find({}, function (err, docs) {
 //                 docsdata = docs;
 //                 console.log(docsdata);
