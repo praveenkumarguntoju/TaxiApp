@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
      const headers = new Headers({ 'Content-Type': 'application/json' });
     const body = {'action': 'upLoad', 'data': reader.result, 'fileName': file.name};
     //  const options = new RequestOptions();
-    this.http.post(`app`, body)
+    this.http.post('/app', body)
       .map(res => res.json())
       .subscribe(data => {
         console.log(data);
