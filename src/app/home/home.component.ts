@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 import { DropdownComponent } from '../dropdown/dropdown/dropdown.component';
 
 @Component({
@@ -39,11 +40,18 @@ export class HomeComponent implements OnInit {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const body = {'action': 'getData'};
     const options = new RequestOptions({ headers: headers});
-    this.http.post(`/app`, body, options)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-        this.people = data.driverData;
-      });
+     
+    this.http.get('/app')
+                 .toPromise()
+                 .then(response => response.json() as people[])
+                 .catch(this.handleError); 
+     
+     
+//     this.http.post(`/app`, body, options)
+//       .map(res => res.json())
+//       .subscribe(data => {
+//         console.log(data);
+//         this.people = data.driverData;
+//       });
   };
 }
