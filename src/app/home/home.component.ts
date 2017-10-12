@@ -43,7 +43,10 @@ export class HomeComponent implements OnInit {
      
     this.http.get('/app')
                  .toPromise()
-                 .then(function(response){ debugger; })
+                 .then(function(response){ 
+                this.people = response._body;
+      
+      debugger; })
                  .catch(this.handleError); 
      
      
