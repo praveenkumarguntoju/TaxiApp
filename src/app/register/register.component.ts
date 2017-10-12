@@ -82,14 +82,17 @@ export class RegisterComponent implements OnInit {
 //         console.log(data);
 //         this.driverDetails = data;
 //       });
-           this.http.post('/app',this.driverDetails)
+           this.http.post('/app/contacts',this.driverDetails)
                  .toPromise()
-                 .then(function(response){ debugger; })
+                 .then(function(response){ 
+                                   debugger; 
+                                         })
                  .catch(this.handleError); 
        
      };
   
    private handleError (error: any): Promise<any> {
+       debugger;
       let errMsg = (error.message) ? error.message :
       error.status ? `${error.status} - ${error.statusText}` : 'Server error';
       console.error(errMsg); // log to console
