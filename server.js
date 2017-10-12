@@ -155,7 +155,8 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
     if (err) {
       handleError(res, err.message, "Failed to create new contact.");
     } else {
-      res.status(201).json(doc.ops[0]);
+      res.status(201);
+      res.data = doc.ops[0];
     }
   });
 });
