@@ -86,9 +86,10 @@ export class RegisterComponent implements OnInit {
                  .toPromise()
                  .then(function(response){ 
                                    debugger; 
-                 this.router.navigate(['home'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
-                                         })
+                         })
                  .catch(this.handleError); 
+       
+         this.router.navigate(['home'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
        
      };
   
