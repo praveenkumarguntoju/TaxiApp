@@ -74,9 +74,10 @@ export class RegisterComponent implements OnInit {
        const headers = new Headers({ 'Content-Type': 'application/json' });
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: headers});
-        this.http.post(`app`, body, options)
+        this.http.post('/app', body, options)
         .map(res => res.json())
         .subscribe(data => {
+         debugger;
         console.log(data);
         this.driverDetails = data;
       });
