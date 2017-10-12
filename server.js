@@ -26,11 +26,6 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   });
   
   
-  / Generic error handler used by all endpoints.
-function handleError(res, reason, message, code) {
-  console.log("ERROR: " + reason);
-  res.status(code || 500).json({"error": message});
-}
 
 // const api = require('./src/expressRouting/routes/api');
 // app.use(function(req, res, next) {
@@ -158,7 +153,8 @@ function handleError(res, reason, message, code) {
   app.get("/app", function(req, res) {
   db.collection("drivers").find({}).toArray(function(err, docs) {
     if (err) {
-      handleError(res, err.message, "Failed to get contacts.");
+        console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
     } else {
       res.status(200).json(docs);
     }
