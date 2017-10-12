@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http , Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/toPromise';
 
 @Component({
   selector: 'app-register',
@@ -74,14 +75,26 @@ export class RegisterComponent implements OnInit {
        const headers = new Headers({ 'Content-Type': 'application/json' });
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: headers});
-        this.http.post('/app', body, options)
-        .map(res => res.json())
-        .subscribe(data => {
-         debugger;
-        console.log(data);
-        this.driverDetails = data;
-      });
+//         this.http.post('/app', body, options)
+//         .map(res => res.json())
+//         .subscribe(data => {
+//          debugger;
+//         console.log(data);
+//         this.driverDetails = data;
+//       });
+           this.http.post('/app',this.driverDetails)
+                 .toPromise()
+                 .then(function(response){ debugger; })
+                 .catch(this.handleError); 
+       
      };
+  
+   private handleError (error: any): Promise<any> {
+      let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+      console.error(errMsg); // log to console
+      return Promise.reject(errMsg);
+    }
 
 
  ngOnInit() {
