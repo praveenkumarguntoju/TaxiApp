@@ -43,16 +43,14 @@ export class HomeComponent implements OnInit {
      
     this.http.get('/app')
                  .toPromise()
-                 .then(function(response){ 
+                 .then(function(response,this.people){ 
                   if(typeof(response) != "undefined"){
                      debugger;
-                    this.people = response;
+                    this.people = response.data;
                      }else{
                      }
-                
-      
-      debugger; })
-                 .catch(this.handleError); 
+                debugger;
+                 }).catch(this.handleError); 
      
      
 //     this.http.post(`/app`, body, options)
