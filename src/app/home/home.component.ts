@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter,Input } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http ,  Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Router } from '@angular/router';
@@ -43,7 +43,7 @@ export class HomeComponent implements OnInit {
      
     this.http.get('/app')
                  .toPromise()
-                 .then(response => response.json() as people[])
+                 .then(response => response.json() as this.people)
                  .catch(this.handleError); 
      
      
@@ -54,4 +54,13 @@ export class HomeComponent implements OnInit {
 //         this.people = data.driverData;
 //       });
   };
+  
+  
+   private handleError (error: any): Promise<any> {
+      let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+      console.error(errMsg); // log to console
+      return Promise.reject(errMsg);
+    }
+  
 }
