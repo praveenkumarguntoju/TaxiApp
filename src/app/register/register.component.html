@@ -9,10 +9,10 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="fn">First name</label>
             <div class="col-md-4">
-                <input id="fn" name="fn" type="text" placeholder="first name" [(ngModel)]="driverDetails.DRVFNAME" class="form-control input-md" required>
+                <input type="text" placeholder="first name" [(ngModel)]="driverDetails.DRVFNAME" class="form-control input-md" required>
             </div>
 
-            <span class="rmessage" [hidden]="!frmRegister.fn.$valid">First Name is required</span>
+<!--             <span class="rmessage" [hidden]="!frmRegister.fn.$valid">First Name is required</span> -->
 
         </div>
     </div>
@@ -21,7 +21,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="ln">Last name</label>
             <div class="col-md-4">
-                <input id="ln" name="ln" type="text" placeholder="last name" [(ngModel)]="driverDetails.DRVLNAME" class="form-control input-md" required="">
+                <input  type="text" placeholder="last name" [(ngModel)]="driverDetails.DRVLNAME" class="form-control input-md" required="">
 
             </div>
         </div>
@@ -32,10 +32,10 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" >Car Name</label>
                 <div class="col-md-4">
-                    <input id="dage" name="dage" type="text" placeholder="Age" [(ngModel)]="driverDetails.DRVAGE"
+                    <input  type="text" placeholder="Age" [(ngModel)]="driverDetails.DRVAGE"
                            class="form-control input-md" required>
                 </div>
-                <span class="rmessage" [hidden]="!frmRegister.dage.$valid">Age is required</span>
+<!--                 <span class="rmessage" [hidden]="!frmRegister.dage.$valid">Age is required</span> -->
 
             </div>
         </div>
@@ -45,9 +45,9 @@
             <label class="col-md-4 control-label">Car Number</label>
 
             <div class="col-md-4">
-                <input id="carno" name="carno" type="text" placeholder="Car Number" [(ngModel)]="driverDetails.CARNUM"  class=" form-control input-md"  required>
+                <input  type="text" placeholder="Car Number" [(ngModel)]="driverDetails.CARNUM"  class=" form-control input-md"  required>
             </div>
-            <span class="rmessage" [hidden]="!frmRegister.carno.$valid">Car Number is required</span>
+<!--             <span class="rmessage" [hidden]="!frmRegister.carno.$valid">Car Number is required</span> -->
 
         </div>
     </div>
@@ -57,11 +57,11 @@
         <div class="form-group">
             <label class="col-md-4 control-label" >Car Name</label>
             <div class="col-md-4">
-                <input id="carname" name="carname" type="text" placeholder="Car Name" [(ngModel)]="driverDetails.CARNAME" class="form-control input-md" required>
+                <input  type="text" placeholder="Car Name" [(ngModel)]="driverDetails.CARNAME" class="form-control input-md" required>
 
          </div>
             <div>
-            <div class="rmessage" [hidden]="!frmRegister.carname.$valid">Car Name is required</div>
+<!--             <div class="rmessage" [hidden]="!frmRegister.carname.$valid">Car Name is required</div> -->
             </div>
         </div>
     </div>
@@ -70,11 +70,11 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="add1">Address 1</label>
             <div class="col-md-4">
-                <input id="add1" name="add1" type="text" placeholder="" class="form-control input-md" [(ngModel)]="driverDetails.ADDRS1" required>
+                <input  type="text" placeholder="" class="form-control input-md" [(ngModel)]="driverDetails.ADDRS1" required>
 
 
             </div>
-            <div class="rmessage" [hidden]="!frmRegister.add1.$valid">Adress is required</div>
+<!--             <div class="rmessage" [hidden]="!frmRegister.add1.$valid">Adress is required</div> -->
         </div>
     </div>
         <!-- aDRESS2 input-->
@@ -94,10 +94,10 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="city">City</label>
             <div class="col-md-4">
-                <input id="city" name="city" type="text" placeholder="city" [(ngModel)]="driverDetails.CITY"
+                <input  type="text" placeholder="city" [(ngModel)]="driverDetails.CITY"
                        class="form-control input-md" required="">
              </div>
-            <span class="rmessage" [hidden]="!frmRegister.city.$valid">City is required</span>
+<!--             <span class="rmessage" [hidden]="!frmRegister.city.$valid">City is required</span> -->
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 rpadding">
@@ -132,7 +132,7 @@
                 <input id="phone" name="phone" type="text" placeholder="Phone#" class="form-control input-md"
                        [(ngModel)]="driverDetails.PHNO" required>
             </div>
-            <span class="rmessage" [hidden]="!frmRegister.phone.$valid">Phone is required</span>
+<!--             <span class="rmessage" [hidden]="!frmRegister.phone.$valid">Phone is required</span> -->
         </div>
     </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 rpadding">
