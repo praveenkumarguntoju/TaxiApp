@@ -44,7 +44,7 @@ export class HomeComponent implements OnInit {
     this.http.get('/app')
                  .toPromise()
                  .then(function(response){ 
-                  if( response.data){
+                  if(typeof(response.data) != "undefined"){
                     this.people = response.data;
                      }else{
                      }
