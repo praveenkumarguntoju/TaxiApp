@@ -143,7 +143,8 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
     } else {
-     res.status(200).json({data:docs});
+     res.status(200);
+     res.send({data: docs});
     }
   });
 });
