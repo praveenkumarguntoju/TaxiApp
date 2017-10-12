@@ -40,13 +40,16 @@ export class HomeComponent implements OnInit {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const body = {'action': 'getData'};
     const options = new RequestOptions({ headers: headers});
-     
+     updateData(data){
+       this.people = data;
+     }
     this.http.get('/app')
                  .toPromise()
-                 .then(function(response,this.people){ 
+                 .then(function(response){ 
                   if(typeof(response) != "undefined"){
                      debugger;
-                    this.people = response.data;
+                    this.updateData(response.data);
+//                     this.people = response.data;
                      }else{
                      }
                 debugger;
