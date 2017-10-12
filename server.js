@@ -39,8 +39,22 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   app.post('/app',function (req, res) {
    console.log(req.body)
    var action = req.body.action;
+   var newContact = req.body;
    var data   = req.body.data;
    var fname  = req.body.fileName;
+   db.collection("drivers").insertOne(newContact, function(err, res) {
+             if (err) {
+                       console.log(err);
+                       return handleError(err);
+                          }else{
+                     res.send({confirm : "created" });
+                     console.log("created");
+
+                        }
+
+                      });
+    
+    
 switch(action) {
     case 'create':
      db.collection("drivers").insertOne(data, function(err, res) {
