@@ -6,6 +6,10 @@ var mongodb = require("mongodb");
 var app = express();
 app.use(bodyParser.json());
 
+// Create link to Angular build directory
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 var db;
 mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/taxidetails', function (err, database) {
    if (err) {
@@ -14,13 +18,20 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   };
    db = database;
   console.log("Database connection ready");
- db.createCollection("drivers", function(err, res) {
-    if (err) throw err;
-    console.log("Collection created!");
-    db.close();
+  
+    // Initialize the app.
+  var server = app.listen(process.env.PORT || 8080, function () {
+    var port = server.address().port;
+    console.log("App now running on port", port);
   });
- var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
+  
+  
+  / Generic error handler used by all endpoints.
+function handleError(res, reason, message, code) {
+  console.log("ERROR: " + reason);
+  res.status(code || 500).json({"error": message});
+}
+
 // const api = require('./src/expressRouting/routes/api');
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*")
@@ -153,37 +164,6 @@ app.use(express.static(distDir));
     }
   });
 });
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-  // Initialize the app.
-  var server = app.listen(process.env.PORT || 8080, function () {
-    var port = server.address().port;
-    console.log("App now running on port", port);
-  });
   
 });
 
