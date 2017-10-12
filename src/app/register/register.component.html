@@ -9,7 +9,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="fn">First name</label>
             <div class="col-md-4">
-                <input type="text" placeholder="first name" [(ngModel)]="driverDetails.DRVFNAME" class="form-control input-md" required>
+                <input type="text" placeholder="first name" [(ngModel)]="driverDetails.DRVFNAME" [ngModelOptions]="{standalone: true}" class="form-control input-md" required>
             </div>
 
 <!--             <span class="rmessage" [hidden]="!frmRegister.fn.$valid">First Name is required</span> -->
@@ -21,7 +21,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="ln">Last name</label>
             <div class="col-md-4">
-                <input  type="text" placeholder="last name" [(ngModel)]="driverDetails.DRVLNAME" class="form-control input-md" required="">
+                <input  type="text" placeholder="last name" [(ngModel)]="driverDetails.DRVLNAME"  [ngModelOptions]="{standalone: true}"
+                       class="form-control input-md" required="">
 
             </div>
         </div>
@@ -32,7 +33,7 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" >Car Name</label>
                 <div class="col-md-4">
-                    <input  type="text" placeholder="Age" [(ngModel)]="driverDetails.DRVAGE"
+                    <input  type="text" placeholder="Age" [(ngModel)]="driverDetails.DRVAGE"   [ngModelOptions]="{standalone: true}"
                            class="form-control input-md" required>
                 </div>
 <!--                 <span class="rmessage" [hidden]="!frmRegister.dage.$valid">Age is required</span> -->
@@ -45,7 +46,8 @@
             <label class="col-md-4 control-label">Car Number</label>
 
             <div class="col-md-4">
-                <input  type="text" placeholder="Car Number" [(ngModel)]="driverDetails.CARNUM"  class=" form-control input-md"  required>
+                <input  type="text" placeholder="Car Number" [(ngModel)]="driverDetails.CARNUM"    [ngModelOptions]="{standalone: true}"
+                       class=" form-control input-md"  required>
             </div>
 <!--             <span class="rmessage" [hidden]="!frmRegister.carno.$valid">Car Number is required</span> -->
 
@@ -57,7 +59,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label" >Car Name</label>
             <div class="col-md-4">
-                <input  type="text" placeholder="Car Name" [(ngModel)]="driverDetails.CARNAME" class="form-control input-md" required>
+                <input  type="text" placeholder="Car Name" [(ngModel)]="driverDetails.CARNAME"  [ngModelOptions]="{standalone: true}"
+                       class="form-control input-md" required>
 
          </div>
             <div>
@@ -70,7 +73,8 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="add1">Address 1</label>
             <div class="col-md-4">
-                <input  type="text" placeholder="" class="form-control input-md" [(ngModel)]="driverDetails.ADDRS1" required>
+                <input  type="text" placeholder="" class="form-control input-md" [(ngModel)]="driverDetails.ADDRS1"  [ngModelOptions]="{standalone: true}"
+                       required>
 
 
             </div>
@@ -94,7 +98,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="city">City</label>
             <div class="col-md-4">
-                <input  type="text" placeholder="city" [(ngModel)]="driverDetails.CITY"
+                <input  type="text" placeholder="city" [(ngModel)]="driverDetails.CITY"  [ngModelOptions]="{standalone: true}"
                        class="form-control input-md" required="">
              </div>
 <!--             <span class="rmessage" [hidden]="!frmRegister.city.$valid">City is required</span> -->
@@ -106,7 +110,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="zip">Zip Code</label>
             <div class="col-md-4">
-                <input id="zip" name="zip" type="text" placeholder="Zip Code" [(ngModel)]="driverDetails.ZIPCODE"
+                <input id="zip" name="zip" type="text" placeholder="Zip Code" [(ngModel)]="driverDetails.ZIPCODE"  [ngModelOptions]="{standalone: true}"
                        class="form-control input-md" required="">
 
             </div>
@@ -118,7 +122,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="ctry">Country</label>
             <div class="col-md-4">
-                <input id="ctry" name="ctry" type="text" placeholder="Country" class="form-control input-md"
+                <input id="ctry" name="ctry" type="text" placeholder="Country" class="form-control input-md"  [ngModelOptions]="{standalone: true}"
                        [(ngModel)]="driverDetails.COUNTRY" required>
 
             </div>
@@ -130,7 +134,7 @@
             <label class="col-md-4 control-label" for="phone">Text InputPhone</label>
             <div class="col-md-4">
                 <input id="phone" name="phone" type="text" placeholder="Phone#" class="form-control input-md"
-                       [(ngModel)]="driverDetails.PHNO" required>
+                       [(ngModel)]="driverDetails.PHNO"  [ngModelOptions]="{standalone: true}" required>
             </div>
 <!--             <span class="rmessage" [hidden]="!frmRegister.phone.$valid">Phone is required</span> -->
         </div>
