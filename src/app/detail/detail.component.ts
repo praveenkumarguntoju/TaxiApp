@@ -19,10 +19,10 @@ export class DetailComponent implements OnInit {
   API = 'http://localhost:3000';
   private subscription: Subscription;
 
-  constructor(private actRoute: ActivatedRoute,private http: Http) {
+  constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
     // tslint:disable-next-line:no-debugger
     debugger;
-      this.subscription = this.route
+      this.subscription = this.router
       .queryParams
       .subscribe(params => {
          debugger;
