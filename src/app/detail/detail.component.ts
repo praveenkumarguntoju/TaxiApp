@@ -22,6 +22,12 @@ export class DetailComponent implements OnInit {
   constructor(private actRoute: ActivatedRoute,private http: Http) {
     // tslint:disable-next-line:no-debugger
     debugger;
+      this.subscription = this.route
+      .queryParams
+      .subscribe(params => {
+         debugger;
+        this.id =  params['idData'];
+      });
 //     this.subscription = actRoute.queryParams.subscribe(queryParams => {
 //        this.id =  queryParams['idData'];
 //     });
@@ -82,16 +88,10 @@ export class DetailComponent implements OnInit {
       return Promise.reject(errMsg);
     }
 
-  this.sub = this.route
-      .queryParams
-      .subscribe(params => {
-         debugger;
-        this.id =  params['idData'];
-      });
+
 
   ngOnInit() {
-//     this.subscription.unsubscribe();
-    this.sub.unsubscribe();
+    this.subscription.unsubscribe();
     this.getDetails(this.id);
   }
 
