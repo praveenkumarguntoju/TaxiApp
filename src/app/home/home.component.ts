@@ -18,7 +18,6 @@ export class HomeComponent implements OnInit {
 //   API = 'http://localhost:3000';
 //   path = 'app/jsonfiles/makes.json';
   people: any[] = [];
-  Contacts: any[] = [];
  
 
   ngOnInit(){
@@ -37,17 +36,12 @@ export class HomeComponent implements OnInit {
      debugger;
      this.router.navigate(['register'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
     }
-  
-  
-  
-//     getContacts(): Promise<this.Contacts> {
-//       return this.http.get('/app')
-//                  .toPromise()
-//                  .then(response => response.json() as this.Contacts)
-//                  .catch(this.handleError);
-//     }
+
   dataGet(res){
-    debugger;
+    var contacts = JSON.parse(res._body);
+    if(contacts.data)
+     this.people = contacts.data;
+      
   }
 
    getAllPeople(people) {
@@ -57,24 +51,7 @@ export class HomeComponent implements OnInit {
     this.http.get('/app')
                  .toPromise().then((response)=>{
                 this.dataGet(response);
-      
-    }).catch(this.handleError); 
-//                  .then(function(response){ 
-//                   if(typeof(response) != "undefined"){
-//                      debugger;
-//                        this.people = response.data;
-//                      }else{
-//                      }
-//                 debugger;
-//                  }).catch(this.handleError); 
-     
-     
-//     this.http.post(`/app`, body, options)
-//       .map(res => res.json())
-//       .subscribe(data => {
-//         console.log(data);
-//         this.people = data.driverData;
-//       });
+       }).catch(this.handleError); 
   };
   
   
