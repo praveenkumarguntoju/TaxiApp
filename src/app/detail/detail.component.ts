@@ -82,15 +82,16 @@ export class DetailComponent implements OnInit {
       return Promise.reject(errMsg);
     }
 
-
-  ngOnInit() {
-//     this.subscription.unsubscribe();
-     this.sub = this.route
+  this.sub = this.route
       .queryParams
       .subscribe(params => {
          debugger;
-        this.id =  +params['idData'];
+        this.id =  params['idData'];
       });
+
+  ngOnInit() {
+//     this.subscription.unsubscribe();
+    this.sub.unsubscribe();
     this.getDetails(this.id);
   }
 
