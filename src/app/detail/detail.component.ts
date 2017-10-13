@@ -51,7 +51,7 @@ export class DetailComponent implements OnInit {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const body = {'action': 'getDetail', 'data':id};
     const options = new RequestOptions({ headers: headers});
-    var contactsUrl = '/app/details' + '/' + id;
+    var contactsUrl = '/app/contacts' + '/' + id;
     this.http.get(contactsUrl)
                  .toPromise()
                  .then((response)=>{
