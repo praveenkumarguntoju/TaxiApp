@@ -22,9 +22,9 @@ export class DetailComponent implements OnInit {
   constructor(private actRoute: ActivatedRoute,private http: Http) {
     // tslint:disable-next-line:no-debugger
     debugger;
-    this.subscription = actRoute.queryParams.subscribe(queryParams => {
-       this.id =  queryParams['idData'];
-    });
+//     this.subscription = actRoute.queryParams.subscribe(queryParams => {
+//        this.id =  queryParams['idData'];
+//     });
    }
 
    onEdit(eve){
@@ -84,7 +84,13 @@ export class DetailComponent implements OnInit {
 
 
   ngOnInit() {
-    this.subscription.unsubscribe();
+//     this.subscription.unsubscribe();
+     this.sub = this.route
+      .queryParams
+      .subscribe(params => {
+         debugger;
+        this.id =  +params['idData'];
+      });
     this.getDetails(this.id);
   }
 
