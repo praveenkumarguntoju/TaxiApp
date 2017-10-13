@@ -43,23 +43,17 @@ export class DetailComponent implements OnInit {
     const body = {'action': 'getDetail', 'data':id};
     const options = new RequestOptions({ headers: headers});
     var contactsUrl = 'app/contacts/' + '/' + id;
-    this.http.post(contactsUrl,id)
+    this.http.post(contactsUrl)
                  .toPromise()
                  .then((response)=>{
              debugger;
-                 this.driverDetails = data.driverDetail;
-                 this.imageUrl = data.driverDetail.picFile;
-      
-                 }).catch(this.handleError); 
-     
-     
-//     this.http.post(`${this.API}/app`, body, options)
-//       .map(res => res.json())
-//       .subscribe(data => {
-//         console.log(data);
-//         this.driverDetails = data.driverDetail;
-//         this.imageUrl = data.driverDetail.picFile;
-//       });
+                 var contacts = JSON.parse(res._body);
+                 if(contacts.data){
+                   debugger;
+                    this.driverDetails = contacts.data;
+                    this.imageUrl = contacts.data.picFile;
+                  }
+                }).catch(this.handleError); 
   };
 
 
