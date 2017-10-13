@@ -149,6 +149,17 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   });
 });
   
+  app.get("/api/contacts/:id", function(req, res) {
+  db.collection("drivers").findOne({ CARNUM: new ObjectID(req.params.id) }, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to get contact");
+    } else {
+      res.status(200);
+      res.send({data: docs});
+    }
+  });
+});
+  
   
   app.post("/app/contacts", function(req, res) {
   var newContact = req.body;
