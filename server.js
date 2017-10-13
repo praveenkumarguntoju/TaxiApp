@@ -152,7 +152,8 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   app.get("/app/contacts/:id", function(req, res) {
   db.collection("drivers").findOne({"CARNUM": req.params.id }, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to get contact");
+         console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
     } else {
       res.status(200);
       res.send({data: docs});
@@ -165,7 +166,8 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   var newContact = req.body;
   db.collection("drivers").insertOne(newContact, function(err, doc) {
     if (err) {
-      handleError(res, err.message, "Failed to create new contact.");
+     console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
     } else {
       res.status(201).json(doc.ops[0]);
     }
