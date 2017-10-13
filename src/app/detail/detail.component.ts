@@ -47,7 +47,7 @@ export class DetailComponent implements OnInit {
                  .toPromise()
                  .then((response)=>{
              debugger;
-                 var contacts = JSON.parse(res._body);
+                 var contacts = JSON.parse(response._body);
                  if(contacts.data){
                    debugger;
                     this.driverDetails = contacts.data;
