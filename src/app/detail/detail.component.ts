@@ -52,7 +52,7 @@ export class DetailComponent implements OnInit {
     const body = {'action': 'getDetail', 'data':id};
     const options = new RequestOptions({ headers: headers});
     var contactsUrl = '/app/contacts' + '/' + id;
-    this.http.post(contactsUrl)
+    this.http.get(contactsUrl)
                  .toPromise()
                  .then((response)=>{
              debugger;
