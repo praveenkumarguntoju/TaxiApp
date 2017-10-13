@@ -22,9 +22,7 @@ export class DetailComponent implements OnInit {
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
     // tslint:disable-next-line:no-debugger
     debugger;
-      this.subscription = this.router
-      .queryParams
-      .subscribe(params => {
+      this.subscription = this.router.routerState.queryParams.subscribe(params => {
          debugger;
         this.id =  params['idData'];
       });
