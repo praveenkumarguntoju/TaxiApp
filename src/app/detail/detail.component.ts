@@ -37,8 +37,17 @@ export class DetailComponent implements OnInit {
      // tslint:disable-next-line:no-debugger
      this.displayDetail =  true;
    }
+  
+  assignData(response){
+     var contacts = JSON.parse(response._body);
+      if(contacts.data){
+                   debugger;
+                    this.driverDetails = contacts.data;
+                    this.imageUrl = contacts.data.picFile;
+      } 
+  }
 
-   getDetails(id) {
+ getDetails(id) {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const body = {'action': 'getDetail', 'data':id};
     const options = new RequestOptions({ headers: headers});
@@ -47,13 +56,8 @@ export class DetailComponent implements OnInit {
                  .toPromise()
                  .then((response)=>{
              debugger;
-                 var contacts = JSON.parse(response._body);
-                 if(contacts.data){
-                   debugger;
-                    this.driverDetails = contacts.data;
-                    this.imageUrl = contacts.data.picFile;
-                  }
-                }).catch(this.handleError); 
+                 this.assignData(response);
+                 }).catch(this.handleError); 
   };
 
 
