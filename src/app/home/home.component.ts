@@ -18,10 +18,17 @@ export class HomeComponent implements OnInit {
 //   API = 'http://localhost:3000';
 //   path = 'app/jsonfiles/makes.json';
   people: any[] = [];
+  Contacts: any[] = [];
  
 
   ngOnInit(){
-    this.getAllPeople(this.people);
+//     this.getAllPeople(this.people);
+    getContacts()
+      .then((contacts: this.Contacts) => {
+        this.people  = contacts.map((contact) => {
+          return contact;
+        });
+      });
   }
   constructor(private http: Http, private router: Router) {}
    onClickMe(eve){
@@ -35,31 +42,40 @@ export class HomeComponent implements OnInit {
      debugger;
      this.router.navigate(['register'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
     }
-
-   getAllPeople(people) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const body = {'action': 'getData'};
-    const options = new RequestOptions({ headers: headers});
-    
-    this.http.get('/app')
+  
+  
+  
+    getContacts(): Promise<this.Contacts> {
+      return this.http.get('/app')
                  .toPromise()
-                 .then(function(response){ 
-                  if(typeof(response) != "undefined"){
-                     debugger;
-                       this.people = response.data;
-                     }else{
-                     }
-                debugger;
-                 }).catch(this.handleError); 
+                 .then(response => response.json() as this.Contacts)
+                 .catch(this.handleError);
+    }
+
+//    getAllPeople(people) {
+//     const headers = new Headers({ 'Content-Type': 'application/json' });
+//     const body = {'action': 'getData'};
+//     const options = new RequestOptions({ headers: headers});
+    
+//     this.http.get('/app')
+//                  .toPromise()
+//                  .then(function(response){ 
+//                   if(typeof(response) != "undefined"){
+//                      debugger;
+//                        this.people = response.data;
+//                      }else{
+//                      }
+//                 debugger;
+//                  }).catch(this.handleError); 
      
      
-//     this.http.post(`/app`, body, options)
-//       .map(res => res.json())
-//       .subscribe(data => {
-//         console.log(data);
-//         this.people = data.driverData;
-//       });
-  };
+// //     this.http.post(`/app`, body, options)
+// //       .map(res => res.json())
+// //       .subscribe(data => {
+// //         console.log(data);
+// //         this.people = data.driverData;
+// //       });
+//   };
   
   
    private handleError (error: any): Promise<any> {
