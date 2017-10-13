@@ -42,13 +42,24 @@ export class DetailComponent implements OnInit {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const body = {'action': 'getDetail', 'data':id};
     const options = new RequestOptions({ headers: headers});
-    this.http.post(`${this.API}/app`, body, options)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-        this.driverDetails = data.driverDetail;
-        this.imageUrl = data.driverDetail.picFile;
-      });
+    var contactsUrl = 'app/contacts/' + '/' + id;
+    this.http.post(contactsUrl,id)
+                 .toPromise()
+                 .then((response)=>{
+             debugger;
+                 this.driverDetails = data.driverDetail;
+                 this.imageUrl = data.driverDetail.picFile;
+      
+                 }).catch(this.handleError); 
+     
+     
+//     this.http.post(`${this.API}/app`, body, options)
+//       .map(res => res.json())
+//       .subscribe(data => {
+//         console.log(data);
+//         this.driverDetails = data.driverDetail;
+//         this.imageUrl = data.driverDetail.picFile;
+//       });
   };
 
 
@@ -63,6 +74,15 @@ export class DetailComponent implements OnInit {
         // this.driverDetails = data.driverDetail;
       });
  };
+  
+  
+   private handleError (error: any): Promise<any> {
+       debugger;
+      let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+      console.error(errMsg); // log to console
+      return Promise.reject(errMsg);
+    }
 
 
   ngOnInit() {
