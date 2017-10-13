@@ -22,13 +22,8 @@ export class HomeComponent implements OnInit {
  
 
   ngOnInit(){
-//     this.getAllPeople(this.people);
-    getContacts()
-      .then((contacts: this.Contacts) => {
-        this.people  = contacts.map((contact) => {
-          return contact;
-        });
-      });
+    this.getAllPeople(this.people);
+
   }
   constructor(private http: Http, private router: Router) {}
    onClickMe(eve){
@@ -45,20 +40,25 @@ export class HomeComponent implements OnInit {
   
   
   
-    getContacts(): Promise<this.Contacts> {
-      return this.http.get('/app')
-                 .toPromise()
-                 .then(response => response.json() as this.Contacts)
-                 .catch(this.handleError);
-    }
-
-//    getAllPeople(people) {
-//     const headers = new Headers({ 'Content-Type': 'application/json' });
-//     const body = {'action': 'getData'};
-//     const options = new RequestOptions({ headers: headers});
-    
-//     this.http.get('/app')
+//     getContacts(): Promise<this.Contacts> {
+//       return this.http.get('/app')
 //                  .toPromise()
+//                  .then(response => response.json() as this.Contacts)
+//                  .catch(this.handleError);
+//     }
+  dataGet(res){
+    debugger;
+  }
+
+   getAllPeople(people) {
+    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const body = {'action': 'getData'};
+    const options = new RequestOptions({ headers: headers});
+    this.http.get('/app')
+                 .toPromise().then((response)=>{
+                this.dataGet(response);
+      
+    }).catch(this.handleError); 
 //                  .then(function(response){ 
 //                   if(typeof(response) != "undefined"){
 //                      debugger;
@@ -69,13 +69,13 @@ export class HomeComponent implements OnInit {
 //                  }).catch(this.handleError); 
      
      
-// //     this.http.post(`/app`, body, options)
-// //       .map(res => res.json())
-// //       .subscribe(data => {
-// //         console.log(data);
-// //         this.people = data.driverData;
-// //       });
-//   };
+//     this.http.post(`/app`, body, options)
+//       .map(res => res.json())
+//       .subscribe(data => {
+//         console.log(data);
+//         this.people = data.driverData;
+//       });
+  };
   
   
    private handleError (error: any): Promise<any> {
