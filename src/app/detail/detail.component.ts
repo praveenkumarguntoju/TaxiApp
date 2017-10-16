@@ -78,12 +78,13 @@ export class DetailComponent implements OnInit {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const body = {'action': 'updateDetail', 'data': this.driverDetails};
     const options = new RequestOptions({ headers: headers});
-    this.http.post(`${this.API}/app`, body, options)
-      .map(res => res.json())
-      .subscribe(data => {
-        console.log(data);
-        // this.driverDetails = data.driverDetail;
-      });
+     var contactsUrl = '/app/contacts' + '/' + this.id;
+      this.http.put(contactsUrl,this.driverDetails)
+                 .toPromise()
+                 .then((response)=>{
+                    debugger;
+                 this.assignData(response);
+                 }).catch(this.handleError); 
  };
   
   
