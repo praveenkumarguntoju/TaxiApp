@@ -150,7 +150,7 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
 });
   
   app.get("/app/contacts/:id", function(req, res) {
-     var docs =  db.drivers.find({_id:  ObjectId(req.params.id)}).pretty();
+     var docs =  db.collection("drivers").find({_id:  ObjectId(req.params.id)}).pretty();
         res.send({data: docs});
     
 //     toArray(function(err, docs) 
