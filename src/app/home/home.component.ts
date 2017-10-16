@@ -28,7 +28,10 @@ export class HomeComponent implements OnInit {
    onClickMe(eve){
      // tslint:disable-next-line:no-debugger
      debugger;
-     this.router.navigate(['details',eve.CARNUM], {queryParams: {'qdata': 200,'idData': eve._id}, queryParamsHandling:'preserve'});
+      let navigationExtras: NavigationExtras = {
+      queryParams: { 'idData': eve_id}
+    };
+      this.router.navigate(['details',eve.CARNUM],navigationExtras);
    }
 
     onRegister(eve){
