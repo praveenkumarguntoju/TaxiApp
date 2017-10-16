@@ -31,10 +31,9 @@ export class DetailComponent implements OnInit {
 //     });
     
     
-      this.subscription = this.router.routerState
-                            ..queryParamMap.subscribe(params => {
+      this.subscription = actRoute.queryParamMap.subscribe(params => {
          debugger;
-        this.id =  params['idData'];
+              this.id =  params.get('idData') || 'None'
       });
 //     this.subscription = actRoute.queryParams.subscribe(queryParams => {
 //        this.id =  queryParams['idData'];
