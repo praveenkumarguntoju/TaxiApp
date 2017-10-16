@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
    onClickMe(eve){
      // tslint:disable-next-line:no-debugger
      debugger;
-      let navigationExtras: NavigationExtras = {
+      let navigationExtras = {
       queryParams: { 'idData': eve._id}
     };
       this.router.navigate(['details',eve.CARNUM],navigationExtras);
