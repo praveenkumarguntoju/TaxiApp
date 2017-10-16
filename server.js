@@ -162,6 +162,29 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   });
 });
   
+
+app.put("/app/contacts/:id", function(req, res) {
+      var updateDoc = req.body;
+      delete updateDoc._id;
+   db.collection("drivers").updateOne({_id: ObjectID(req.params.id)}, updateDoc, function(err, doc) {
+    if (err) {
+      handleError(res, err.message, "Failed to update contact");
+    } else {
+      updateDoc._id = req.params.id;
+      res.status(200);
+       res.send({data: updateDoc});
+    }
+  });
+ });
+  
+  
+  
+  
+  
+ 
+
+ 
+  
   
   app.post("/app/contacts", function(req, res) {
   var newContact = req.body;
