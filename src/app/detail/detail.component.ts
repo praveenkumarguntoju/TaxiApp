@@ -22,6 +22,15 @@ export class DetailComponent implements OnInit {
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
     // tslint:disable-next-line:no-debugger
     debugger;
+    
+    this.subscription = this.route
+      .queryParamMap
+      .map(params =>{
+            debugger;
+           this.id =  params.get('idData') || 'None'
+    });
+    
+    
 //       this.subscription = this.router.routerState
 //                             .queryParams.subscribe(params => {
 //          debugger;
@@ -90,13 +99,9 @@ export class DetailComponent implements OnInit {
 
 
   ngOnInit() {
-//     this.subscription.unsubscribe();
+  
     
-    
-    // Capture the session ID if available
-    this.id = this.route
-      .queryParamMap
-      .map(params => params.get('idData') || 'None');
+    this.subscription.unsubscribe();
     this.getDetails(this.id);
   }
 
