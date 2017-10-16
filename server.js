@@ -161,7 +161,6 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
     }
   });
 });
-});
   
   
   app.post("/app/contacts", function(req, res) {
