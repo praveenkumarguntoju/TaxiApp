@@ -84,6 +84,7 @@ export class DetailComponent implements OnInit {
                  .then((response)=>{
                     debugger;
                  this.assignData(response);
+                 this.router.navigate(['home']);
                  }).catch(this.handleError); 
  };
   
