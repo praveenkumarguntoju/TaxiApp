@@ -23,7 +23,7 @@ export class DetailComponent implements OnInit {
     // tslint:disable-next-line:no-debugger
     debugger;
     
-    this.subscription = this.route
+    this.subscription = this.actRoute
       .queryParamMap
       .map(params =>{
             debugger;
