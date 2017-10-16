@@ -27,9 +27,9 @@ export class DetailComponent implements OnInit {
 //          debugger;
 //         this.id =  params['idData'];
 //       });
-    this.subscription = actRoute.queryParams.subscribe(queryParams => {
-       this.id =  queryParams['idData'];
-    });
+//     this.subscription = actRoute.queryParams.subscribe(queryParams => {
+//        this.id =  queryParams['idData'];
+//     });
    }
 
    onEdit(eve){
@@ -90,7 +90,13 @@ export class DetailComponent implements OnInit {
 
 
   ngOnInit() {
-    this.subscription.unsubscribe();
+//     this.subscription.unsubscribe();
+    
+    
+    // Capture the session ID if available
+    this.id = this.route
+      .queryParamMap
+      .map(params => params.get('idData') || 'None');
     this.getDetails(this.id);
   }
 
