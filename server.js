@@ -150,16 +150,18 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
 });
   
   app.get("/app/contacts/:id", function(req, res) {
-  
-    db.drivers.find({_id:req.params.id}).toArray(function(err, docs) {
-    if (err) {
-        console.log("ERROR: " + reason);
-         res.status(code || 500).json({"error": message});
-    } else {
-     res.status(200);
-     res.send({data: docs});
-    }
-  });
+     var docs =  db.drivers.find({_id:  ObjectId(req.params.id)}).pretty();
+        res.send({data: docs});
+    
+//     toArray(function(err, docs) 
+//     if (err) {
+//         console.log("ERROR: " + reason);
+//          res.status(code || 500).json({"error": message});
+//     } else {
+//      res.status(200);
+//      res.send({data: docs});
+//     }
+//   });
 });
   
   
