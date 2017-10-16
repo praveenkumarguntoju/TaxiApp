@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
      // tslint:disable-next-line:no-debugger
      debugger;
       let navigationExtras: NavigationExtras = {
-      queryParams: { 'idData': eve_id}
+      queryParams: { 'idData': eve._id}
     };
       this.router.navigate(['details',eve.CARNUM],navigationExtras);
    }
