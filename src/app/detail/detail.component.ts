@@ -23,19 +23,19 @@ export class DetailComponent implements OnInit {
     // tslint:disable-next-line:no-debugger
     debugger;
     
-    this.subscription = this.actRoute
-      .queryParamMap
-      .map(params =>{
-            debugger;
-           this.id =  params.get('idData') || 'None'
-    });
+//     this.subscription = this.actRoute
+//       .queryParamMap
+//       .map(params =>{
+//             debugger;
+//            this.id =  params.get('idData') || 'None'
+//     });
     
     
-//       this.subscription = this.router.routerState
-//                             .queryParams.subscribe(params => {
-//          debugger;
-//         this.id =  params['idData'];
-//       });
+      this.subscription = this.router.routerState
+                            ..queryParamMap.subscribe(params => {
+         debugger;
+        this.id =  params['idData'];
+      });
 //     this.subscription = actRoute.queryParams.subscribe(queryParams => {
 //        this.id =  queryParams['idData'];
 //     });
