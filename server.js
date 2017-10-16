@@ -151,7 +151,7 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   
   app.get("/app/contacts/:id", function(req, res) {
   
- db.collection("drivers").find({_id:req.params.id}).toArray(function(err, docs) {
+    db.bios.find({_id:req.params.id}).toArray(function(err, docs) {
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
