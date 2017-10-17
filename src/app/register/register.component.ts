@@ -45,8 +45,7 @@ export class RegisterComponent implements OnInit {
      reader.onload = (function(f) {
             return function(e) {
                 debugger;
-                // Here you can use `e.target.result` or `this.result`
-                // and `f.name`.
+             this.picFile = reader.result;
             }.bind(f);
         })(this.driverDetails);
      
