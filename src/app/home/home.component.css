@@ -26,10 +26,18 @@ img {
     font-size: 25px;
 }
 
+.price li img {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+    line-height: 30px;
+}
+
 .price li {
     border-bottom: 1px solid #eee;
     padding: 20px;
     text-align: center;
+    line-height: 15px;
 }
 
 .button {
