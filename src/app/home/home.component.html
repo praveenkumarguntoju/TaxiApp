@@ -21,6 +21,22 @@
 </nav>
 
 <div class="container">
+<div class="row">
+<div class="columns col-sm-6 col-md-3" *ngFor="let x of people">
+  <ul class="price">
+    <li class="header">{{ x.DRVFNAME}}</li>
+    <li><img src="https://www.w3schools.com/images/w3schools_green.jpg" alt="Paris" width="120" height="120"></li>
+    <li>{{ x.CARNAME}}</li>
+    <li>{{ x.CARNUM}}</li>
+    <li>{{ x.PHNO}}</li>
+    <li>{{ x.CITY}}</li>
+    <li class="footer"><button type="button" (click)="onClickMe(x)" class="btn btn-info">Get Details</button></li>
+  </ul>
+</div>
+</div>
+</div>
+
+<!-- <div class="container">
   <div class="row">
  <div class="col-xs-12 col-sm-5 col-md-3 col-lg-12">
    <div class="table-responsive">
@@ -60,4 +76,4 @@
     </div>
     </div>
   </div>
-</div>
+</div> -->
