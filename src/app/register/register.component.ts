@@ -37,6 +37,7 @@ export class RegisterComponent implements OnInit {
 
  
    getBase64(file) {
+       debugger;
         // tslint:disable-next-line:no-debugger
        const reader = new FileReader();
         reader.readAsDataURL(file);
@@ -75,13 +76,14 @@ export class RegisterComponent implements OnInit {
        const headers = new Headers({ 'Content-Type': 'application/json' });
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: headers});
-//         this.http.post('/app', body, options)
-//         .map(res => res.json())
-//         .subscribe(data => {
-//          debugger;
-//         console.log(data);
-//         this.driverDetails = data;
-//       });
+       
+       let files: any;
+       const filEle = document.getElementsByClassName('fileUpload')[0];
+        const file = filEle['files'];
+        if (file.length > 0) {
+          this.getBase64(file[0]);
+        }
+
            this.http.post('/app/contacts',this.driverDetails)
                  .toPromise()
                  .then(function(response){ 
