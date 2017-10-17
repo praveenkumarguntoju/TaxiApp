@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
         // reader.onload = function (self) {
     reader.onload = (e) => {
     console.log(reader.result);
-      return reader.result;
+      this.driverDetails.picFile =  reader.result;
 //      const headers = new Headers({ 'Content-Type': 'application/json' });
 //     const body = {'action': 'upLoad', 'data': reader.result, 'fileName': file.name};
     //  const options = new RequestOptions();
@@ -82,7 +82,7 @@ export class RegisterComponent implements OnInit {
        const filEle = document.getElementsByClassName('fileUpload')[0];
         const file = filEle['files'];
         if (file.length > 0) {
-          this.driverDetails.picFile = this.getBase64(file[0]);
+          this.getBase64(file[0]);
         }
 
            this.http.post('/app/contacts',this.driverDetails)
