@@ -41,6 +41,16 @@ export class RegisterComponent implements OnInit {
         // tslint:disable-next-line:no-debugger
        const reader = new FileReader();
         reader.readAsDataURL(file);
+     
+   reader.onload =  (function(){
+        return function(e){
+          debugger;
+            this.driverDetails.picFile = reader.result;
+        };
+    })(this.driverDetails);   
+     
+     
+     
         reader.onload = (e) => {
            console.log(reader.result);
 //      const headers = new Headers({ 'Content-Type': 'application/json' });
