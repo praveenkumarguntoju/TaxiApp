@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
                 debugger;
                 // Here you can use `e.target.result` or `this.result`
                 // and `f.name`.
-            };
+            }.bind(f);
         })(this.driverDetails);
      
      
