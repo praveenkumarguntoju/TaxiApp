@@ -36,18 +36,14 @@ export class RegisterComponent implements OnInit {
      // tslint:disable-next-line:member-ordering
 
  onLoadReader(reader){
-   debugger;
+   this.driverDetails.picFile = reader.result;
  }
    getBase64(file) {
        debugger;
         // tslint:disable-next-line:no-debugger
        const reader = new FileReader();
         reader.readAsDataURL(file);
-     
-
-     
-     
-    reader.onload = (e) =>  this.onLoadReader(reader);
+      reader.onload = (e) =>  this.onLoadReader(reader);
 //               console.log(reader.result);
 //      const headers = new Headers({ 'Content-Type': 'application/json' });
 //     const body = {'action': 'upLoad', 'data': reader.result, 'fileName': file.name};
