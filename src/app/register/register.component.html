@@ -31,7 +31,7 @@
         <!--Age-->
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 rpadding">
             <div class="form-group">
-                <label class="col-md-4 control-label" >Car Name</label>
+                <label class="col-md-4 control-label" >Age</label>
                 <div class="col-md-4">
                     <input  type="text" placeholder="Age" [(ngModel)]="driverDetails.DRVAGE"   [ngModelOptions]="{standalone: true}"
                            class="form-control input-md" required>
@@ -144,9 +144,8 @@
             <div class="form-group">
                 <label class="col-md-4 control-label" for="phone">Upload Image</label>
                 <div class="col-md-5" style="display:inline-block;">
-           <input type="file" class="fileUpload" style="display:inline;" ngf-select="" 
-           [(ngModel)]="driverDetails.picFile" name="file" ngf-accept="'image/*'" required="">
-              <button  class="btn btn-primary" style="display:inline" (click)="uploadImage($event)">Upload</button>
+           <input type="file" class="fileUpload" style="display:inline;" (change)="uploadImage($event)" name="file" ngf-accept="'image/*'" required="">
+<!--               <button  class="btn btn-primary" style="display:inline" (click)="uploadImage($event)">Upload</button> -->
                 </div>
 
             </div>
