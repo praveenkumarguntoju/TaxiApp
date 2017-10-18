@@ -35,22 +35,20 @@ export class RegisterComponent implements OnInit {
 
      // tslint:disable-next-line:member-ordering
 
- 
+ onLoadReader(reader){
+   debugger;
+ }
    getBase64(file) {
        debugger;
         // tslint:disable-next-line:no-debugger
        const reader = new FileReader();
         reader.readAsDataURL(file);
      
-//      reader.onload = function(f) {
-//            debugger;
-         
-//           }(this.driverDetails);
+     reader.onload = this.onLoadReader(reader);
      
      
-     
-    reader.onload = (e) => {
-              console.log(reader.result);
+//     reader.onload = (e) => {
+//               console.log(reader.result);
 //      const headers = new Headers({ 'Content-Type': 'application/json' });
 //     const body = {'action': 'upLoad', 'data': reader.result, 'fileName': file.name};
     //  const options = new RequestOptions();
@@ -60,7 +58,7 @@ export class RegisterComponent implements OnInit {
 //         console.log(data);
 //         this.driverDetails.picFile  = 'app/images/' + data.filename;
 //       });
-  };
+//   };
         reader.onerror = function (error) {
             console.log('Error: ', error);
         };
