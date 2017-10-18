@@ -44,7 +44,7 @@ export class RegisterComponent implements OnInit {
      
      reader.onload = function(f) {
            debugger;
-           this.picFile = reader.result;
+         
           })(this.driverDetails);
      
      
