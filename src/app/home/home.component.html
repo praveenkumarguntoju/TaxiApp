@@ -25,16 +25,16 @@
  <div class="columns col-sm-6 col-md-3" *ngFor="let x of people" style="padding:10px;">
   <ul class="price">
     <li class="header"><h2 style="height:34px;">
-      <span class="glyphicon glyphicon-user">{{ x.DRVFNAME}}</span>
+      <span class="glyphicon glyphicon-user">{{x.DRVFNAME}}</span>
       </h2></li>
     <li><img src="{{x.picFile}}" alt="Paris" width="120" height="120"></li>
     <li style="height:15px;">{{ x.CARNAME}}</li>
     <li style="height:15px;">{{ x.CARNUM}}</li>
     <li style="height:15px;">
-      <span class="glyphicon glyphicon-earphone"><label style="font-size:20px;">{{ x.PHNO}}</label></span>
+      <span class="glyphicon glyphicon-earphone"><label style="font-size:20px;padding-left: 10px;">{{ x.PHNO}}</label></span>
     </li>
     <li style="height:15px;">
-        <span class="glyphicon glyphicon-home"><label style="font-size:20px;">{{ x.CITY}}</label></span>
+        <span class="glyphicon glyphicon-home"><label style="font-size:20px;padding-left: 10px;">{{ x.CITY}}</label></span>
       </li>
     <li class="footer"><button type="button" (click)="onClickMe(x)" class="btn btn-info">Get Details</button></li>
   </ul>
