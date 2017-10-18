@@ -45,12 +45,12 @@ export class RegisterComponent implements OnInit {
      reader.onload = function(f) {
            debugger;
          
-          })(this.driverDetails);
+          }(this.driverDetails);
      
      
      
 //      reader.onload = (e) => {
-       debugger;
+    
 //            console.log(reader.result);
 //      const headers = new Headers({ 'Content-Type': 'application/json' });
 //     const body = {'action': 'upLoad', 'data': reader.result, 'fileName': file.name};
