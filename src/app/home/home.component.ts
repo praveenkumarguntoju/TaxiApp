@@ -25,6 +25,11 @@ export class HomeComponent implements OnInit {
 
   }
   constructor(private http: Http, private router: Router) {}
+  
+  onClickHome(eve){
+    
+  }
+  
    onClickMe(eve){
      // tslint:disable-next-line:no-debugger
      debugger;
