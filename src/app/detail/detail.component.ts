@@ -51,6 +51,10 @@ export class DetailComponent implements OnInit {
      this.displayDetail =  true;
    }
   
+  onHome(eve){
+     this.router.navigate(['home']);
+   }
+  
   assignData(response){
      var contacts = JSON.parse(response._body);
       if(contacts.data){
