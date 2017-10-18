@@ -44,26 +44,13 @@ export class RegisterComponent implements OnInit {
        const reader = new FileReader();
         reader.readAsDataURL(file);
       reader.onload = (e) =>  this.onLoadReader(reader);
-//               console.log(reader.result);
-//      const headers = new Headers({ 'Content-Type': 'application/json' });
-//     const body = {'action': 'upLoad', 'data': reader.result, 'fileName': file.name};
-    //  const options = new RequestOptions();
-//     this.http.post('/app', body)
-//       .map(res => res.json())
-//       .subscribe(data => {
-//         console.log(data);
-//         this.driverDetails.picFile  = 'app/images/' + data.filename;
-//       });
-//   };
         reader.onerror = function (error) {
             console.log('Error: ', error);
         };
     };
 
     uploadImage(eve){
-      // tslint:disable-next-line:no-debugger
-      debugger;
-     // tslint:disable-next-line:prefer-const
+     debugger;
      let files: any;
      const filEle = document.getElementsByClassName('fileUpload')[0];
      const file = filEle['files'];
@@ -77,23 +64,14 @@ export class RegisterComponent implements OnInit {
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: headers});
        
-//        let files: any;
-//        const filEle = document.getElementsByClassName('fileUpload')[0];
-//         const file = filEle['files'];
-//         if (file.length > 0) {
-//           this.getBase64(file[0]);
-//         }
-
-           this.http.post('/app/contacts',this.driverDetails)
+       this.http.post('/app/contacts',this.driverDetails)
                  .toPromise()
-                 .then(function(response){ 
-                                   debugger; 
-                         })
-                 .catch(this.handleError); 
-       
-         this.router.navigate(['home'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
-       
-     };
+                 .then((response)=>{
+                    debugger;
+                 this.assignData(response);
+                 this.router.navigate(['home']);
+                 }).catch(this.handleError); 
+         };
   
    private handleError (error: any): Promise<any> {
        debugger;
