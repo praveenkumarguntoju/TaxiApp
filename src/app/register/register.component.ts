@@ -44,10 +44,10 @@ export class RegisterComponent implements OnInit {
        const reader = new FileReader();
         reader.readAsDataURL(file);
      
-     reader.onload = this.onLoadReader(reader);
+
      
      
-//     reader.onload = (e) => {
+    reader.onload = (e) =>  this.onLoadReader(reader);
 //               console.log(reader.result);
 //      const headers = new Headers({ 'Content-Type': 'application/json' });
 //     const body = {'action': 'upLoad', 'data': reader.result, 'fileName': file.name};
