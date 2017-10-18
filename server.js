@@ -139,7 +139,7 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
   
   
   app.get("/app", function(req, res) {
-  db.collection("drivers").find({}).toArray(function(err, docs) {
+  db.collection("driversData").find({}).toArray(function(err, docs) {
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
@@ -151,7 +151,7 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
 });
   
   app.get("/app/contacts/:id", function(req, res) {
-    db.collection("drivers").findOne({_id:  ObjectId(req.params.id)},function(err, docs){
+    db.collection("driversData").findOne({_id:  ObjectId(req.params.id)},function(err, docs){
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
@@ -166,7 +166,7 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds161164.mlab.com:61164/
 app.put("/app/contacts/:id", function(req, res) {
       var updateDoc = req.body;
       delete updateDoc._id;
-   db.collection("drivers").updateOne({_id:  ObjectId(req.params.id)}, updateDoc, function(err, doc) {
+   db.collection("driversData").updateOne({_id:  ObjectId(req.params.id)}, updateDoc, function(err, doc) {
     if (err) {
       handleError(res, err.message, "Failed to update contact");
     } else {
@@ -188,7 +188,7 @@ app.put("/app/contacts/:id", function(req, res) {
   
   app.post("/app/contacts", function(req, res) {
   var newContact = req.body;
-  db.collection("drivers").insertOne(newContact, function(err, doc) {
+  db.collection("driversData").insertOne(newContact, function(err, doc) {
     if (err) {
      console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
