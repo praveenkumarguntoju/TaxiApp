@@ -31,6 +31,7 @@ img {
 .price li {
     border-bottom: 2px solid #d9edf7;
     padding: 20px;
+    padding-bottom:22px;
     text-align: center;
 }
 
