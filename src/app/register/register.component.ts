@@ -83,12 +83,12 @@ export class RegisterComponent implements OnInit {
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: headers});
        
-       let files: any;
-       const filEle = document.getElementsByClassName('fileUpload')[0];
-        const file = filEle['files'];
-        if (file.length > 0) {
-          this.getBase64(file[0]);
-        }
+//        let files: any;
+//        const filEle = document.getElementsByClassName('fileUpload')[0];
+//         const file = filEle['files'];
+//         if (file.length > 0) {
+//           this.getBase64(file[0]);
+//         }
 
            this.http.post('/app/contacts',this.driverDetails)
                  .toPromise()
