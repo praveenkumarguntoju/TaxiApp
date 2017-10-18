@@ -7,6 +7,15 @@ img {
   border: 3px solid #ff9547;
 }
 
+.userName{
+    display: inline-block;
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+  
+}
+
  .price {
     list-style-type: none;
     border: 1px solid #eee;
