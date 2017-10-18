@@ -68,7 +68,6 @@ export class RegisterComponent implements OnInit {
                  .toPromise()
                  .then((response)=>{
                     debugger;
-                 this.assignData(response);
                  this.router.navigate(['home']);
                  }).catch(this.handleError); 
          };
