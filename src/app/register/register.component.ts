@@ -42,16 +42,14 @@ export class RegisterComponent implements OnInit {
        const reader = new FileReader();
         reader.readAsDataURL(file);
      
-//      reader.onload = (function(f) {
-//             return function(e) {
-//                 debugger;
-//              this.picFile = reader.result;
-//             }.bind(f);
-//         })(this.driverDetails);
+     reader.onload = function(f) {
+           debugger;
+           this.picFile = reader.result;
+          })(this.driverDetails);
      
      
      
-     reader.onload = (e) => {
+//      reader.onload = (e) => {
        debugger;
 //            console.log(reader.result);
 //      const headers = new Headers({ 'Content-Type': 'application/json' });
@@ -63,7 +61,7 @@ export class RegisterComponent implements OnInit {
 //         console.log(data);
 //         this.driverDetails.picFile  = 'app/images/' + data.filename;
 //       });
-    }.bind(this);
+//     }.bind(this);
         reader.onerror = function (error) {
             console.log('Error: ', error);
         };
