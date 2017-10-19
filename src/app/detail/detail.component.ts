@@ -16,28 +16,15 @@ export class DetailComponent implements OnInit {
   driverDetails: any = {};
   public id: string;
   displayDetail:any = true;
-  API = 'http://localhost:3000';
   private subscription: Subscription;
 
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
     // tslint:disable-next-line:no-debugger
     debugger;
-    
-//     this.subscription = this.actRoute
-//       .queryParamMap
-//       .map(params =>{
-//             debugger;
-//            this.id =  params.get('idData') || 'None'
-//     });
-    
-    
-      this.subscription = actRoute.queryParamMap.subscribe(params => {
+    this.subscription = actRoute.queryParamMap.subscribe(params => {
          debugger;
               this.id =  params.get('idData') || 'None'
       });
-//     this.subscription = actRoute.queryParams.subscribe(queryParams => {
-//        this.id =  queryParams['idData'];
-//     });
    }
 
    onEdit(eve){
@@ -88,6 +75,7 @@ export class DetailComponent implements OnInit {
                  .then((response)=>{
                     debugger;
                  this.assignData(response);
+                 alert("Hello! User details was successfully updated..!");
                  this.router.navigate(['home']);
                  }).catch(this.handleError); 
  };
