@@ -5,7 +5,10 @@ var mongodb = require("mongodb");
  var ObjectId = require('mongodb').ObjectId; 
 
 var app = express();
-app.use(bodyParser.json());
+
+
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb'}));
 
 // Create link to Angular build directory
 var distDir = __dirname + "/dist/";
