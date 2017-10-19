@@ -68,6 +68,7 @@ export class RegisterComponent implements OnInit {
                  .toPromise()
                  .then((response)=>{
                     debugger;
+                 alert("User was successfully created..");
                  this.router.navigate(['home']);
                  }).catch(this.handleError); 
          };
