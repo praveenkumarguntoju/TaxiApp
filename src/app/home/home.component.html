@@ -40,9 +40,10 @@
     <li style="height:15px;">
         <span class="glyphicon glyphicon-home"><label style="font-size:20px;padding-left: 10px;">{{ x.CITY}}</label></span>
       </li>
-    <li class="footer"><button type="button" (click)="onClickMe(x)" class="btn btn-info">Get Details</button></li>
+    <li class="footer">
+      <button type="button" (click)="onClickMe(x)" class="btn btn-info btn-sm">Get Details</button>
     <!-- Button trigger modal -->
-    <li class="footer"><button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+      <button type="button" class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
       Review
      </button></li>
   </ul>
