@@ -18,6 +18,13 @@ export class HomeComponent implements OnInit {
 //   API = 'http://localhost:3000';
 //   path = 'app/jsonfiles/makes.json';
   people: any[] = [];
+  
+ comments: any[] = [{ 
+ "username":"Praveen",
+ "date":"22-08-2017",
+ "rate":"&#x1F642;",
+ "comment":"this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy"
+}]
  
 
   ngOnInit(){
