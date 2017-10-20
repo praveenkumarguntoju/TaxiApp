@@ -62,7 +62,7 @@
         <h4 class="modal-title" id="gridSystemModalLabel">Modal title</h4>
       </div>
        <div class="modal-body">
-      	<div class="row">
+<!--     <div class="row">
 			<div class="col-sm-4">
 				<div class="rating-block">
 					<h4>Average user rating</h4>
@@ -73,30 +73,28 @@
 			<div class="col-sm-3">
 			
 			</div>			
-		</div>			
+		</div>			 -->
 		
-		<div class="row">
+		<div class="row"  *ngFor="let cmnt of comments">
 			<div class="col-sm-7">
 				<hr/>
 				<div class="review-block">
 					<div class="row">
 						<div class="col-sm-3">
 							<img src="http://dummyimage.com/60x60/666/ffffff&text=No+Image" class="img-rounded">
-							<div class="review-block-name"><a href="#">praveen</a></div>
-							<div class="review-block-date">January 29, 2016<br/>1 day ago</div>
+							<div class="review-block-name"><a href="#">{{cmnt.username}}</a></div>
+							<div class="review-block-date">{{cmnt.date}}<br/>1 day ago</div>
 						</div>
 						<div class="col-sm-9">
 							<div class="review-block-rate">
-								<i class="fa fa-smile-o" aria-hidden="true"></i>
+                <span>{{cmnt.rate}}</span>
 							</div>
 							<div class="review-block-title">this was nice in buy</div>
-							<div class="review-block-description">this was nice in buy.  this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy</div>
+							<div class="review-block-description">{{cmnt.comment}}</div>
 						</div>
 					</div>
 					<hr/>
-				
-				
-				</div>
+			</div>
 			</div>
 		</div>
       </div>
