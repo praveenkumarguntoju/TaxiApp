@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
  comments: any[] = [{ 
  "username":"Praveen",
  "date":"22-08-2017",
- "rate":"&#x1F642;",
+ "rate":"em em-some-emoji",
  "comment":"this was nice in buy. this was nice in buy this was nice in buy this was nice in buy this was nice in buy this was nice in buy"
 }]
  
