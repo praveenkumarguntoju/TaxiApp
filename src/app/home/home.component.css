@@ -1,3 +1,10 @@
+
+.material-icons {
+    font-size: 30px;
+    background-color: yellow;
+    border-radius: 15px;
+}
+
 * {
     box-sizing: border-box;
 }
