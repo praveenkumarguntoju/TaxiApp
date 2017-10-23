@@ -45,9 +45,10 @@ export class HomeComponent implements OnInit {
   
   onSaveReview(eve){
      debugger;
-     this.commentData.comment = this.cmntData;
-     this.commentData.date = new Date();
-     this.comments.push(this.commentData);
+     var cmntObj = {};
+     cmntObj.comment = this.cmntData;
+     cmntObj.date = new Date();
+     this.comments.push(cmntObj);
   };
   
    onClickMe(eve){
