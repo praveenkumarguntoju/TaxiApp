@@ -19,12 +19,7 @@ export class HomeComponent implements OnInit {
 //   path = 'app/jsonfiles/makes.json';
   people: any[] = [];
   cmntData:any;
-  commentData:any  = {
-  "username": "",
-  "comment" : ""
-  };
-  
- comments: any[] = [{ 
+  comments: any[] = [{ 
  "username":"Praveen",
  "date":"22-08-2017",
  "rate":"sentiment_dissatisfied",
