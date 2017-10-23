@@ -18,8 +18,11 @@ export class HomeComponent implements OnInit {
 //   API = 'http://localhost:3000';
 //   path = 'app/jsonfiles/makes.json';
   people: any[] = [];
-  cmntData
-  commentData = {};
+  cmntData:any;
+  commentData = {
+  "username": "",
+  "comment" : ""
+  };
   
  comments: any[] = [{ 
  "username":"Praveen",
@@ -42,7 +45,7 @@ export class HomeComponent implements OnInit {
   
   onSaveReview(eve){
      debugger;
-     this.commentData.data = this.cmntData;
+     this.commentData.comment = this.cmntData;
      this.CommentData.date = new Date();
      this.comments.push(this.commentData);
   };
