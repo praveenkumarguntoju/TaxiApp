@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit {
        "username":"Praveen",
        "rate" : "sentiment_dissatisfied",
        "comment" : this.cmntData,
-       "date" = d.toDateString();
+       "date" : d.toDateString()
      });
   };
   
