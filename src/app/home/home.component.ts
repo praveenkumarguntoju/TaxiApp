@@ -18,6 +18,8 @@ export class HomeComponent implements OnInit {
 //   API = 'http://localhost:3000';
 //   path = 'app/jsonfiles/makes.json';
   people: any[] = [];
+  cmntData
+  commentData = {};
   
  comments: any[] = [{ 
  "username":"Praveen",
@@ -36,6 +38,14 @@ export class HomeComponent implements OnInit {
 //   onClickHome(eve){
     
 //   }
+  
+  
+  onSaveReview(eve){
+     debugger;
+     this.commentData.data = this.cmntData;
+     this.CommentData.date = new Date();
+     this.comments.push(this.commentData);
+  };
   
    onClickMe(eve){
      // tslint:disable-next-line:no-debugger
