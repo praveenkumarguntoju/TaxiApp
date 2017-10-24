@@ -91,13 +91,12 @@ export class RegisterComponent implements OnInit {
     oc.width = img.width * 0.1;
     oc.height = img.height * 0.1;
     octx.drawImage(img, 0, 0, oc.width, oc.height);
-        
-//    this.driverDetails.picFile = oc.toDataURL('image/jpeg');
+     this.driverDetails.picFile = oc.toDataURL('image/jpeg');
      
     }.bind(this);
     img.src = URL.createObjectURL(file[0]);
     if (file.length > 0) {
-          this.getBase64(file[0]);
+//           this.getBase64(file[0]);
         }
     };
 
