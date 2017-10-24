@@ -41,22 +41,22 @@ export class RegisterComponent implements OnInit {
   
  
   
-  document.getElementById('imageinput').addEventListener('change', function(event) {
-    var img = new Image();
-    img.onload = function(){
-     var oc = document.createElement('canvas'),
-        octx = oc.getContext('2d');
-  debugger;
-    oc.width = img.width * 0.1;
-    oc.height = img.height * 0.1;
-    octx.drawImage(img, 0, 0, oc.width, oc.height);
+//   document.getElementById('imageinput').addEventListener('change', function(event) {
+//     var img = new Image();
+//     img.onload = function(){
+//      var oc = document.createElement('canvas'),
+//         octx = oc.getContext('2d');
+//   debugger;
+//     oc.width = img.width * 0.1;
+//     oc.height = img.height * 0.1;
+//     octx.drawImage(img, 0, 0, oc.width, oc.height);
         
-        this.driverDetails.picFile = oc.toDataURL('image/jpeg');
+//         this.driverDetails.picFile = oc.toDataURL('image/jpeg');
      
-    };
-    debugger;
-    img.src = URL.createObjectURL(event.target.files[0]);
-  });
+//     };
+//     debugger;
+//     img.src = URL.createObjectURL(event.target.files[0]);
+//   });
   
   
   
@@ -82,7 +82,21 @@ export class RegisterComponent implements OnInit {
      let files: any;
      const filEle = document.getElementsByClassName('fileUpload')[0];
      const file = filEle['files'];
-     if (file.length > 0) {
+     var img = new Image();
+    
+    img.onload = function(){
+     var oc = document.createElement('canvas'),
+        octx = oc.getContext('2d');
+  debugger;
+    oc.width = img.width * 0.1;
+    oc.height = img.height * 0.1;
+    octx.drawImage(img, 0, 0, oc.width, oc.height);
+        
+        this.driverDetails.picFile = oc.toDataURL('image/jpeg');
+     
+    };
+    img.src = URL.createObjectURL(file[0]);
+    if (file.length > 0) {
           this.getBase64(file[0]);
         }
     };
