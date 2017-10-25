@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
  
 
   ngOnInit(){
-     document.getElementById("loading-image").show();
+//      document.getElementById("loading-image").show();
     this.getAllPeople(this.people);
 
   }
@@ -80,7 +80,7 @@ export class HomeComponent implements OnInit {
     this.http.get('/app')
                  .toPromise().then((response)=>{
                 this.dataGet(response);
-                 document.getElementById("loading-image").hide();
+//                  document.getElementById("loading-image").hide();
        }).catch(this.handleError); 
   };
   
