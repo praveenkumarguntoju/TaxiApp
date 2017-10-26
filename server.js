@@ -179,6 +179,20 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
   });
 });
   
+  
+app.post("/app/comments", function(req, res) {
+    var newComment = req.body;
+  db.collection("commentsData").insertOne(newComment, function(err, doc) {
+    if (err) {
+        console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
+    } else {
+     res.status(200);
+     res.send({data: docs});
+    }
+  });
+});
+  
 
 app.put("/app/contacts/:id", function(req, res) {
       var updateDoc = req.body;
