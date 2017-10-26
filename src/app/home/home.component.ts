@@ -19,6 +19,7 @@ export class HomeComponent implements OnInit {
 //   path = 'app/jsonfiles/makes.json';
   people: any[] = [];
   cmntData:any;
+  id:any;
   comments: any[] = [{ 
  "username":"Praveen",
  "date":"22-08-2017",
@@ -39,11 +40,17 @@ export class HomeComponent implements OnInit {
 //   }
   
   
+onClickReview(eve){
+   this.id = eve._id
+}
+  
+  
   onSaveReview(eve){
      debugger;
      var cmntObj = {};
      var d= new Date();
      this.comments.push({ 
+       "userId": this.id,
        "username":"Praveen",
        "rate" : "sentiment_dissatisfied",
        "comment" : this.cmntData,
