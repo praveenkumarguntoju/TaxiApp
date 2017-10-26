@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
   people: any[] = [];
   cmntData:any;
   id:any;
+  comntObj:any;
   comments: any[] = [{ 
  "username":"Praveen",
  "date":"22-08-2017",
@@ -56,6 +57,25 @@ onClickReview(eve){
        "comment" : this.cmntData,
        "date" : d.toDateString()
      });
+    this.comntObj = { 
+       "userId": this.id,
+       "username":"Praveen",
+       "rate" : "sentiment_dissatisfied",
+       "comment" : this.cmntData,
+       "date" : d.toDateString()
+     };
+    
+    
+    this.http.post('/app/comments',this.comntObj)
+                 .toPromise()
+                 .then((response)=>{
+                    debugger;
+                 alert("User was successfully created..");
+                 document.getElementById("myDiv").style.display = "none";
+                 }).catch(this.handleError); 
+         };
+    
+    
   };
   
    onClickMe(eve){
