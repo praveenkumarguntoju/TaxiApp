@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
  
 
   ngOnInit(){
-//      document.getElementById("loading-image").show();
+    document.getElementById("myDiv").style.display = "block";
     this.getAllPeople(this.people);
 
   }
@@ -70,6 +70,7 @@ export class HomeComponent implements OnInit {
     var contacts = JSON.parse(res._body);
     if(contacts.data)
      this.people = contacts.data;
+     document.getElementById("myDiv").style.display = "none";
       
   }
 
@@ -80,7 +81,6 @@ export class HomeComponent implements OnInit {
     this.http.get('/app')
                  .toPromise().then((response)=>{
                 this.dataGet(response);
-//                  document.getElementById("loading-image").hide();
        }).catch(this.handleError); 
   };
   
