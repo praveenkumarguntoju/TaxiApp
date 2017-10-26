@@ -63,7 +63,8 @@ onClickReview(eve){
        "comment" : this.cmntData,
        "date" : d.toDateString()
      });
-    this.comntObj = { 
+   
+   this.comntObj = { 
        "userId": this.id,
        "username":"Praveen",
        "rate" : "sentiment_dissatisfied",
@@ -76,11 +77,9 @@ onClickReview(eve){
                  .toPromise()
                  .then((response)=>{
                     debugger;
-                 alert("User was successfully created..");
                  document.getElementById("myDiv").style.display = "none";
                  }).catch(this.handleError); 
-         };
-    
+        
     
   };
   
