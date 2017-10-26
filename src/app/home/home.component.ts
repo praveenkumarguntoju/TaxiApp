@@ -57,6 +57,7 @@ export class HomeComponent implements OnInit {
       let navigationExtras = {
       queryParams: { 'idData': eve._id}
     };
+      document.getElementById("myDiv").style.display = "block";
       this.router.navigate(['details',eve.CARNUM],navigationExtras);
    }
 
