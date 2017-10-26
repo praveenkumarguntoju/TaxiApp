@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({limit: '50mb'}));
 
 var distDir = __dirname + "/dist/";
 app.use(express.static(distDir));
-app.use(express.static(path.join(__dirname, '/ajax-loader(1).gif')));
+app.use(express.static(__dirname + 'src/app/images'));
 // app.use(express.static(__dirname + 'ajax-loader(1).gif'));
 // app.use(express.static(path.join(__dirname, 'dist')));
 // app.get('*', (req, res) => {
