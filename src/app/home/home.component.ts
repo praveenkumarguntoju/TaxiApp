@@ -43,7 +43,13 @@ export class HomeComponent implements OnInit {
   
 onClickReview(eve){
    this.id = eve._id
-}
+  var contactsUrl = '/app/comments' + '/' + this.id;
+      this.http.put(contactsUrl,this.comments)
+                 .toPromise()
+                 .then((response)=>{
+                    debugger;
+                 }).catch(this.handleError); 
+      }
   
   
   onSaveReview(eve){
