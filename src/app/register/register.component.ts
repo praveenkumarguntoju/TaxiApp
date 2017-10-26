@@ -101,6 +101,7 @@ export class RegisterComponent implements OnInit {
     };
 
      saveDetails(event){
+       document.getElementById("myDiv").style.display = "block";
        const headers = new Headers({ 'Content-Type': 'application/json' });
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: headers});
@@ -110,6 +111,7 @@ export class RegisterComponent implements OnInit {
                  .then((response)=>{
                     debugger;
                  alert("User was successfully created..");
+                 document.getElementById("myDiv").style.display = "none";
                  this.router.navigate(['home']);
                  }).catch(this.handleError); 
          };
