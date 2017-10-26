@@ -13,9 +13,9 @@ app.use(bodyParser.urlencoded({limit: '50mb'}));
 // Create link to Angular build directory
 
 
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
-app.use(express.static(__dirname + 'ajax-loader(1).gif'));
+// var distDir = __dirname + "/dist/";
+app.use(express.static('src'));
+// app.use(express.static(__dirname + 'ajax-loader(1).gif'));
 
 var db;
 
