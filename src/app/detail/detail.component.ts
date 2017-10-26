@@ -49,6 +49,7 @@ export class DetailComponent implements OnInit {
                     this.driverDetails = contacts.data;
                     this.imageUrl = contacts.data.picFile;
       } 
+    document.getElementById("myDiv").style.display = "none";
   }
 
  getDetails(id) {
