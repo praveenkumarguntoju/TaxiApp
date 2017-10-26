@@ -74,11 +74,11 @@ onClickReview(eve){
     
     
     this.http.post('/app/comments',this.comntObj)
-                 .toPromise()
-                 .then((response)=>{
-                    debugger;
-                 document.getElementById("myDiv").style.display = "none";
-                 }).catch(this.handleError); 
+                           .toPromise()
+                           .then((response)=>{
+                                           debugger;
+                                        document.getElementById("myDiv").style.display = "none";
+                                 }).catch(this.handleError); 
         
     
   };
