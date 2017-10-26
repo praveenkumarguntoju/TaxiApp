@@ -11,14 +11,13 @@
   <style>
     
   #myDiv{
-    background: rgba(255, 255, 255, 0.94);
     height: 100%;
     width: 100%;
     display: table-cell;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    background-color: #f3f3f3;
+    background-color: #f5f1ea;;
     z-index: 999;
 }
     
@@ -36,8 +35,8 @@
   
 </head>
 <body style="background-image: url("https://www.w3schools.com/tags/w3s.png");">
-    <div id="myDiv">
-        <img id="loading-image" src="ajax-loader2.gif" style="display:none;"/>
+    <div id="myDiv" style="display:none;">
+        <img id="loading-image" src="ajax-loader2.gif"/>
     </div>
    <app-root>Loading...</app-root>
    <router-outlet></router-outlet>
