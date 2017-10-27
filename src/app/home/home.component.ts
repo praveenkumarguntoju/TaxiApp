@@ -52,6 +52,7 @@ commentGet(res){
 
  onClickReview(eve){
    this.id = eve._id
+  
   var contactsUrl = '/app/comments' + '/' + this.id;
       this.http.get(contactsUrl,this.comments)
                  .toPromise()

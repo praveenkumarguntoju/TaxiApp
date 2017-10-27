@@ -164,7 +164,7 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 
 
 
-app.post('app/authenticate', function(req, res) {
+app.post('app/authenticate/:name', function(req, res) {
   db.collection("userData").find({username: req.params.name}).toArray(function(err, docs) {
     if (err) {
         console.log("ERROR: " + reason);

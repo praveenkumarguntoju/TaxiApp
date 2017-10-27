@@ -93,8 +93,12 @@ export class loginComponent implements OnInit {
     const headers = new Headers({ 'Content-Type': 'application/json' });
     const body = {'action': 'getData'};
     const options = new RequestOptions({ headers: headers});
-    this.http.get('/app')
+    
+    var userUrl = '/app/authenticate' + '/' + this.userObj.username;
+
+ this.http.get(userUrl)
                  .toPromise().then((response)=>{
+                debugger;
                 this.dataGet(response);
        }).catch(this.handleError); 
   };
