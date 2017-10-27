@@ -51,37 +51,37 @@ export class loginComponent implements OnInit {
 //   comments end
   
   
-//   onSaveReview(eve){
-//      debugger;
-//      var cmntObj = {};
-//      var d= new Date();
-//      this.comments.push({ 
-//        "userId": this.id,
-//        "username":"Praveen",
-//        "rate" : "sentiment_dissatisfied",
-//        "comment" : this.cmntData,
-//        "date" : d.toDateString()
-//      });
+  onSaveReview(eve){
+     debugger;
+     var cmntObj = {};
+     var d= new Date();
+     this.comments.push({ 
+       "userId": this.id,
+       "username":"Praveen",
+       "rate" : "sentiment_dissatisfied",
+       "comment" : this.cmntData,
+       "date" : d.toDateString()
+     });
    
-//    this.comntObj = { 
-//        "userId": this.id,
-//        "username":"Praveen",
-//        "rate" : "sentiment_dissatisfied",
-//        "comment" : this.cmntData,
-//        "date" : d.toDateString()
-//      };
+   this.comntObj = { 
+       "userId": this.id,
+       "username":"Praveen",
+       "rate" : "sentiment_dissatisfied",
+       "comment" : this.cmntData,
+       "date" : d.toDateString()
+     };
     
     
-//     this.http.post('/app/comments',this.comntObj)
-//                  .toPromise()
-//                  .then((response)=>{
-//                     debugger;
-//                  alert("User review was successfully created..");
-//                  document.getElementById("myDiv").style.display = "none";
+    this.http.post('/app/comments',this.comntObj)
+                 .toPromise()
+                 .then((response)=>{
+                    debugger;
+                 alert("User review was successfully created..");
+                 document.getElementById("myDiv").style.display = "none";
                
-//                  }).catch(this.handleError); 
+                 }).catch(this.handleError); 
      
-//   };
+  };
   
   
 
