@@ -284,9 +284,7 @@ app.get("/app/validuser/:id", function(req, res) {
          res.status(code || 500).json({"error": message});
     } else {
       const payload = {};
-          var token = jwt.sign(payload, app.get('superSecret'), {
-                expiresInMinutes: 1440 // expires in 24 hours
-            });
+          var token = jwt.sign(payload,'TestJwtToken', {});
             console.log(token);
             console.log(jwt);
      res.status(200);
