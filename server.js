@@ -17,7 +17,6 @@ app.use(bodyParser.urlencoded({extended: true ,limit: '50mb'}));
 
 // Create link to Angular build directory
 
-console.log(jwt);
 var distDir = __dirname + "/dist/";
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/src/app/images'));
@@ -284,13 +283,13 @@ app.get("/app/validuser/:id", function(req, res) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
     } else {
-      const payload = {
-             "user": req.params.id
-           };
-          var token = jwt.sign(payload, app.get('superSecret'), {
-                expiresInMinutes: 1440 // expires in 24 hours
-            });
-            console.log(token);
+      // const payload = {
+      //        user: req.params.id
+      //      };
+      //     var token = jwt.sign(payload, app.get('superSecret'), {
+      //           expiresInMinutes: 1440 // expires in 24 hours
+      //       });
+            console.log(jwt);
      res.status(200);
      res.send(docs);
     }
