@@ -17,9 +17,17 @@ export class loginComponent implements OnInit {
   people: any[] = [];
   cmntData:any;
   id:any;
-  comntObj:any;
   comments: any[] = [];
  
+  userObj: any = {
+    'username': '',
+    'password': '',
+    'email': ''
+      };
+
+
+
+
 
   ngOnInit(){
    }
@@ -51,32 +59,15 @@ export class loginComponent implements OnInit {
 //   comments end
   
   
-  onSaveReview(eve){
+  onSaveuser(eve){
      debugger;
      var cmntObj = {};
      var d= new Date();
-     this.comments.push({ 
-       "userId": this.id,
-       "username":"Praveen",
-       "rate" : "sentiment_dissatisfied",
-       "comment" : this.cmntData,
-       "date" : d.toDateString()
-     });
-   
-   this.comntObj = { 
-       "userId": this.id,
-       "username":"Praveen",
-       "rate" : "sentiment_dissatisfied",
-       "comment" : this.cmntData,
-       "date" : d.toDateString()
-     };
-    
-    
-    this.http.post('/app/comments',this.comntObj)
+     this.http.post('/app/registeruser',this.userObj)
                  .toPromise()
                  .then((response)=>{
                     debugger;
-                 alert("User review was successfully created..");
+                 alert("User  was successfully created..");
                  document.getElementById("myDiv").style.display = "none";
                
                  }).catch(this.handleError); 

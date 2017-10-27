@@ -48,6 +48,31 @@
                     
                   </div>
                   <div role="tabpanel" class="tab-pane active" id="register">
+                    	<form id="register-form"  role="form" style="display: none;">
+                            <div class="form-group">
+                                <input type="text" name="username" id="username" 
+                                [(ngModel)]="userObj.username" [ngModelOptions]="{standalone: true}"
+                                tabindex="1" class="form-control" placeholder="Username" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" name="email" id="email"
+                                [(ngModel)]="userObj.email" [ngModelOptions]="{standalone: true}"
+                                tabindex="1" class="form-control" placeholder="Email Address" value="">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" name="password" 
+                                [(ngModel)]="userObj.password" [ngModelOptions]="{standalone: true}"
+                                 id="password" tabindex="2" class="form-control" placeholder="Password">
+                            </div>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-sm-6 col-sm-offset-3">
+                                            <button type="button" class="form-control btn btn-default"
+                                            (click) ="onSaveuser(evt)">Register</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>   
 
                   </div>
                 </div>
