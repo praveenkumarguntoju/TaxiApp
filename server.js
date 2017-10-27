@@ -164,29 +164,29 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 
 
 
-app.get("/app/authenticate/:id", function(req, res) {
-  db.collection("userData").findOne({username: req.params.id},function(err, docs){
-    if (err) {
-        console.log("ERROR: " + reason);
-         res.status(code || 500).json({"error": message});
-    } else {
-      const payload = {
-        admin: req.params.name
-      };
-      var token = jwt.sign(payload, app.get('superSecret'), {
-        expiresInMinutes: 1440 // expires in 24 hours
-      });
+// app.get("/app/authenticate/:id", function(req, res) {
+//   db.collection("userData").findOne({username: req.params.id},function(err, docs){
+//     if (err) {
+//         console.log("ERROR: " + reason);
+//          res.status(code || 500).json({"error": message});
+//     } else {
+//       const payload = {
+//         admin: req.params.name
+//       };
+//       var token = jwt.sign(payload, app.get('superSecret'), {
+//         expiresInMinutes: 1440 // expires in 24 hours
+//       });
       
-      // return the information including token as JSON
-      res.json({
-        success: true,
-        message: 'Enjoy your token!',
-        token: token
-      });
-    }
-  });
+//       // return the information including token as JSON
+//       res.json({
+//         success: true,
+//         message: 'Enjoy your token!',
+//         token: token
+//       });
+//     }
+//   });
 
-});
+// });
 
 app.post("/app/registeruser", function(req, res) {
   var newContact = req.body;
@@ -274,6 +274,20 @@ app.put("/app/contacts/:id", function(req, res) {
   });
 });
   
+
+app.get("/app/validuser/:id", function(req, res) {
+  db.collection("userData").findOne({username: req.params.id},function(err, docs){
+    if (err) {
+        console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
+    } else {
+     res.status(200);
+     res.send({data: docs});
+    }
+  });
+});
+
+
   
  
 

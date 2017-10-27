@@ -90,17 +90,13 @@ export class loginComponent implements OnInit {
   }
  
   validateUser(people) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const body = {'action': 'getData'};
-    const options = new RequestOptions({ headers: headers});
-    
-    var userUrl = '/app/authenticate' + '/' + this.userObj.username;
+   var userUrl = '/app/validuser' + '/' + this.userObj.username;
 
- this.http.get(userUrl)
-                 .toPromise().then((response)=>{
-                debugger;
-                this.dataGet(response);
-       }).catch(this.handleError); 
+       this.http.get(userUrl)
+                     .toPromise().then((response)=>{
+                      debugger;
+                     this.dataGet(response);
+                  }).catch(this.handleError); 
   };
   
   
