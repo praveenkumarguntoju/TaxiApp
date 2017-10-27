@@ -85,13 +85,14 @@ commentGet(res){
     
     
     this.http.post('/app/comments',this.comntObj)
-                           .toPromise()
-                           .then((response)=>{
-                                           debugger;
-                                        document.getElementById("myDiv").style.display = "none";
-                                 }).catch(this.handleError); 
-        
-    
+                 .toPromise()
+                 .then((response)=>{
+                    debugger;
+                 alert("User review was successfully created..");
+                 document.getElementById("myDiv").style.display = "none";
+               
+                 }).catch(this.handleError); 
+     
   };
   
    onClickMe(eve){
