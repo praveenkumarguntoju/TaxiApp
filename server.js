@@ -181,7 +181,7 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
   
 app.get("/app/comments/:id", function(req, res) {
   
-    db.collection("commentsData").find({}).toArray(function(err, docs) {
+    db.collection("commentsData").find({userId: req.params.id}).toArray(function(err, docs) {
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
