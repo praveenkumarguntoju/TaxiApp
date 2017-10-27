@@ -288,7 +288,7 @@ app.get("/app/validuser/:id", function(req, res) {
             console.log(token);
             console.log(jwt);
      res.status(200);
-     res.send(docs);
+     res.send(token);
     }
   });
 });
