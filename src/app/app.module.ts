@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { DropdownDirective } from './directives/dropdown.directive';
 import { DropdownComponent } from './dropdown/dropdown/dropdown.component';
+import { loginComponent } from './loginuser/login.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DropdownComponent } from './dropdown/dropdown/dropdown.component';
     RegisterComponent,
     DropdownDirective,
     DropdownDirective,
-    DropdownComponent
+    DropdownComponent,
+    loginComponent
   ],
   imports: [
     BrowserModule,
