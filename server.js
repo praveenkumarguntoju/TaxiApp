@@ -166,7 +166,7 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 
 app.get("/app/authenticate/:name", function(req, res) {
 
-  db.collection("userData").findOne({_id:  ObjectId(req.params.id)},function(err, docs){
+  db.collection("userData").findOne({username: req.params.name},function(err, docs){
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
