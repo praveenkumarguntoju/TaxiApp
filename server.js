@@ -193,20 +193,7 @@ app.get("/app/comments/:id", function(req, res) {
    
   
 });
-  
-  
-app.post("/app/comments", function(req, res) {
-    var newComment = req.body;
-  db.collection("commentsData").insertOne(newComment, function(err, doc) {
-    if (err) {
-        console.log("ERROR: " + reason);
-         res.status(code || 500).json({"error": message});
-    } else {
-     res.status(200);
-     res.send({data: docs});
-    }
-  });
-});
+
   
 
 app.put("/app/contacts/:id", function(req, res) {
@@ -224,7 +211,17 @@ app.put("/app/contacts/:id", function(req, res) {
  });
   
   
-  
+ app.post("/app/comments", function(req, res) {
+  var newContact = req.body;
+  db.collection("commentsData").insertOne(newContact, function(err, doc) {
+    if (err) {
+     console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
   
   
  
