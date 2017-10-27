@@ -165,12 +165,13 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 
 
 app.get("/app/authenticate/:name", function(req, res) {
-  db.collection("userData").find({username: req.params.name}).toArray(function(err, docs) {
+
+  db.collection("userData").findOne({_id:  ObjectId(req.params.id)},function(err, docs){
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
     } else {
-     const payload = {
+      const payload = {
         admin: req.params.name
       };
       var token = jwt.sign(payload, app.get('superSecret'), {
@@ -184,7 +185,8 @@ app.get("/app/authenticate/:name", function(req, res) {
         token: token
       });
     }
-   });
+  });
+
 });
 
 app.post("/app/registeruser", function(req, res) {
