@@ -284,18 +284,15 @@ app.get("/app/validuser/:id", function(req, res) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
     } else {
-      const payload = {
-               admin: name
-           };
-          var token = jwt.sign(payload, app.get('superSecret'), {
-                  expiresInMinutes: 1440 // expires in 24 hours
-               });
-              console.log(token);
+      
+          // var token = jwt.sign(payload, app.get('superSecret'), {
+          //         expiresInMinutes: 1440 // expires in 24 hours
+          //      });
+          //     console.log(token);
      res.status(200);
      res.send({
       success: true,
-      message: 'Enjoy your token!',
-      tokenId: token
+      message: 'Enjoy your token!'
     });
     }
   });
