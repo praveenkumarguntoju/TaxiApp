@@ -8,6 +8,7 @@ var jwt    = require('jsonwebtoken');
  var ObjectId = require('mongodb').ObjectId; 
 
 var app = express();
+app.set('superSecret', 'TestJwtToken'); // secret variable
 
 
 app.use(bodyParser.json({limit: '50mb'}));
@@ -155,6 +156,53 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
        
 // }
 // })
+
+
+
+
+
+
+
+
+app.post('app/authenticate', function(req, res) {
+  db.collection("userData").find({username: req.params.name}).toArray(function(err, docs) {
+    if (err) {
+        console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
+    } else {
+     const payload = {
+        admin: req.params.name
+      };
+      var token = jwt.sign(payload, app.get('superSecret'), {
+        expiresInMinutes: 1440 // expires in 24 hours
+      });
+      
+      // return the information including token as JSON
+      res.json({
+        success: true,
+        message: 'Enjoy your token!',
+        token: token
+      });
+    }
+   });
+});
+
+app.post("/app/registeruser", function(req, res) {
+  var newContact = req.body;
+  db.collection("userData").insertOne(newContact, function(err, doc) {
+    if (err) {
+     console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
+
+
+
+
+
   
   
   app.get("/app", function(req, res) {
