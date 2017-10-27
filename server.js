@@ -14,6 +14,7 @@ app.set('superSecret', 'TestJwtToken'); // secret variable
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({limit: '50mb'}));
 
+
 // Create link to Angular build directory
 
 console.log(jwt);
@@ -287,14 +288,13 @@ app.get("/app/validuser/:id", function(req, res) {
           var token = jwt.sign(payload, app.get('superSecret'), {
                   expiresInMinutes: 1440 // expires in 24 hours
                });
-
-               const docs = {
-                           success: true,
-                           message: 'Enjoy your token!',
-                           token: token
-                         };
+              
      res.status(200);
-     res.send({data: docs});
+     res.send({
+      success: true,
+      message: 'Enjoy your token!',
+      tokenId: token
+    });
     }
   });
 });
