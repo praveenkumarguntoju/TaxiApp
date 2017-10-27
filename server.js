@@ -277,18 +277,20 @@ app.put("/app/contacts/:id", function(req, res) {
   
 
 app.get("/app/validuser/:id", function(req, res) {
+
+  var name = req.params.id;
   db.collection("userData").findOne({username: req.params.id},function(err, docs){
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
     } else {
       const payload = {
-               admin: req.params.name
+               admin: name
            };
           var token = jwt.sign(payload, app.get('superSecret'), {
                   expiresInMinutes: 1440 // expires in 24 hours
                });
-              
+              console.log(token);
      res.status(200);
      res.send({
       success: true,
