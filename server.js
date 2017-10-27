@@ -16,7 +16,7 @@ app.use(bodyParser.urlencoded({limit: '50mb'}));
 
 // Create link to Angular build directory
 
-
+console.log(jwt);
 var distDir = __dirname + "/dist/";
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/src/app/images'));
