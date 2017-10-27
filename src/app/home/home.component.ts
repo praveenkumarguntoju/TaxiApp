@@ -40,16 +40,27 @@ export class HomeComponent implements OnInit {
     
 //   }
   
+//   commentsData
   
-onClickReview(eve){
+commentGet(res){
+    var comments = JSON.parse(res._body);
+    if(comments.data)
+     this.comments = comments.data;
+     document.getElementById("myDiv").style.display = "none";
+      
+  };
+
+ onClickReview(eve){
    this.id = eve._id
   var contactsUrl = '/app/comments' + '/' + this.id;
       this.http.get(contactsUrl,this.comments)
                  .toPromise()
                  .then((response)=>{
                     debugger;
-                 }).catch(this.handleError); 
-      }
+                  this.commentGet(response);
+                 }).catch(this.handleError);
+};
+//   comments end
   
   
   onSaveReview(eve){
