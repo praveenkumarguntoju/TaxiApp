@@ -12,7 +12,7 @@ app.set('superSecret', 'TestJwtToken'); // secret variable
 
 
 app.use(bodyParser.json({limit: '50mb'}));
-app.use(bodyParser.urlencoded({limit: '50mb'}));
+app.use(bodyParser.urlencoded({extended: true ,limit: '50mb'}));
 
 
 // Create link to Angular build directory
