@@ -82,18 +82,17 @@ export class loginComponent implements OnInit {
     // }
 
   dataGet(res){
-    var contacts = JSON.parse(res._body);
-    if(contacts.data)
-     this.people = contacts.data;
-     document.getElementById("myDiv").style.display = "none";
+    var token = JSON.parse(res._body);
+    if(token)
      this.router.navigate(['home']);
+     document.getElementById("myDiv").style.display = "none";
+  
       
 }
  
   validateUser(people) {
    var userUrl = '/app/validuser' + '/' + this.userObj.username;
-
-       this.http.get(userUrl)
+     this.http.get(userUrl)
                  .toPromise().then((response)=>{
                      this.dataGet(response);
                   }).catch(this.handleError); 
