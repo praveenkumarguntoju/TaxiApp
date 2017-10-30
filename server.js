@@ -188,6 +188,72 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 
 // });
 
+
+app.get("/app/validuser/:id", function(req, res) {
+  
+    var name = req.params.id;
+    db.collection("userData").findOne({username: req.params.id},function(err, docs){
+      if (err) {
+          console.log("ERROR: " + reason);
+           res.status(code || 500).json({"error": message});
+      } else {
+       
+            var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {algorithm: 'RS256'});
+              console.log(token);
+              console.log(jwt);
+       res.status(200);
+       res.send(token);
+      }
+    });
+  });
+
+
+
+app.use(function(req, res, next) {
+  
+    // check header or url parameters or post parameters for token
+    var token = req.body.token || req.query.token || req.headers['x-access-token'];
+  
+    // decode token
+    if (token) {
+  
+      // verifies secret and checks exp
+      jwt.verify(token, 'TestJwtToken', function(err, decoded) {      
+        if (err) {
+          return res.json({ success: false, message: 'Failed to authenticate token.' });    
+        } else {
+          // if everything is good, save to request for use in other routes
+          req.decoded = decoded;    
+          next();
+        }
+      });
+  
+    } else {
+  
+      // if there is no token
+      // return an error
+      return res.status(403).send({ 
+          success: false, 
+          message: 'No token provided.' 
+      });
+  
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.post("/app/registeruser", function(req, res) {
   var newContact = req.body;
   db.collection("userData").insertOne(newContact, function(err, doc) {
@@ -275,31 +341,6 @@ app.put("/app/contacts/:id", function(req, res) {
 });
   
 
-app.get("/app/validuser/:id", function(req, res) {
-
-  var name = req.params.id;
-  db.collection("userData").findOne({username: req.params.id},function(err, docs){
-    if (err) {
-        console.log("ERROR: " + reason);
-         res.status(code || 500).json({"error": message});
-    } else {
-     
-          var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {algorithm: 'RS256'});
-            console.log(token);
-            console.log(jwt);
-     res.status(200);
-     res.send(token);
-    }
-  });
-});
-
-
-  
- 
-
- 
-  
-  
   app.post("/app/contacts", function(req, res) {
   var newContact = req.body;
   db.collection("driversData").insertOne(newContact, function(err, doc) {
