@@ -86,8 +86,9 @@ export class loginComponent implements OnInit {
     if(contacts.data)
      this.people = contacts.data;
      document.getElementById("myDiv").style.display = "none";
+     this.router.navigate(['home']);
       
-  }
+}
  
   validateUser(people) {
    var userUrl = '/app/validuser' + '/' + this.userObj.username;
