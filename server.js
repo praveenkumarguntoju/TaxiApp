@@ -198,7 +198,7 @@ app.get("/app/validuser/:id", function(req, res) {
            res.status(code || 500).json({"error": message});
       } else {
        
-            var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {algorithm: 'RS256'});
+            var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
               console.log(token);
               console.log(jwt);
        res.status(200);
