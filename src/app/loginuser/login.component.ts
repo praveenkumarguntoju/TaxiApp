@@ -82,7 +82,7 @@ export class loginComponent implements OnInit {
     // }
 
   dataGet(res){
-    var token = JSON.parse(res._body);
+    var token = res._body;
     if(token)
      this.router.navigate(['home']);
      document.getElementById("myDiv").style.display = "none";
