@@ -30,6 +30,7 @@ export class loginComponent implements OnInit {
 
 
   ngOnInit(){
+    
    }
   
    constructor(private http: Http, private router: Router) {}
@@ -83,9 +84,12 @@ export class loginComponent implements OnInit {
 
   dataGet(res){
     var token = res._body;
-    if(token)
-     this.router.navigate(['home']);
-     document.getElementById("myDiv").style.display = "none";
+    if(token){
+    let navigationExtras = {
+      queryParams: { 'tokenData': token}
+    };
+     this.router.navigate(['home'],navigationExtras);
+     }
   
       
 }

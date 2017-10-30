@@ -2,7 +2,8 @@ import { Component, OnInit, EventEmitter,Input } from '@angular/core';
 import { Http ,  Response } from '@angular/http';
 import { Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { Router } from '@angular/router';
+import { Router,  ActivatedRoute  } from '@angular/router';
+import { Subscription } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
@@ -20,7 +21,9 @@ export class HomeComponent implements OnInit {
   people: any[] = [];
   cmntData:any;
   id:any;
+  token:any;
   comntObj:any;
+  private subscription: Subscription;
   comments: any[] = [{ 
  "username":"Praveen",
  "date":"22-08-2017",
@@ -30,11 +33,18 @@ export class HomeComponent implements OnInit {
  
 
   ngOnInit(){
+    this.subscription.unsubscribe();
     document.getElementById("myDiv").style.display = "block";
     this.getAllPeople(this.people);
 
   }
-  constructor(private http: Http, private router: Router) {}
+  constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
+
+    this.subscription = actRoute.queryParamMap.subscribe(params => {
+      debugger;
+           this.token =  params.get('tokenData') || 'None'
+   });
+  }
   
 //   onClickHome(eve){
     
@@ -121,10 +131,10 @@ commentGet(res){
   }
 
    getAllPeople(people) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': this.token });
     const body = {'action': 'getData'};
-    const options = new RequestOptions({ headers: headers});
-    this.http.get('/app')
+    const options = new RequestOptions({ headers: header});
+    this.http.get('/app',{ headers: header })
                  .toPromise().then((response)=>{
                 this.dataGet(response);
        }).catch(this.handleError); 
