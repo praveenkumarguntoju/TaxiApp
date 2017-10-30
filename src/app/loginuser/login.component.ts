@@ -94,8 +94,7 @@ export class loginComponent implements OnInit {
    var userUrl = '/app/validuser' + '/' + this.userObj.username;
 
        this.http.get(userUrl)
-                     .toPromise().then((response)=>{
-                      debugger;
+                 .toPromise().then((response)=>{
                      this.dataGet(response);
                   }).catch(this.handleError); 
   };
