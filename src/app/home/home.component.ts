@@ -110,7 +110,8 @@ commentGet(res){
      // tslint:disable-next-line:no-debugger
      debugger;
       let navigationExtras = {
-      queryParams: { 'idData': eve._id}
+      queryParams: { 'idData': eve._id,
+                     'tokenData':this.token}
     };
       document.getElementById("myDiv").style.display = "block";
       this.router.navigate(['details',eve.CARNUM],navigationExtras);

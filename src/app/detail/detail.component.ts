@@ -15,6 +15,7 @@ export class DetailComponent implements OnInit {
   imageUrl: string;
   driverDetails: any = {};
   public id: string;
+  token:any;
   displayDetail:any = true;
   private subscription: Subscription;
 
@@ -23,7 +24,8 @@ export class DetailComponent implements OnInit {
     debugger;
     this.subscription = actRoute.queryParamMap.subscribe(params => {
          debugger;
-              this.id =  params.get('idData') || 'None'
+              this.id =  params.get('idData') || 'None';
+              this.token =  params.get('tokenData') || 'None'
       });
    }
 
@@ -53,11 +55,11 @@ export class DetailComponent implements OnInit {
   }
 
  getDetails(id) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
-    const body = {'action': 'getDetail', 'data':id};
-    const options = new RequestOptions({ headers: headers});
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': this.token });
+    const body = {'action': 'getData'};
+    const options = new RequestOptions({ headers: header});
     var contactsUrl = '/app/contacts' + '/' + id;
-    this.http.get(contactsUrl)
+    this.http.get(contactsUrl,{ headers: header })
                  .toPromise()
                  .then((response)=>{
              debugger;
