@@ -189,6 +189,19 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 // });
 
 
+app.post("/app/registeruser", function(req, res) {
+  var newContact = req.body;
+  db.collection("userData").insertOne(newContact, function(err, doc) {
+    if (err) {
+     console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
+
+
 app.get("/app/validuser/:id", function(req, res) {
   
     var name = req.params.id;
@@ -249,28 +262,6 @@ app.use(function(req, res, next) {
 
 
 
-
-
-
-
-
-app.post("/app/registeruser", function(req, res) {
-  var newContact = req.body;
-  db.collection("userData").insertOne(newContact, function(err, doc) {
-    if (err) {
-     console.log("ERROR: " + reason);
-         res.status(code || 500).json({"error": message});
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
-});
-
-
-
-
-
-  
   
   app.get("/app", function(req, res) {
   db.collection("driversData").find({}).toArray(function(err, docs) {
