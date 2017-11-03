@@ -214,8 +214,8 @@ app.get("/app/validuser/:id", function(req, res) {
             var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
               console.log(token);
               console.log(jwt);
-       res.status(200);
-       res.send(token);
+              res.status(200);
+              res.send({"tokenId": token,"usrObj":docs});
       }
     });
   });
