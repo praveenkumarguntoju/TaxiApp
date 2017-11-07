@@ -196,6 +196,7 @@ app.get("/app/validuser/:id", function(req, res) {
     var name = '"' + req.params.id + '"';
     console.log(name);
        db.collection("userData").findOne({username: name},function(err, docs){
+                  console.log(err);
                   if (!err) {
                     if(docs){
                     var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
