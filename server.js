@@ -203,7 +203,13 @@ app.get("/app/validuser/:id", function(req, res) {
                       console.log(token);
                       console.log(jwt);
                       res.status(200);
+                      if(docs){
+                      res.status(200);
                       res.send({"tokenId": token,"usrObj":docs});
+                      }else{
+                        res.status(500); 
+                        res.send("NO Valid Token provided");
+                      }
                    }
     });
 });
