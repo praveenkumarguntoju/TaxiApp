@@ -208,17 +208,6 @@ app.get("/app/validuser/:id", function(req, res) {
     });
 });
 
-app.post("/app/registeruser", function(req, res) {
-  var newContact = req.body;
-  db.collection("userData").insertOne(newContact, function(err, doc) {
-    if (err) {
-     console.log("ERROR: " + reason);
-         res.status(code || 500).json({"error": message});
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
-});
 
 
 app.use(function(req, res, next) {
@@ -254,7 +243,18 @@ app.use(function(req, res, next) {
 
 
 
-
+  app.post("/app/registeruser", function(req, res) {
+    var newContact = req.body;
+    db.collection("userData").insertOne(newContact, function(err, doc) {
+      if (err) {
+       console.log("ERROR: " + reason);
+           res.status(code || 500).json({"error": message});
+      } else {
+        res.status(201).json(doc.ops[0]);
+      }
+    });
+  });
+  
 
 
 
