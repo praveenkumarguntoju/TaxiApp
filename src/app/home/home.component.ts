@@ -62,9 +62,9 @@ commentGet(res){
 
  onClickReview(eve){
    this.id = eve._id
-  
+  const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
   var contactsUrl = '/app/comments' + '/' + this.id;
-      this.http.get(contactsUrl,this.comments)
+      this.http.get(contactsUrl,this.comments,{ headers: header })
                  .toPromise()
                  .then((response)=>{
                     debugger;
@@ -94,8 +94,8 @@ commentGet(res){
        "date" : d.toDateString()
      };
     
-    
-    this.http.post('/app/comments',this.comntObj)
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
+    this.http.post('/app/comments',this.comntObj,{ headers: header })
                  .toPromise()
                  .then((response)=>{
                     debugger;
