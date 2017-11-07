@@ -199,16 +199,13 @@ app.get("/app/validuser/:id", function(req, res) {
                     console.log("ERROR: " + reason);
                      res.status(code || 500).json({"error": message});
                   } else {
-                      var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
-                      console.log(token);
-                      console.log(jwt);
-                      res.status(200);
                       if(docs !== null){
+                      var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
                       res.status(200);
-                      res.send({"tokenId": token,"usrObj":docs});
+                      res.send({"tokenId": token});
                       }else{
                         res.status(500); 
-                        res.send("NO Valid Token provided");
+                        res.send("No User registered with this name");
                       }
                    }
     });
