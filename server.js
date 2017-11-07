@@ -202,7 +202,7 @@ app.get("/app/validuser/:id", function(req, res) {
                       if(docs !== null){
                       var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
                       res.status(200);
-                      res.send({"tokenId": token});
+                      res.send(token);
                       }else{
                         res.status(500); 
                         res.send("No User registered with this name");
