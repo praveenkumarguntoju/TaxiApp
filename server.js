@@ -196,7 +196,6 @@ app.get("/app/validuser/:id", function(req, res) {
     var name = '"' + req.params.id + '"';
        db.collection("userData").findOne({username: name},function(err, docs){
                   if (err) {
-                    console.log("ERROR: " + reason);
                      res.status(code || 500).json({"error": message});
                   } else {
                       if(docs){
@@ -206,8 +205,8 @@ app.get("/app/validuser/:id", function(req, res) {
                       res.status(200);
                       res.send({"tokenId": token,"usrObj":docs});
                       }else{
-                        console.log("ERROR: " + reason);
-                        res.status(code || 500).json({"error": message}); 
+                        res.status(code || 500); 
+                        res.send({"tokenId": token,"usrObj":docs});
                       }
                    }
     });
