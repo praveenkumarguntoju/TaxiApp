@@ -64,7 +64,7 @@ commentGet(res){
    this.id = eve._id
   const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
   var contactsUrl = '/app/comments' + '/' + this.id;
-      this.http.get(contactsUrl,this.comments,{ headers: header })
+      this.http.get(contactsUrl,{ headers: header })
                  .toPromise()
                  .then((response)=>{
                     debugger;
