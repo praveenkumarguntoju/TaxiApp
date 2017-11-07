@@ -206,7 +206,8 @@ app.get("/app/validuser/:id", function(req, res) {
                       res.status(200);
                       res.send({"tokenId": token,"usrObj":docs});
                       }else{
-                        
+                        console.log("ERROR: " + reason);
+                        res.status(code || 500).json({"error": message}); 
                       }
                    }
     });
