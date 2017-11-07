@@ -194,7 +194,7 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 
 app.get("/app/validuser/:id", function(req, res) {
     var name = req.params.id;
-       db.collection("userData").findOne({username: "joi32riu"},function(err, docs){
+       db.collection("userData").findOne({username: req.params.id},function(err, docs){
                   if (err) {
                     console.log("ERROR: " + reason);
                      res.status(code || 500).json({"error": message});
