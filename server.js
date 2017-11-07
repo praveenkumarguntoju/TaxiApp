@@ -193,8 +193,9 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 
 
 app.get("/app/validuser/:id", function(req, res) {
-    var name = req.params.id;
-       db.collection("userData").findOne({username: name },function(err, docs){
+    var name = '"' + req.params.id + '"';
+    console.log(name);
+       db.collection("userData").findOne({username: name},function(err, docs){
                   if (!err) {
                     if(docs){
                     var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
