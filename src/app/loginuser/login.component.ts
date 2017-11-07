@@ -88,7 +88,8 @@ export class loginComponent implements OnInit {
     let navigationExtras = {
       queryParams: { 'tokenData': token}
     };
-     this.router.navigate(['home'],navigationExtras);
+    sessionStorage.token = token;
+     this.router.navigate(['home']);
      }
   
       

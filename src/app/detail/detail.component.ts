@@ -25,7 +25,7 @@ export class DetailComponent implements OnInit {
     this.subscription = actRoute.queryParamMap.subscribe(params => {
          debugger;
               this.id =  params.get('idData') || 'None';
-              this.token =  params.get('tokenData') || 'None'
+              // this.token =  params.get('tokenData') || 'None'
       });
    }
 
@@ -55,7 +55,7 @@ export class DetailComponent implements OnInit {
   }
 
  getDetails(id) {
-    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': this.token });
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     const body = {'action': 'getData'};
     const options = new RequestOptions({ headers: header});
     var contactsUrl = '/app/contacts' + '/' + id;
@@ -69,11 +69,11 @@ export class DetailComponent implements OnInit {
 
 
   updateDetails(evt) {
-    const headers = new Headers({ 'Content-Type': 'application/json' });
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     const body = {'action': 'updateDetail', 'data': this.driverDetails};
-    const options = new RequestOptions({ headers: headers});
+    const options = new RequestOptions({ headers: header});
      var contactsUrl = '/app/contacts' + '/' + this.id;
-      this.http.put(contactsUrl,this.driverDetails)
+      this.http.put(contactsUrl,this.driverDetails,{ headers: header })
                  .toPromise()
                  .then((response)=>{
                     debugger;

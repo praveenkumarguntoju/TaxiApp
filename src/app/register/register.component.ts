@@ -102,11 +102,11 @@ export class RegisterComponent implements OnInit {
 
      saveDetails(event){
        document.getElementById("myDiv").style.display = "block";
-       const headers = new Headers({ 'Content-Type': 'application/json' });
+       const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
        const body = {'action': 'create', 'data': this.driverDetails};
-       const options = new RequestOptions({ headers: headers});
+       const options = new RequestOptions({ headers: header});
        
-       this.http.post('/app/contacts',this.driverDetails)
+       this.http.post('/app/contacts',this.driverDetails,{ headers: header})
                  .toPromise()
                  .then((response)=>{
                     debugger;

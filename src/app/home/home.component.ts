@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
 
     this.subscription = actRoute.queryParamMap.subscribe(params => {
       debugger;
-           this.token =  params.get('tokenData') || 'None'
+          //  this.token =  params.get('tokenData') || 'None'
    });
   }
   
@@ -110,8 +110,7 @@ commentGet(res){
      // tslint:disable-next-line:no-debugger
      debugger;
       let navigationExtras = {
-      queryParams: { 'idData': eve._id,
-                     'tokenData':this.token}
+      queryParams: { 'idData': eve._id}
     };
       document.getElementById("myDiv").style.display = "block";
       this.router.navigate(['details',eve.CARNUM],navigationExtras);
@@ -132,7 +131,7 @@ commentGet(res){
   }
 
    getAllPeople(people) {
-    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': this.token });
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     const body = {'action': 'getData'};
     const options = new RequestOptions({ headers: header});
     this.http.get('/app',{ headers: header })
