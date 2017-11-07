@@ -193,25 +193,32 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 
 
 app.get("/app/validuser/:id", function(req, res) {
-    var name = '"' + req.params.id + '"';
-       db.collection("userData").findOne({username: name},function(err, docs){
+    var name = req.params.id;
+       db.collection("userData").findOne({username: "joi32riu"},function(err, docs){
                   if (err) {
+                    console.log("ERROR: " + reason);
                      res.status(code || 500).json({"error": message});
                   } else {
-                      if(docs){
                       var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
                       console.log(token);
                       console.log(jwt);
                       res.status(200);
                       res.send({"tokenId": token,"usrObj":docs});
-                      }else{
-                        res.status(code || 500); 
-                        res.send({"tokenId": token,"usrObj":docs});
-                      }
                    }
     });
 });
 
+app.post("/app/registeruser", function(req, res) {
+  var newContact = req.body;
+  db.collection("userData").insertOne(newContact, function(err, doc) {
+    if (err) {
+     console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
+  });
+});
 
 
 app.use(function(req, res, next) {
@@ -247,17 +254,6 @@ app.use(function(req, res, next) {
 
 
 
-app.post("/app/registeruser", function(req, res) {
-  var newContact = req.body;
-  db.collection("userData").insertOne(newContact, function(err, doc) {
-    if (err) {
-     console.log("ERROR: " + reason);
-         res.status(code || 500).json({"error": message});
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
-});
 
 
 
