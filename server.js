@@ -195,12 +195,17 @@ mongodb.MongoClient.connect('mongodb://chintu:chintu123@ds229415.mlab.com:29415/
 app.get("/app/validuser/:id", function(req, res) {
     var name = req.params.id;
        db.collection("userData").findOne({username: "praveen" },function(err, docs){
-                  if (docs) {
+                  if (!err) {
+                    if(docs){
                     var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
                     console.log(token);
                     console.log(jwt);
                     res.status(200);
                     res.send({"tokenId": token,"usrObj":docs});
+                  }else{
+                    console.log("ERROR: " + reason);
+                    res.status(code || 500).json({"error": message});
+                  }
                     
                   } else {
                     console.log("ERROR: " + reason);
