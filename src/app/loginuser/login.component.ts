@@ -21,9 +21,10 @@ export class loginComponent implements OnInit {
  
   userObj: any = {
     'username': '',
-    'password': '',
-    'email': ''
+     'email': ''
       };
+
+      // 'password': '',
 
 
 
