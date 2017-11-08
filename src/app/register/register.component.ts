@@ -100,6 +100,10 @@ export class RegisterComponent implements OnInit {
         }
     };
 
+     cancel(event){
+           this.router.navigate(['home']);
+     }         
+  
      saveDetails(event){
        document.getElementById("myDiv").style.display = "block";
        const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
