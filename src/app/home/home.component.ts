@@ -122,6 +122,11 @@ commentGet(res){
      this.router.navigate(['register'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
     }
 
+
+       onBook(eve){
+               debugger;
+             }
+
   dataGet(res){
     var contacts = JSON.parse(res._body);
     if(contacts.data)
