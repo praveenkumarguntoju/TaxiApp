@@ -8,3 +8,7 @@
     margin-bottom: 15px;
     margin-top: 10px;
 }
+
+.nav-tabs>li.active>a {
+  background-color: rgb(159, 238, 212)
+}
