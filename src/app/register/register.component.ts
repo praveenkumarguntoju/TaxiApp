@@ -102,7 +102,7 @@ export class RegisterComponent implements OnInit {
 
      cancel(event){
            this.router.navigate(['home']);
-     }         
+     };       
   
      saveDetails(event){
        document.getElementById("myDiv").style.display = "block";
