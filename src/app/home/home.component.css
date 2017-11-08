@@ -150,6 +150,11 @@ img {
     background-color: rgba(0, 0, 0, 0.09);
 }
 
+body.modal-open {
+    overflow: hidden;
+    position: fixed;
+}
+
 
 
 
