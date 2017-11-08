@@ -200,7 +200,9 @@ app.get("/app/validuser/:id", function(req, res) {
                      res.status(code || 500).json({"error": message});
                   } else {
                       if(docs !== null){
-                      var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {});
+                      var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {
+                        expiresIn: 120
+                      });
                       res.status(200);
                       res.send(token);
                       }else{
