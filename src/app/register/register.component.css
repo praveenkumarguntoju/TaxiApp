@@ -1,3 +1,10 @@
 .rpadding{
     padding-bottom: 9px;
 }
+
+.rborder{
+    padding-bottom: 25px;
+    padding-top: 25px;
+    margin-top: 1%;
+    font-family: monospace;  
+}
