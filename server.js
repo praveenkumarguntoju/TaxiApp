@@ -199,7 +199,7 @@ app.get("/app/validuser/:id", function(req, res) {
                   } else {
                       if(docs !== null){
                       var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {
-                        expiresIn: 120
+                        
                       });
                       res.status(200);
                       res.send(token);
