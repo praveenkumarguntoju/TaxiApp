@@ -86,7 +86,7 @@ export class RegisterComponent implements OnInit {
     
     img.onload = function(){
      var oc = document.createElement('canvas'),
-        octx = oc.getContext('2d');
+       octx = oc.getContext('2d');
   debugger;
     oc.width = img.width * 0.1;
     oc.height = img.height * 0.1;
