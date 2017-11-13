@@ -115,6 +115,9 @@ commentGet(res){
       document.getElementById("myDiv").style.display = "block";
       this.router.navigate(['details',eve.CARNUM],navigationExtras);
    }
+   onUsertravel(eve){
+    this.router.navigate(['usertravel']);
+   }
 
     onRegister(eve){
      // tslint:disable-next-line:no-debugger
