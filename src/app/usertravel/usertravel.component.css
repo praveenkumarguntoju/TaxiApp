@@ -1,0 +1,60 @@
+#map {
+    height: 100%;
+  }
+
+  #capture {
+    height: 360px;
+    width: 480px;
+    overflow: hidden;
+    float: left;
+    background-color: #ECECFB;
+    border: thin solid #333;
+    border-left: none;
+  }
+
+  #floating-panel {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    z-index: 5;
+    background-color: #fff;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: 'Roboto', 'sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+  }
+
+  #floating-panel {
+    margin-left: -52px;
+  }
+
+  .magePattern {
+    height: 200px;
+
+
+
+  }
+
+  #parent {
+    display: flex;
+    z-index: 5;
+    background-color: #e9e8e6;
+    ;
+    padding: 5px;
+    border: 1px solid #999;
+    text-align: center;
+    font-family: 'Roboto', 'sans-serif';
+    line-height: 30px;
+    padding-left: 10px;
+  }
+
+  #narrow {
+    width: 200px;
+    background: lightblue;
+  }
+
+  #wide {
+    width: 200px;
+  }
