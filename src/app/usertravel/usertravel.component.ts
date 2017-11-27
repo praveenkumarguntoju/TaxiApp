@@ -54,7 +54,7 @@ export class UserTravelComponent implements OnInit {
     this.directionsDisplay.setMap(this.map);
 
     
-    this.map.addListener('click', this.addLatLng(event));
+    this.map.addListener('click', this.addLatLng);
 
 }
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
