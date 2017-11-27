@@ -32,7 +32,7 @@ export class UserTravelComponent implements OnInit {
       place:"",
 
   }
-  markers:any;
+  markers:any = [];
  
   private subscription: Subscription;
   ngOnInit(){
