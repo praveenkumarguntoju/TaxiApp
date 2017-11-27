@@ -36,7 +36,6 @@ export class UserTravelComponent implements OnInit {
   ngOnInit(){
     debugger;
     this.subscription.unsubscribe();
-    document.getElementById("myDiv").style.display = "block";
     this.map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
       center: { lat: 52.520, lng: 13.410 }
@@ -46,9 +45,7 @@ export class UserTravelComponent implements OnInit {
    
     this.directionsDisplay = new google.maps.DirectionsRenderer();
     this.directionsDisplay.setMap(this.map);
-
-
-  }
+ }
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
 
     this.subscription = actRoute.queryParamMap.subscribe(params => {
