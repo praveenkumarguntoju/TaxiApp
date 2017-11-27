@@ -43,7 +43,9 @@ export class UserTravelComponent implements OnInit {
     var marker = new google.maps.Marker({
     });
    
+    this.directionsService = new google.maps.DirectionsService();
     this.directionsDisplay = new google.maps.DirectionsRenderer();
+  
     this.directionsDisplay.setMap(this.map);
  }
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
