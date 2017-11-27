@@ -10,6 +10,51 @@
     </div>
 </div> -->
 
+<!-- <div id="parent">
+    <div id="wide">
+      <button id="drop" onclick="drop()">Drop Markers</button>
+    </div>
+    <div id="narrow">
+      <input type="text" class="form-control" id="tourName">
+    </div>
+    <div id="clear">
+      <button id="clear" onclick="clearMarkers()">Hide Markers</button>
+    </div>
+  </div> -->
+
 <div id="map"></div>
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Location Details</h4>
+        </div>
+        <div class="modal-body">
+          <div class="row" style="padding:3px">
+            <div class="col-md-6">
+              <label for="comment">Comment:</label>
+            </div>
+            <div class="col-md-6">
+              <textarea class="form-control" rows="5" id="comment"></textarea>
+            </div>
+          </div>
+          <div class="row" style="padding:3px">
+            <div class="col-md-6">
+              <label for="comment"> Add Image:</label>
+            </div>
+            <div class="col-md-6">
+              <input type="file" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal" onclick="saveLocation()">Save</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 

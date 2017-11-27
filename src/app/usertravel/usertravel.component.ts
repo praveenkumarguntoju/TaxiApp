@@ -21,6 +21,8 @@ export class UserTravelComponent implements OnInit {
   map:any;
   directionsService:any;
   directionsDisplay:any;
+  infowindow:any;
+  markerz:any;
 
   debugger;
 
@@ -42,12 +44,19 @@ export class UserTravelComponent implements OnInit {
     });
     var marker = new google.maps.Marker({
     });
+   this.infowindow = new google.maps.InfoWindow({
+      
+            });
    
     this.directionsService = new google.maps.DirectionsService();
     this.directionsDisplay = new google.maps.DirectionsRenderer();
   
     this.directionsDisplay.setMap(this.map);
- }
+
+    
+    this.map.addListener('click', this.addLatLng(event));
+
+}
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
 
     this.subscription = actRoute.queryParamMap.subscribe(params => {
@@ -55,6 +64,83 @@ export class UserTravelComponent implements OnInit {
           //  this.token =  params.get('tokenData') || 'None'
    });
   }
+
+  addLatLng(event) {
+    debugger;
+    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
+    var id = Math.floor(Math.random() * chars.length);
+    // var path = poly.getPath();
+    // path.push(event.latLng);
+   // var tourName = document.getElementById('tourName').value;
+    var marker = new google.maps.Marker({
+      tourname: "New Tour",
+      id: id,
+      position: event.latLng,
+      title: '#' + id,
+      map: this.map
+    });
+
+
+    this.markers.push(marker);
+    this.markerz[id] = marker;
+    // google.maps.event.addListener(marker, "rightclick", function (point) {
+    //   debugger;
+    //   delMarker(id)
+    // });
+    marker.addListener('click', function () {
+      this.infowindowSet(this.map, marker);
+    });
+  }
+
+
+  infowindowSet(map,marker){
+     debugger;
+     var dataObj;
+     var geocoder = new google.maps.Geocoder;
+     var pos = marker.getPosition();
+    //  var dataObj = _.find(this.travelData, { lat: pos.lat() });
+     if (dataObj) {
+       var contentString = '<div id="content" style="width:100%;height:100%;">' +
+         '<div id="siteNotice" style="float:left;width: 45%; overflow:hidden;padding:2px;">' +
+         '<span style="font-size:19px;"><b>' + dataObj.place + '</b></span>' +
+         '<div class="imagePattern" style="background: url(' + dataObj.image + ') no-repeat center center; height: 200px;width: 250px;"></div>' +
+         '</div>' +
+
+         '<div id="viewContent" style="overflow-y: auto;width: 50%;height: 174px; float:left;padding:2px;">' +
+         '<span style="font-size:19px;"><b>Comments</b></span>' +
+         '<p>' + dataObj.text + '</p>' +
+         '(last visited' + dataObj.visitedDate + ')' + '</b>' + '.</p>' +
+         '</div>' +
+         '</div>';
+     } else {
+       debugger;
+       this.locationObj.lat = pos.lat();
+       this.locationObj.lng = pos.lng();
+       let locName = new google.maps.LatLng({lat: this.locationObj.lat, lng: this.locationObj.lng});
+       geocoder.geocode({'location': locName}, function(results, status) {
+            if (status === 'OK') {
+                     if (results[0]) {
+                       debugger;
+                       this.locationObj.place = results[0].formatted_address;
+                   } else {
+                       window.alert('No results found');
+                         }
+             } else {
+               window.alert('Geocoder failed due to: ' + status);
+              }
+            });
+
+
+
+       var contentString = '<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Create Location</button>';
+   }
+
+
+     this.infowindow.setContent(contentString);
+     this.infowindow.open(this.map, marker);
+   }
+
+
   
 
 
