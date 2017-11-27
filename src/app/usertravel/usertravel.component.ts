@@ -8,6 +8,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { DropdownComponent } from '../dropdown/dropdown/dropdown.component';
+declare var google:any;
 
 @Component({
   selector: 'app-map',
@@ -30,6 +31,7 @@ export class UserTravelComponent implements OnInit {
 
   }
   markers:any;
+ 
   private subscription: Subscription;
   ngOnInit(){
     debugger;
