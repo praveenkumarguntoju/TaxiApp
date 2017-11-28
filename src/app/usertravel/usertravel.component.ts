@@ -44,17 +44,14 @@ export class UserTravelComponent implements OnInit {
     });
     var marker = new google.maps.Marker({
     });
-   this.infowindow = new google.maps.InfoWindow({
-      
-            });
-   
-    this.directionsService = new google.maps.DirectionsService();
+
+   this.directionsService = new google.maps.DirectionsService();
     this.directionsDisplay = new google.maps.DirectionsRenderer();
   
     this.directionsDisplay.setMap(this.map);
 
     
-    this.map.addListener('click', this.addLatLng);
+    this.map.addListener('click', this.addLatLng(event,this));
 
 }
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
@@ -65,7 +62,7 @@ export class UserTravelComponent implements OnInit {
    });
   }
 
-  addLatLng(event) {
+  addLatLng(event,thisData) {
     debugger;
     var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
     var id = Math.floor(Math.random() * chars.length);
@@ -77,20 +74,20 @@ export class UserTravelComponent implements OnInit {
       id: id,
       position: event.latLng,
       title: '#' + id,
-      map: this.map
+      map: thisData.map
     });
 
 
-    this.markers.push(marker);
-    this.markerz[id] = marker;
+    thisData.markers.push(marker);
+    thisData.markerz[id] = marker;
     // google.maps.event.addListener(marker, "rightclick", function (point) {
     //   debugger;
     //   delMarker(id)
     // });
     marker.addListener('click', function () {
-      this.infowindowSet(this.map, marker);
+      this.infowindowSet(thisData.map, marker);
     });
-  }
+  };
 
 
   infowindowSet(map,marker){
