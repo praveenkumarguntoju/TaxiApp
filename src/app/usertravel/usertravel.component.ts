@@ -101,7 +101,7 @@ export class UserTravelComponent implements OnInit {
             } else {
               window.alert('Geocoder failed due to: ' + status);
              }
-           });
+           }.bind(this));
 
 
 
