@@ -22,7 +22,7 @@ export class UserTravelComponent implements OnInit {
   directionsService:any;
   directionsDisplay:any;
   infowindow:any;
-  markerz:any;
+  markerz = {};
   self=this;
 
   debugger;
@@ -69,8 +69,6 @@ export class UserTravelComponent implements OnInit {
     debugger;
     var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
     var id = Math.floor(Math.random() * chars.length);
-    // var path = poly.getPath();
-    // path.push(event.latLng);
    // var tourName = document.getElementById('tourName').value;
     var marker = new google.maps.Marker({
       tourname: "New Tour",
