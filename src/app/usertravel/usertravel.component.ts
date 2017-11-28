@@ -133,7 +133,7 @@ export class UserTravelComponent implements OnInit {
     // });
     marker.addListener('click', function () {
       this.infowindowSet(this.map, marker);
-    });
+    }.bind(this));
   }; 
   
 }
