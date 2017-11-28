@@ -31,8 +31,10 @@ export class UserTravelComponent implements OnInit {
       lat:"",
       lng:"",
       place:"",
-
-  }
+      text:"",
+      visitedDate:"",
+      tourname:""
+}
   markers:any = [];
  
   private subscription: Subscription;
@@ -74,7 +76,7 @@ export class UserTravelComponent implements OnInit {
     var dataObj;
     var geocoder = new google.maps.Geocoder;
     var pos = marker.getPosition();
-   //  var dataObj = _.find(this.travelData, { lat: pos.lat() });
+    var index = this.travelData.indexOf({ lat: pos.lat() });
     if (dataObj) {
       var contentString = '<div id="content" style="width:100%;height:100%;">' +
         '<div id="siteNotice" style="float:left;width: 45%; overflow:hidden;padding:2px;">' +
@@ -138,5 +140,22 @@ export class UserTravelComponent implements OnInit {
       this.infowindowSet(this.map, marker);
     }.bind(this));
   }; 
+
+
+  saveLocation() {
+    debugger;
+    var geocoder = new google.maps.Geocoder;
+    var date = new Date();
+    this.locationObj.text = "3fh3foih3foih43if3fih43";
+    this.locationObj.visitedDate = "11/28/2017";
+    this.locationObj.tourname = "TestTour"
+    debugger;
+
+    var saveObj = this.locationObj;
+    this.travelData.push(saveObj);
+  }
+
+
+
   
 }
