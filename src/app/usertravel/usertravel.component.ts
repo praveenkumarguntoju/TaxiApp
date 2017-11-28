@@ -28,6 +28,7 @@ export class UserTravelComponent implements OnInit {
   debugger;
 
   locationObj = {
+      id:"",
       lat:"",
       lng:"",
       place:"",
@@ -76,7 +77,10 @@ export class UserTravelComponent implements OnInit {
     var dataObj;
     var geocoder = new google.maps.Geocoder;
     var pos = marker.getPosition();
-    var index = this.travelData.indexOf({ lat: pos.lat() });
+    var index = this.travelData.indexOf({ id: marker.id });
+    if(index){
+     dataObj = this.travelData[index];
+    }
     if (dataObj) {
       var contentString = '<div id="content" style="width:100%;height:100%;">' +
         '<div id="siteNotice" style="float:left;width: 45%; overflow:hidden;padding:2px;">' +
@@ -92,6 +96,7 @@ export class UserTravelComponent implements OnInit {
         '</div>';
     } else {
       debugger;
+      this.locationObj.id = marker.id;
       this.locationObj.lat = pos.lat();
       this.locationObj.lng = pos.lng();
       let locName = new google.maps.LatLng({lat: this.locationObj.lat, lng: this.locationObj.lng});
@@ -128,6 +133,7 @@ export class UserTravelComponent implements OnInit {
       title: '#' + id,
       map: this.map
     });
+
 
 
     this.markers.push(marker);
