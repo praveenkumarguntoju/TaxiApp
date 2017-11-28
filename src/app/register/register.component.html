@@ -1,6 +1,6 @@
 <div class="container">
 <div class="row rborder jumbotron">
-    <form name="frmRegister" novalidate>
+    <form name="frmRegister">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 rpadding" style="padding-top: 2px;">
         <div class="form-group">
             <label class="col-md-4 control-label" for="fn">First name</label>
@@ -83,7 +83,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="add2">Address 2</label>
             <div class="col-md-4">
-                <input id="add2" name="add2" type="text" placeholder=""  [(ngModel)]="driverDetails.ADDRS2" class="form-control input-md">
+                <input id="add2" name="add2" required type="text" placeholder=""  [(ngModel)]="driverDetails.ADDRS2" class="form-control input-md">
 
             </div>
         </div>
@@ -95,7 +95,7 @@
             <label class="col-md-4 control-label" for="city">City</label>
             <div class="col-md-4">
                 <input  type="text" placeholder="city" [(ngModel)]="driverDetails.CITY"  [ngModelOptions]="{standalone: true}"
-                       class="form-control input-md" required="">
+                       class="form-control input-md" required>
              </div>
 <!--             <span class="rmessage" [hidden]="!frmRegister.city.$valid">City is required</span> -->
         </div>
@@ -107,7 +107,7 @@
             <label class="col-md-4 control-label" for="zip">Zip Code</label>
             <div class="col-md-4">
                 <input id="zip" name="zip" type="text" placeholder="Zip Code" [(ngModel)]="driverDetails.ZIPCODE"  [ngModelOptions]="{standalone: true}"
-                       class="form-control input-md" required="">
+                       class="form-control input-md" required>
 
             </div>
         </div>
@@ -141,7 +141,7 @@
                 <label class="col-md-4 control-label" for="phone">Upload Image</label>
                 <div class="col-md-5" style="display:inline-block;">
                   <input type="file" class="fileUpload" style="display:inline;" (change)="uploadImage($event)" 
-                    name="file" ngf-accept="'image/*'" required="">
+                    name="file" ngf-accept="'image/*'" required>
                 </div>
 
             </div>
