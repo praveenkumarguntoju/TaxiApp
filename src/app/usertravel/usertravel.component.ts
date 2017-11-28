@@ -77,10 +77,10 @@ export class UserTravelComponent implements OnInit {
     var dataObj;
     var geocoder = new google.maps.Geocoder;
     var pos = marker.getPosition();
-    var index = this.travelData.indexOf({ id: marker.id });
-    if(index){
-     dataObj = this.travelData[index];
+    var finddataObj = function(ele){
+      return ele.id == marker.id;
     }
+   dataObj =  this.travelData.find(finddataObj);
     if (dataObj) {
       var contentString = '<div id="content" style="width:100%;height:100%;">' +
         '<div id="siteNotice" style="float:left;width: 45%; overflow:hidden;padding:2px;">' +
