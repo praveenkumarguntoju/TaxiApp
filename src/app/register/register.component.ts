@@ -111,6 +111,7 @@ export class RegisterComponent implements OnInit {
        
        for (var key in  this.driverDetails) {
         if ( this.driverDetails[key] == null ||  this.driverDetails[key] == ""){
+          window.alert("Please fill the all details");
           return false;
           }
            
