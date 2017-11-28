@@ -105,7 +105,7 @@ export class RegisterComponent implements OnInit {
      };       
   
      saveDetails(event){
-       document.getElementById("myDiv").style.display = "block";
+       
        const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
        
        for (var key in  this.driverDetails) {
@@ -113,7 +113,8 @@ export class RegisterComponent implements OnInit {
           window.alert("Please fill all details")
             return false;
          }
-
+       
+         document.getElementById("myDiv").style.display = "block";
 
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: header});
