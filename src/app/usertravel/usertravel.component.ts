@@ -45,8 +45,11 @@ export class UserTravelComponent implements OnInit {
     });
     var marker = new google.maps.Marker({
     });
+    this.infowindow = new google.maps.InfoWindow({
+      
+    });
 
-   this.directionsService = new google.maps.DirectionsService();
+    this.directionsService = new google.maps.DirectionsService();
     this.directionsDisplay = new google.maps.DirectionsRenderer();
   
     this.directionsDisplay.setMap(this.map);
