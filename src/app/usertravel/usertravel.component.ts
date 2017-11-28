@@ -53,6 +53,8 @@ export class UserTravelComponent implements OnInit {
 
     
     this.map.addListener('click', this.addLatLng);
+   
+  
 
 }
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
@@ -63,7 +65,7 @@ export class UserTravelComponent implements OnInit {
    });
   }
 
-  addLatLng(event,self) {
+   addLatLng = (event) => {
     debugger;
     var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
     var id = Math.floor(Math.random() * chars.length);
@@ -75,18 +77,18 @@ export class UserTravelComponent implements OnInit {
       id: id,
       position: event.latLng,
       title: '#' + id,
-      map: self.map
+      map: this.map
     });
 
 
-    self.markers.push(marker);
-    self.markerz[id] = marker;
+    this.markers.push(marker);
+    this.markerz[id] = marker;
     // google.maps.event.addListener(marker, "rightclick", function (point) {
     //   debugger;
     //   delMarker(id)
     // });
     marker.addListener('click', function () {
-      this.infowindowSet(self.map, marker);
+      this.infowindowSet(this.map, marker);
     });
   };
 
