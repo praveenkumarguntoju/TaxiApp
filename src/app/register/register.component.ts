@@ -107,6 +107,14 @@ export class RegisterComponent implements OnInit {
      saveDetails(event){
        document.getElementById("myDiv").style.display = "block";
        const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
+       
+       for (var key in  this.driverDetails) {
+        if ( this.driverDetails[key] !== null &&  this.driverDetails[key] != "")
+          window.alert("Please fill all details")
+            return false;
+         }
+
+
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: header});
        
