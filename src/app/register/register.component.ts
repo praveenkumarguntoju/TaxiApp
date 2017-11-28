@@ -110,7 +110,7 @@ export class RegisterComponent implements OnInit {
        const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
        
        for (var key in  this.driverDetails) {
-        if ( this.driverDetails[key] !== null &&  this.driverDetails[key] != ""){
+        if ( this.driverDetails[key] == null ||  this.driverDetails[key] == ""){
           return false;
           }
            
