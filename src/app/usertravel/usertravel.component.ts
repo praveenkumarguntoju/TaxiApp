@@ -157,7 +157,7 @@ export class UserTravelComponent implements OnInit {
     this.locationObj.tourname = "TestTour"
     debugger;
 
-    var saveObj = this.locationObj;
+    var saveObj = JSON.parse(JSON.stringify(this.locationObj))
     this.travelData.push(saveObj);
   }
 
