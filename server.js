@@ -375,16 +375,17 @@ app.get("/app/usergetmapdata/:id", function(req, res) {
 
 //delete user
 
-app.post("/app/contacts/delete/:id", function(req, res) {
-  db.collection("driversData").deleteOne({_id:  ObjectId(req.params.id)},function(err, docs){
-    if (err) {
-        console.log("ERROR: " + reason);
-         res.status(code || 500).json({"error": message});
-    } else {
-     res.status(200);
-     res.send({data: "Successfully deleted"});
-    }
-  });
+app.get("/app/contacts/delete/:id", function(req, res) {
+  db.driversData.remove( {_id:  ObjectId(req.params.id)});
+  // db.collection("driversData").deleteOne({_id:  ObjectId(req.params.id)},function(err, docs){
+  //   if (err) {
+  //       console.log("ERROR: " + reason);
+  //        res.status(code || 500).json({"error": message});
+  //   } else {
+  //    res.status(200);
+  //    res.send({data: "Successfully deleted"});
+  //   }
+  // });
 });
 
 

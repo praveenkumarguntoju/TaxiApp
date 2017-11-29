@@ -114,7 +114,7 @@ commentGet(res){
     const body = {'action': 'getData'};
     const options = new RequestOptions({ headers: header});
     var contactsUrl = '/app/contacts/delete' + '/' + eve._id;
-    this.http.post(contactsUrl,{ headers: header })
+    this.http.get(contactsUrl,{ headers: header })
                  .toPromise()
                  .then((response)=>{
              debugger;
