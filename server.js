@@ -361,7 +361,7 @@ app.post("/app/usermapdata", function(req, res) {
 });
 
 app.get("/app/usergetmapdata/:id", function(req, res) {
-  db.collection("userMapData").find({userId: req.params.id}).toArray(function(err, docs) {
+  db.collection("userMapData").find({user: req.params.id}).toArray(function(err, docs) {
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
