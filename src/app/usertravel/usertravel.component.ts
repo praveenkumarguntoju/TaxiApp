@@ -160,12 +160,12 @@ export class UserTravelComponent implements OnInit {
 
     var saveObj = JSON.parse(JSON.stringify(this.locationObj))
     this.travelData.push(saveObj);
-    
+
     const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     const body = {'action': 'create', 'data': this.travelData};
     const options = new RequestOptions({ headers: header});
     
-    this.http.post('/app/usermapdata',this.travelData,{ headers: header})
+    this.http.post('/app/usermapdata',saveObj,{headers: header})
               .toPromise()
               .then((response)=>{
                  debugger;
