@@ -45,29 +45,29 @@ export class UserTravelComponent implements OnInit {
  
   private subscription: Subscription;
   ngOnInit(){
+    this.directionsService = new google.maps.DirectionsService();
+    this.directionsDisplay = new google.maps.DirectionsRenderer();
     debugger;
     this.subscription.unsubscribe();
     if (navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
+        this.map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 12,
+          center: { lat: this.lat, lng: this.lng }
+        });
+      this.directionsDisplay.setMap(this.map);
       }.bind(this), function() {
          debugger;
       });
     } 
-    this.map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
-      center: { lat: this.lat, lng: this.lng }
-    });
+  
     var marker = new google.maps.Marker({
     });
     this.infowindow = new google.maps.InfoWindow({
      });
 
-    this.directionsService = new google.maps.DirectionsService();
-    this.directionsDisplay = new google.maps.DirectionsRenderer();
-  
-    this.directionsDisplay.setMap(this.map);
     this.map.addListener('click', this.addLatLng);
 }
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
