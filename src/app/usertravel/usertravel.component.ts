@@ -35,7 +35,8 @@ export class UserTravelComponent implements OnInit {
       place:"",
       text:"",
       visitedDate:"",
-      tourname:""
+      tourname:"",
+      image:""
 }
   markers:any = [];
  
@@ -155,7 +156,7 @@ export class UserTravelComponent implements OnInit {
     var date = new Date();
     this.locationObj.visitedDate = date.toString();
     this.locationObj.tourname = "TestTour";
-    this.locationObj.user = "praveen";
+    this.locationObj.user = sessionStorage.userName;
     debugger;
 
     var saveObj = JSON.parse(JSON.stringify(this.locationObj))
@@ -185,6 +186,34 @@ dataGet(res){
     }
   }
 
+
+  //upload image
+  uploadImage(eve){
+    debugger;
+    let files: any;
+    const filEle = document.getElementsByClassName('fileUpload')[0];
+    const file = filEle['files'];
+    var img = new Image();
+   
+   img.onload = function(){
+    var oc = document.createElement('canvas'),
+      octx = oc.getContext('2d');
+ debugger;
+   oc.width = img.width * 0.1;
+   oc.height = img.height * 0.1;
+   octx.drawImage(img, 0, 0, oc.width, oc.height);
+    this.locationObj.image = oc.toDataURL('image/jpeg');
+    
+   }.bind(this);
+   img.src = URL.createObjectURL(file[0]);
+   if (file.length > 0) {
+//           this.getBase64(file[0]);
+       }
+   };
+
+
+  // end
+
 drop() {
     // clearMarkers();
     debugger;
@@ -202,9 +231,6 @@ drop() {
        debugger;
        this.dataGet(response);
     }).catch(this.handleError);
-
-   
-   
     // calculateAndDisplayRoute(neighborhoods);
 }
 

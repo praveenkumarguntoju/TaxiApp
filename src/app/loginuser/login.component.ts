@@ -90,6 +90,7 @@ export class loginComponent implements OnInit {
       queryParams: { 'tokenData': token}
     };
     sessionStorage.token = token;
+    sessionStorage.userName = this.userObj.username;
      this.router.navigate(['home']);
      }
   

@@ -44,7 +44,8 @@
               <label for="comment"> Add Image:</label>
             </div>
             <div class="col-md-6">
-              <input type="file" />
+              <input type="file" class="fileUpload" style="display:inline;" (change)="uploadImage($event)" 
+              name="file" ngf-accept="'image/*'" required>
             </div>
           </div>
         </div>
