@@ -1,7 +1,6 @@
 #map {
     height: 100%;
-    position: absolute;
-    margin-top: 10px;
+    position: inherit !important;
   }
 
   #capture {
@@ -40,7 +39,7 @@
   }
 
   #parent {
-    position:fixed;
+    position: fixed;
     display: flex;
     z-index: 5;
     background-color: #e9e8e6;
