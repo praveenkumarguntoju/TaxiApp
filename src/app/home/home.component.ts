@@ -117,7 +117,8 @@ commentGet(res){
     this.http.get(contactsUrl,{ headers: header })
                  .toPromise()
                  .then((response)=>{
-             debugger;
+             window.alert("Data was successfully deleted");
+             this.getAllPeople(this.people);
                  
        }).catch(this.handleError); 
   };
