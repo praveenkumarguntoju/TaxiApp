@@ -24,6 +24,7 @@ export class UserTravelComponent implements OnInit {
   infowindow:any;
   markerz = {};
   self=this;
+  navigator:any;
 
   debugger;
 
@@ -44,6 +45,16 @@ export class UserTravelComponent implements OnInit {
   ngOnInit(){
     debugger;
     this.subscription.unsubscribe();
+    if (navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+      }, function() {
+         debugger;
+      });
+    } 
     this.map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
       center: { lat: 52.520, lng: 13.410 }
@@ -72,6 +83,14 @@ export class UserTravelComponent implements OnInit {
           //  this.token =  params.get('tokenData') || 'None'
    });
   }
+
+
+
+
+
+
+
+
 
 
   infowindowSet = (map,marker)=>{
