@@ -82,24 +82,29 @@ export class UserTravelComponent implements OnInit {
   addLocation(){
     debugger;
     let geocoder = new google.maps.Geocoder;
+    var marker;
     var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
     var id = Math.floor(Math.random() * chars.length);
+    var data = document.getElementById("myModal");
+    $(data).modal();
     if (navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
         this.lat = position.coords.latitude;
         this.lng = position.coords.longitude;
+          marker = new google.maps.Marker({
+          tourname: "New Tour",
+          id: id,
+          position: new google.maps.LatLng( this.lat,this.lng),
+          title: '#' + id,
+          map: this.map
+        });
+        marker.addListener('click', function () {
+          this.infowindowSet(this.map, marker);
+        }.bind(this));
       }.bind(this), function() {
          debugger;
       });
     };
-    
-    var marker = new google.maps.Marker({
-      tourname: "New Tour",
-      id: id,
-      position: new google.maps.LatLng( this.lat,this.lng),
-      title: '#' + id,
-      map: this.map
-    });
     this.locationObj.id = id.toString();
     this.locationObj.lat = this.lat;
     this.locationObj.lng = this.lng;
@@ -116,9 +121,7 @@ export class UserTravelComponent implements OnInit {
             window.alert('Geocoder failed due to: ' + status);
            }
          }.bind(this));
-       marker.addListener('click', function () {
-          this.infowindowSet(this.map, marker);
-        }.bind(this));
+      
     }
 
 
