@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/toPromise';
 import { DropdownComponent } from '../dropdown/dropdown/dropdown.component';
 declare var google:any;
+declare var jQuery:any;
 
 @Component({
   selector: 'app-map',
@@ -27,6 +28,7 @@ export class UserTravelComponent implements OnInit {
   markerz = {};
   self=this;
   navigator:any;
+  jQuery:any;
 
   debugger;
 
@@ -67,8 +69,6 @@ export class UserTravelComponent implements OnInit {
     });
     this.infowindow = new google.maps.InfoWindow({
      });
-
-    this.map.addListener('click', this.addLatLng);
 }
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
 
@@ -85,7 +85,11 @@ export class UserTravelComponent implements OnInit {
     var marker;
     var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
     var id = Math.floor(Math.random() * chars.length);
-    var data = document.getElementById("myModal").style.display = "block";
+    var data = document.getElementById("myModal");
+    if(jQuery){
+      jQuery(data).modal();
+    }
+   
     if (navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
         this.lat = position.coords.latitude;
@@ -152,29 +156,7 @@ export class UserTravelComponent implements OnInit {
         '(last visited' + dataObj.visitedDate + ')' + '</b>' + '.</p>' +
         '</div>' +
         '</div>';
-    } else {
-      debugger;
-      this.locationObj.id = marker.id;
-      this.locationObj.lat = pos.lat();
-      this.locationObj.lng = pos.lng();
-      let locName = new google.maps.LatLng({lat: this.locationObj.lat, lng: this.locationObj.lng});
-      geocoder.geocode({'location': locName}, function(results, status) {
-           if (status === 'OK') {
-                    if (results[0]) {
-                      debugger;
-                      this.locationObj.place = results[0].formatted_address;
-                  } else {
-                      window.alert('No results found');
-                        }
-            } else {
-              window.alert('Geocoder failed due to: ' + status);
-             }
-           }.bind(this));
-
-
-
-      var contentString = '<button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Create Location</button>';
-  }
+    } 
     this.infowindow.setContent(contentString);
     this.infowindow.open(this.map, marker);
   }
