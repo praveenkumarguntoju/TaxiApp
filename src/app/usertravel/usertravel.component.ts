@@ -189,11 +189,12 @@ drop() {
     .toPromise()
     .then((response)=>{
        debugger;
+      for (var i = 0; i < this.travelData.length; i++) {
+        this.addMarkerWithTimeout(this.travelData[i].position, i * 200);
+      }
     }).catch(this.handleError);
 
-    for (var i = 0; i < this.travelData.length; i++) {
-      this.addMarkerWithTimeout(this.travelData[i].position, i * 200);
-    }
+   
    
     // calculateAndDisplayRoute(neighborhoods);
 }
