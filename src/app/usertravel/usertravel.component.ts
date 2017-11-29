@@ -169,11 +169,58 @@ export class UserTravelComponent implements OnInit {
               .toPromise()
               .then((response)=>{
                  debugger;
-              alert("User was successfully created..");
+              alert("location was successfully created..");
               document.getElementById("myDiv").style.display = "none";
-              this.router.navigate(['home']);
               }).catch(this.handleError); 
   }
+
+drop(marker) {
+    // clearMarkers();
+    debugger;
+    var travelObj = _.groupBy(this.travelData, "tourname");
+    var value = "SampleTour";
+    // neighborhoods = travelObj[value];
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
+    const body = {'action': 'getData'};
+    const options = new RequestOptions({ headers: header});
+    var contactsUrl = '/app/usergetmapdata' + '/' + this.id;
+    this.http.get(contactsUrl,{ headers: header })
+    .toPromise()
+    .then((response)=>{
+       debugger;
+    }).catch(this.handleError);
+
+    for (var i = 0; i < this.travelData.length; i++) {
+      this.addMarkerWithTimeout(this.travelData[i].position, i * 200, marker);
+    }
+   
+    // calculateAndDisplayRoute(neighborhoods);
+}
+
+
+ addMarkerWithTimeout(position, timeout, marker) {
+  window.setTimeout(function () {
+
+    var marker = new google.maps.Marker({
+      position: position,
+      map: this.map,
+      animation: google.maps.Animation.DROP
+    });
+    this.markers.push(marker);
+    marker.addListener('click', function () {
+      this.infowindowSet(this.map, marker)
+    }.bind(this));
+  }, timeout);
+}
+
+
+
+
+
+
+
+
+
 
   private handleError (error: any): Promise<any> {
     debugger;

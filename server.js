@@ -261,12 +261,24 @@ app.use(function(req, res, next) {
 
 
 
+  // /app/usergetmapdata
 
+  app.get("/app/usergetmapdata/:id", function(req, res) {
+    db.collection("userMapData").find({userId: req.params.id}).toArray(function(err, docs) {
+      if (err) {
+          console.log("ERROR: " + reason);
+           res.status(code || 500).json({"error": message});
+      } else {
+       res.status(200);
+       res.send({data: docs});
+      }
+    });
+  });
 
 
   
   app.get("/app", function(req, res) {
-  db.collection("driversData").find({}).toArray(function(err, docs) {
+  db.collection("driversData").findOne({_id:  ObjectId(req.params.id)},function(err, docs){
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
