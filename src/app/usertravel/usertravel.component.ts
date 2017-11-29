@@ -87,7 +87,7 @@ export class UserTravelComponent implements OnInit {
       var contentString = '<div id="content" style="width:100%;height:100%;">' +
         '<div id="siteNotice" style="float:left;width: 45%; overflow:hidden;padding:2px;">' +
         '<span style="font-size:19px;"><b>' + dataObj.place + '</b></span>' +
-        '<div class="imagePattern" style="background: url(' + dataObj.image + ') no-repeat center center; height: 200px;width: 250px;"></div>' +
+        '<img src= '+ dataObj.image +' class="imagePattern" style="no-repeat center center; height: 200px;width: 250px;">' +
         '</div>' +
 
         '<div id="viewContent" style="overflow-y: auto;width: 50%;height: 174px; float:left;padding:2px;">' +
