@@ -175,11 +175,13 @@ export class UserTravelComponent implements OnInit {
   }
 
 dataGet(res){
+  var position;
     var mapData = JSON.parse(res._body);
     if(mapData.data)
     this.travelData = mapData.data;
      for (var i = 0; i < this.travelData.length; i++) {
-      this.addMarkerWithTimeout(this.travelData[i].position, i * 200);
+     position = new google.maps.LatLng( this.travelData[i].lat,this.travelData[i].lng);
+      this.addMarkerWithTimeout(position, i * 200);
     }
   }
 
