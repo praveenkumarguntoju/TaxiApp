@@ -28,6 +28,7 @@ export class UserTravelComponent implements OnInit {
   debugger;
 
   locationObj = {
+      user:"",
       id:"",
       lat:"",
       lng:"",
@@ -152,14 +153,36 @@ export class UserTravelComponent implements OnInit {
     debugger;
     var geocoder = new google.maps.Geocoder;
     var date = new Date();
-    this.locationObj.text = "3fh3foih3foih43if3fih43";
-    this.locationObj.visitedDate = "11/28/2017";
-    this.locationObj.tourname = "TestTour"
+    this.locationObj.visitedDate = date.toString();
+    this.locationObj.tourname = "TestTour";
+    this.locationObj.user = "praveen";
     debugger;
 
     var saveObj = JSON.parse(JSON.stringify(this.locationObj))
     this.travelData.push(saveObj);
+    
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
+    const body = {'action': 'create', 'data': this.travelData};
+    const options = new RequestOptions({ headers: header});
+    
+    this.http.post('/app/usermapdata',this.travelData,{ headers: header})
+              .toPromise()
+              .then((response)=>{
+                 debugger;
+              alert("User was successfully created..");
+              document.getElementById("myDiv").style.display = "none";
+              this.router.navigate(['home']);
+              }).catch(this.handleError); 
   }
+
+  private handleError (error: any): Promise<any> {
+    debugger;
+   let errMsg = (error.message) ? error.message :
+   error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+   console.error(errMsg); // log to console
+   return Promise.reject(errMsg);
+ };
+
 
 
 

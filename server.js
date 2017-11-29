@@ -345,7 +345,24 @@ app.put("/app/contacts/:id", function(req, res) {
     }
   });
 });
+
+// /app/usermapdata
+
+app.post("/app/usermapdata", function(req, res) {
+  var newContact = req.body;
+  db.collection("userMapData").insertOne(newContact, function(err, doc) {
+    if (err) {
+     console.log("ERROR: " + reason);
+         res.status(code || 500).json({"error": message});
+    } else {
+      res.status(201).json(doc.ops[0]);
+    }
   });
+});
+
+
+
+});
 
 
 
