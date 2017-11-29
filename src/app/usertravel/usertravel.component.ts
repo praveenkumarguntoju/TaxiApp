@@ -174,16 +174,17 @@ export class UserTravelComponent implements OnInit {
               }).catch(this.handleError); 
   }
 
-drop(marker) {
+drop() {
     // clearMarkers();
     debugger;
-    var travelObj = _.groupBy(this.travelData, "tourname");
-    var value = "SampleTour";
+    // var travelObj = _.groupBy(this.travelData, "tourname");
+    // var value = "SampleTour";
+    var id = "praveen"
     // neighborhoods = travelObj[value];
     const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     const body = {'action': 'getData'};
     const options = new RequestOptions({ headers: header});
-    var contactsUrl = '/app/usergetmapdata' + '/' + this.id;
+    var contactsUrl = '/app/usergetmapdata' + '/' + id;
     this.http.get(contactsUrl,{ headers: header })
     .toPromise()
     .then((response)=>{
@@ -191,14 +192,14 @@ drop(marker) {
     }).catch(this.handleError);
 
     for (var i = 0; i < this.travelData.length; i++) {
-      this.addMarkerWithTimeout(this.travelData[i].position, i * 200, marker);
+      this.addMarkerWithTimeout(this.travelData[i].position, i * 200);
     }
    
     // calculateAndDisplayRoute(neighborhoods);
 }
 
 
- addMarkerWithTimeout(position, timeout, marker) {
+ addMarkerWithTimeout(position, timeout) {
   window.setTimeout(function () {
 
     var marker = new google.maps.Marker({
@@ -210,7 +211,7 @@ drop(marker) {
     marker.addListener('click', function () {
       this.infowindowSet(this.map, marker)
     }.bind(this));
-  }, timeout);
+  }.bind(this), timeout);
 }
 
 
