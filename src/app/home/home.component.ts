@@ -107,6 +107,21 @@ commentGet(res){
      
   };
   
+
+  // delete
+  onDelete(eve){
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
+    const body = {'action': 'getData'};
+    const options = new RequestOptions({ headers: header});
+    var contactsUrl = '/app/contacts/delete' + '/' + eve._id;
+    this.http.post(contactsUrl,{ headers: header })
+                 .toPromise()
+                 .then((response)=>{
+             debugger;
+                 
+       }).catch(this.handleError); 
+  };
+  
    onClickMe(eve){
      // tslint:disable-next-line:no-debugger
      debugger;
