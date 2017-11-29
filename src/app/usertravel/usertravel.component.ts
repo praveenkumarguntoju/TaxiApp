@@ -18,6 +18,8 @@ declare var google:any;
 export class UserTravelComponent implements OnInit {
   google:any;
   travelData:any = [];
+  lat:any;
+  lng:any;
   map:any;
   directionsService:any;
   directionsDisplay:any;
@@ -47,34 +49,26 @@ export class UserTravelComponent implements OnInit {
     this.subscription.unsubscribe();
     if (navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        var pos = {
-          lat: position.coords.latitude,
-          lng: position.coords.longitude
-        };
-      }, function() {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+      }.bind(this), function() {
          debugger;
       });
     } 
     this.map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
-      center: { lat: 52.520, lng: 13.410 }
+      center: { lat: this.lat, lng: this.lng }
     });
     var marker = new google.maps.Marker({
     });
     this.infowindow = new google.maps.InfoWindow({
-      
-    });
+     });
 
     this.directionsService = new google.maps.DirectionsService();
     this.directionsDisplay = new google.maps.DirectionsRenderer();
   
     this.directionsDisplay.setMap(this.map);
-
-    
     this.map.addListener('click', this.addLatLng);
-   
-  
-
 }
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
 
@@ -84,7 +78,48 @@ export class UserTravelComponent implements OnInit {
    });
   }
 
-
+  //adding location
+  addLocation(){
+    debugger;
+    let geocoder = new google.maps.Geocoder;
+    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
+    var id = Math.floor(Math.random() * chars.length);
+    if (navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        this.lat = position.coords.latitude;
+        this.lng = position.coords.longitude;
+      }.bind(this), function() {
+         debugger;
+      });
+    };
+    
+    var marker = new google.maps.Marker({
+      tourname: "New Tour",
+      id: id,
+      position: new google.maps.LatLng( this.lat,this.lng),
+      title: '#' + id,
+      map: this.map
+    });
+    this.locationObj.id = id.toString();
+    this.locationObj.lat = this.lat;
+    this.locationObj.lng = this.lng;
+    let locName = new google.maps.LatLng({lat: this.locationObj.lat, lng: this.locationObj.lng});
+    geocoder.geocode({'location': locName}, function(results, status) {
+         if (status === 'OK') {
+                  if (results[0]) {
+                    debugger;
+                    this.locationObj.place = results[0].formatted_address;
+                } else {
+                    window.alert('No results found');
+                      }
+          } else {
+            window.alert('Geocoder failed due to: ' + status);
+           }
+         }.bind(this));
+       marker.addListener('click', function () {
+          this.infowindowSet(this.map, marker);
+        }.bind(this));
+    }
 
 
 
@@ -143,29 +178,29 @@ export class UserTravelComponent implements OnInit {
   }
 
    addLatLng = (event) => {
-    debugger;
-    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
-    var id = Math.floor(Math.random() * chars.length);
-   // var tourName = document.getElementById('tourName').value;
-    var marker = new google.maps.Marker({
-      tourname: "New Tour",
-      id: id,
-      position: event.latLng,
-      title: '#' + id,
-      map: this.map
-    });
+  //   debugger;
+  //   var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
+  //   var id = Math.floor(Math.random() * chars.length);
+  //  // var tourName = document.getElementById('tourName').value;
+  //   var marker = new google.maps.Marker({
+  //     tourname: "New Tour",
+  //     id: id,
+  //     position: event.latLng,
+  //     title: '#' + id,
+  //     map: this.map
+  //   });
 
+   
 
-
-    this.markers.push(marker);
-    this.markerz[id] = marker;
-    // google.maps.event.addListener(marker, "rightclick", function (point) {
-    //   debugger;
-    //   delMarker(id)
-    // });
-    marker.addListener('click', function () {
-      this.infowindowSet(this.map, marker);
-    }.bind(this));
+  //   this.markers.push(marker);
+  //   this.markerz[id] = marker;
+  //   // google.maps.event.addListener(marker, "rightclick", function (point) {
+  //   //   debugger;
+  //   //   delMarker(id)
+  //   // });
+  //   marker.addListener('click', function () {
+  //     this.infowindowSet(this.map, marker);
+  //   }.bind(this));
   }; 
 
 
