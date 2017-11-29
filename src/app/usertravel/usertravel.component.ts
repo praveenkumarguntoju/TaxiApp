@@ -85,8 +85,7 @@ export class UserTravelComponent implements OnInit {
     var marker;
     var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz'.split('');
     var id = Math.floor(Math.random() * chars.length);
-    var data = document.getElementById("myModal");
-    $(data).modal();
+    var data = document.getElementById("myModal").style.display = "block";
     if (navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
         this.lat = position.coords.latitude;
