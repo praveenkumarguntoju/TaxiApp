@@ -174,6 +174,15 @@ export class UserTravelComponent implements OnInit {
               }).catch(this.handleError); 
   }
 
+dataGet(res){
+    var mapData = JSON.parse(res._body);
+    if(mapData.data)
+    this.travelData = mapData.data;
+     for (var i = 0; i < this.travelData.length; i++) {
+      this.addMarkerWithTimeout(this.travelData[i].position, i * 200);
+    }
+  }
+
 drop() {
     // clearMarkers();
     debugger;
@@ -189,10 +198,7 @@ drop() {
     .toPromise()
     .then((response)=>{
        debugger;
-       this.travelData = JSON.parse(response._body).data;
-      for (var i = 0; i < this.travelData.length; i++) {
-        this.addMarkerWithTimeout(this.travelData[i].position, i * 200);
-      }
+       this.dataGet(response);
     }).catch(this.handleError);
 
    
