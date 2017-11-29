@@ -181,7 +181,7 @@ dataGet(res){
     this.travelData = mapData.data;
      for (var i = 0; i < this.travelData.length; i++) {
      position = new google.maps.LatLng( this.travelData[i].lat,this.travelData[i].lng);
-      this.addMarkerWithTimeout(position, i * 200);
+      this.addMarkerWithTimeout(position, i * 200,this.travelData[i].id);
     }
   }
 
@@ -209,11 +209,12 @@ drop() {
 }
 
 
- addMarkerWithTimeout(position, timeout) {
+ addMarkerWithTimeout(position, timeout,id) {
   window.setTimeout(function () {
 
     var marker = new google.maps.Marker({
       position: position,
+      id: id,
       map: this.map,
       animation: google.maps.Animation.DROP
     });
