@@ -218,6 +218,7 @@ app.post("/app/registeruser", function(req, res) {
     
   });
   console.log(req.hostname);
+  
   console.log(newContact.email);
   var transporter = nodemailer.createTransport({
     service: 'Gmail',
@@ -226,12 +227,13 @@ app.post("/app/registeruser", function(req, res) {
       pass: 'chintu1234'
     }
   });
-  
+  var url = "https://book-taxi.herokuapp.com/app/verify/" + token;
   var mailOptions = {
     from: 'booktaxiready@gmail.com',
     to: newContact.email,
     subject: 'Sending Email using Node.js',
-    text: 'That was easy!'
+    html: '<p>An absolute URL: <a href='+ url +'>Click on link to activate</a></p>'
+    
   };
   
   transporter.sendMail(mailOptions, function(error, info){
