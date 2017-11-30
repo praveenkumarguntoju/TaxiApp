@@ -1,4 +1,5 @@
 var express = require('express');
+var nodemailer = require('nodemailer');
 var app = express();
 const path = require('path');
 var bodyParser = require('body-parser');
@@ -213,6 +214,28 @@ app.get("/app/validuser/:id", function(req, res) {
 
 app.post("/app/registeruser", function(req, res) {
   var newContact = req.body;
+  var transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: 'gpravin999@gmail.com',
+      pass: 'chintu1234'
+    }
+  });
+  
+  var mailOptions = {
+    from: 'gpravin999@gmail.com',
+    to: newContact.email,
+    subject: 'Sending Email using Node.js',
+    text: 'That was easy!'
+  };
+  
+  transporter.sendMail(mailOptions, function(error, info){
+    if (error) {
+      console.log(error);
+    } else {
+      console.log('Email sent: ' + info.response);
+    }
+  });
   db.collection("userData").insertOne(newContact, function(err, doc) {
     if (err) {
      console.log("ERROR: " + reason);
