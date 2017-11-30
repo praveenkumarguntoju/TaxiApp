@@ -216,7 +216,7 @@ app.post("/app/registeruser", function(req, res) {
   var newContact = req.body;
   console.log(newContact.email);
   var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    service: 'Gmail',
     auth: {
       user: 'gpravin999@gmail.com',
       pass: 'chintu1234'
