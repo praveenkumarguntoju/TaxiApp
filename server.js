@@ -217,7 +217,7 @@ app.post("/app/registeruser", function(req, res) {
   var token = jwt.sign({},'TestJwtToken', {
     
   });
-  console.log(req.host);
+  console.log(req.hostname);
   console.log(newContact.email);
   var transporter = nodemailer.createTransport({
     service: 'Gmail',
