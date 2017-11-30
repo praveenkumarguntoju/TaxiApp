@@ -222,13 +222,13 @@ app.post("/app/registeruser", function(req, res) {
   var transporter = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
-      user: 'gpravin999@gmail.com',
+      user: 'booktaxiready@gmail.com',
       pass: 'chintu1234'
     }
   });
   
   var mailOptions = {
-    from: 'gpravin999@gmail.com',
+    from: 'booktaxiready@gmail.com',
     to: newContact.email,
     subject: 'Sending Email using Node.js',
     text: 'That was easy!'
