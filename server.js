@@ -287,8 +287,8 @@ app.use(function(req, res, next) {
 
 
   app.get("/app/verify", function(req, res) {
-    var name = req.params.email;
-    console.log(req.params.email);
+    var name = req.body.email || req.query.email ;
+    console.log(name);
     db.collection("userData").findOne({email: name},function(err, docs){
                if (err) {
                  console.log("ERROR: " + reason);
