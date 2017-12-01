@@ -296,9 +296,22 @@ app.use(function(req, res, next) {
                   res.status(code || 500).json({"error": message});
                } else {
                    if(docs !== null){
+                     if(docs.emailverify){
+
+                     }else{
+                       docs.emailVerfied = "true";
+                       db.collection("userData").updateOne({_id:  ObjectId(docs._id)}, docs, function(err, doc) {
+                        if (err) {
+                          handleError(res, err.message, "Failed to update contact");
+                        } else {
+                          
+                          res.status(200);
+                           res.send(doc);
+                        }
+                      });
+
+                     }
                    console.log(db);
-                   res.status(200);
-                   res.send(docs);
                    }else{
                      res.status(500); 
                      res.send("No User registered with this name");
