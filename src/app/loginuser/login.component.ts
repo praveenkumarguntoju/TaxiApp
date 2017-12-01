@@ -86,11 +86,11 @@ export class loginComponent implements OnInit {
 
   dataGet(res){
     var data = JSON.parse(res._body);
-    if(data.token && data.token.length){
+    if(data.dataToken && data.dataToken.length){
     let navigationExtras = {
-      queryParams: { 'tokenData': data.token}
+      queryParams: { 'tokenData': data.dataToken}
     };
-    sessionStorage.token = data.token;
+    sessionStorage.token = data.dataToken;
     sessionStorage.userName = this.userObj.username;
      this.router.navigate(['home']);
      }
