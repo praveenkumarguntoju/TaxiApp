@@ -306,17 +306,17 @@ app.use(function(req, res, next) {
                        docs.emailVerfied = "true";
                        db.collection("userData").updateOne({_id:  ObjectId(docs._id)}, docs, function(err, doc) {
                         if (err) {
-                          handleError(res, err.message, "Failed to update contact");
+                          handleError(res, err.message, "Failed to verify email");
                         } else {
                           
                           res.status(200);
-                           res.send(doc);
+                           res.send("Email was verified continue login");
                         }
                       });
                     }
                    }else{
                      res.status(500); 
-                     res.send("No User registered with this name");
+                     res.send("No User registered with this email");
                    }
                 }
  });
