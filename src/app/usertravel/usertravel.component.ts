@@ -257,7 +257,7 @@ drop() {
     debugger;
     // var travelObj = _.groupBy(this.travelData, "tourname");
     // var value = "SampleTour";
-    var id = "praveen"
+    var id = sessionStorage.userName;
     // neighborhoods = travelObj[value];
     const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     const body = {'action': 'getData'};
