@@ -199,11 +199,15 @@ app.get("/app/validuser/:id", function(req, res) {
                      res.status(code || 500).json({"error": message});
                   } else {
                       if(docs !== null){
-                      var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {
-                        
-                      });
-                      res.status(200);
-                      res.send(token);
+                                if(docs.emailVerfied == "true"){
+                                  var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {
+                                  });
+                                  res.status(200);
+                                  res.send(token);
+                                 }else{
+                                  res.send("Email was not verified");
+                                 }
+
                       }else{
                         res.status(500); 
                         res.send("No User registered with this name");
@@ -309,9 +313,7 @@ app.use(function(req, res, next) {
                            res.send(doc);
                         }
                       });
-
-                     }
-                   console.log(db);
+                    }
                    }else{
                      res.status(500); 
                      res.send("No User registered with this name");
