@@ -21,7 +21,8 @@ export class loginComponent implements OnInit {
  
   userObj: any = {
     'username': '',
-     'email': ''
+     'email': '',
+     'emailVerfied':""
       };
 
       // 'password': '',

@@ -227,7 +227,7 @@ app.post("/app/registeruser", function(req, res) {
       pass: 'chintu1234'
     }
   });
-  var url = "https://book-taxi.herokuapp.com/app/verify/?token=" + token;
+  var url = "https://book-taxi.herokuapp.com/app/verify/?token=" + token +'&email=' + newContact.email;
   var mailOptions = {
     from: 'booktaxiready@gmail.com',
     to: newContact.email,
@@ -287,8 +287,25 @@ app.use(function(req, res, next) {
 
 
   app.get("/app/verify", function(req, res) {
-    res.send();
-  });
+    var name = req.params.email;
+    console.log(req.params.email);
+    db.collection("userData").findOne({email: name},function(err, docs){
+               if (err) {
+                 console.log("ERROR: " + reason);
+                  res.status(code || 500).json({"error": message});
+               } else {
+                   if(docs !== null){
+                   console.log(db);
+                   res.status(200);
+                   res.send(docs);
+                   }else{
+                     res.status(500); 
+                     res.send("No User registered with this name");
+                   }
+                }
+ });
+   
+});
 
 
 
