@@ -86,7 +86,7 @@ export class loginComponent implements OnInit {
 
   dataGet(res){
     var data = JSON.parse(res._body);
-    if(data.token.length){
+    if(data.token && data.token.length){
     let navigationExtras = {
       queryParams: { 'tokenData': data.token}
     };
@@ -94,7 +94,7 @@ export class loginComponent implements OnInit {
     sessionStorage.userName = this.userObj.username;
      this.router.navigate(['home']);
      }
-     if(data.messageText.length){
+     if(data.messageText && data.messageText.length){
        window.alert(data.messageText)
      }
   
