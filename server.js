@@ -203,7 +203,7 @@ app.get("/app/validuser/:id", function(req, res) {
                                   var token = jwt.sign({ foo: req.params.id },'TestJwtToken', {
                                   });
                                   res.status(200);
-                                  res.send({dataToken:token});
+                                  res.send({dataToken:token,dataDocs:docs});
                                  }else{
                                   res.send({messageText:"Email was not verified"});
                                  }
