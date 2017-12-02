@@ -343,11 +343,10 @@ app.use(function(req, res, next) {
 });
   
   app.get("/app/contacts/:id", function(req, res) {
-    console.log(req.body);
-    if(req.body){
-      if(req.body.driver){
-        console.log("drive true");
-      }
+    var name = req.body.username || req.query.username ;
+    console.log(name);
+    if(name){
+    
     }
     db.collection("driversData").findOne({_id:  ObjectId(req.params.id)},function(err, docs){
     if (err) {
