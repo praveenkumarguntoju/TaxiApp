@@ -18,11 +18,14 @@ export class loginComponent implements OnInit {
   cmntData:any;
   id:any;
   comments: any[] = [];
+  driverActive:boolean;
  
   userObj: any = {
-    'username': '',
+     'username': '',
+     'password':'',
      'email': '',
-     'emailVerfied':""
+     'emailVerfied':"",
+     'driver':""
       };
 
       // 'password': '',
@@ -66,14 +69,20 @@ export class loginComponent implements OnInit {
      debugger;
      var cmntObj = {};
      var d= new Date();
+    if(this.driverActive){
+      this.userObj.driverActive = "true";
+    }else{
+      this.userObj.driverActive = "false";
+    }
+
+
      this.http.post('/app/registeruser',this.userObj)
                  .toPromise()
                  .then((response)=>{
                     debugger;
                  alert("User  was successfully created..");
                  document.getElementById("myDiv").style.display = "none";
-               
-                 }).catch(this.handleError); 
+                }).catch(this.handleError); 
      
   };
   
@@ -85,6 +94,7 @@ export class loginComponent implements OnInit {
     // }
 
   dataGet(res){
+    debugger;
     var data = JSON.parse(res._body);
     if(data.dataToken && data.dataToken.length){
     let navigationExtras = {
