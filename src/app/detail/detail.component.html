@@ -7,7 +7,7 @@
          <span class="icon-bar"></span>
                          
       </button>
-        <button type="button" class="btn btn-default btn-sm" (click)="onHome($event)">
+        <button *ngIf="!driverActive" type="button" class="btn btn-default btn-sm" (click)="onHome($event)">
           <span class="glyphicon glyphicon-home"></span> Home
         </button>
     </div>
@@ -15,8 +15,8 @@
       <ul class="nav navbar-nav">
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><button (click)="onEdit(x)" > <span class="glyphicon glyphicon-edit"></span> Edit</button> </li>
-        <li><button (click)="onDisplay(x)"><span class="glyphicon glyphicon-eye-open"></span> Display</button></li>
+        <li><button *ngIf="driverActive" (click)="onEdit(x)" > <span class="glyphicon glyphicon-edit"></span> Edit</button> </li>
+        <li><button *ngIf="driverActive" (click)="onDisplay(x)"><span class="glyphicon glyphicon-eye-open"></span> Display</button></li>
       </ul>
     </div>
   </div>
@@ -188,7 +188,7 @@
 </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pull-right">
-            <button  class="btn btn-primary navbar-btn"  (click)="updateDetails($event)">Update</button>
+            <button  *ngIf="driverActive" class="btn btn-primary navbar-btn"  (click)="updateDetails($event)">Update</button>
             </div>
         </div>
     </div>

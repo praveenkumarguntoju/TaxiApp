@@ -16,6 +16,7 @@ export class DetailComponent implements OnInit {
   driverDetails: any = {};
   public id: string;
   token:any;
+  driverActive:boolean;
   displayDetail:any = true;
   private subscription: Subscription;
 
@@ -61,8 +62,10 @@ export class DetailComponent implements OnInit {
     const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     if(sessionStorage.isDriverActive == "true"){
          id = sessionStorage.userName;
+         this.driverActive = true;
          var contactsUrl = '/app/contacts' + '/' + id +'?username=' + sessionStorage.userName
     }else{
+         this.driverActive = false;
           var contactsUrl = '/app/contacts' + '/' + id
     }
     const bodyData = {'driver':true};
