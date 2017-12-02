@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
 //   API = 'http://localhost:3000';
   self = this;
   driverDetails: any = {
+        'USERNAME':'',
         'DRVFNAME': '',
         'DRVLNAME': '',
         'DRVAGE': '',
@@ -108,7 +109,7 @@ export class RegisterComponent implements OnInit {
        debugger;
        
        const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
-       
+       this.driverDetails.USERNAME = sessionStorage.userName;
        for (var key in  this.driverDetails) {
         if ( this.driverDetails[key] == null ||  this.driverDetails[key] == ""){
           window.alert("Please fill the all details");
