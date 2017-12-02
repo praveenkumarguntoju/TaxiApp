@@ -128,8 +128,12 @@ export class RegisterComponent implements OnInit {
                     debugger;
                  alert("User was successfully created..");
                  document.getElementById("myDiv").style.display = "none";
-                 this.router.navigate(['home']);
-                 }).catch(this.handleError); 
+                 if(sessionStorage.isDriverActive == "true"){
+                  this.router.navigate(['details',sessionStorage.userName]);
+                 }else{
+                  this.router.navigate(['home']);
+                 }
+                }).catch(this.handleError); 
          };
   
    private handleError (error: any): Promise<any> {

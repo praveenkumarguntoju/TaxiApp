@@ -50,7 +50,9 @@ export class DetailComponent implements OnInit {
                    debugger;
                     this.driverDetails = contacts.data;
                     this.imageUrl = contacts.data.picFile;
-      } 
+      }else{
+        this.router.navigate(['register'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
+      }
     document.getElementById("myDiv").style.display = "none";
   }
 
