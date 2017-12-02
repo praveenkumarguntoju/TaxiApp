@@ -84,7 +84,7 @@ export class RegisterComponent implements OnInit {
      const filEle = document.getElementsByClassName('fileUpload')[0];
      const file = filEle['files'];
      var img = new Image();
-     if(file[0].size > 1000141){
+     if(file[0].size < 1000141){
       this.driverDetails.picFile = img.src = URL.createObjectURL(file[0]);
       }else{
       img.onload = function(){
