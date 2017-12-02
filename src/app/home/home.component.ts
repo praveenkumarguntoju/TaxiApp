@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 //   API = 'http://localhost:3000';
 //   path = 'app/jsonfiles/makes.json';
   people: any[] = [];
+  driverDataTest:any;
   driverData:any;
   cmntData:any;
   id:any;
@@ -39,6 +40,7 @@ export class HomeComponent implements OnInit {
     document.getElementById("myDiv").style.display = "block";
     debugger;
     if(sessionStorage.isDriverActive == "true"){
+      this.driverDataTest = false;
       this.router.navigate(['details',sessionStorage.userName]);
     }else{
       this.getAllPeople(this.people);
