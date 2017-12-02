@@ -38,8 +38,8 @@ export class HomeComponent implements OnInit {
     this.subscription.unsubscribe();
     document.getElementById("myDiv").style.display = "block";
     debugger;
-    if(sessionStorage.isDriverActive = "true"){
-      this.router.navigate(['details']);
+    if(sessionStorage.isDriverActive == "true"){
+      this.router.navigate(['details',sessionStorage.userName]);
     }else{
       this.getAllPeople(this.people);
     }

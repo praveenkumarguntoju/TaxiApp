@@ -55,6 +55,7 @@ export class DetailComponent implements OnInit {
   }
 
  getDetails(id) {
+    debugger;
     const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     if(sessionStorage.isDriverActive == "true"){
          id = sessionStorage.userName;
