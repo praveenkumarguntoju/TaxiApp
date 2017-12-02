@@ -84,18 +84,21 @@ export class RegisterComponent implements OnInit {
      const filEle = document.getElementsByClassName('fileUpload')[0];
      const file = filEle['files'];
      var img = new Image();
+     if(file[0].size > 1000141){
+      this.driverDetails.picFile = img.src = URL.createObjectURL(file[0]);
+      }else{
+      img.onload = function(){
+           var oc = document.createElement('canvas'),
+           octx = oc.getContext('2d');
+           debugger;
+           oc.width = img.width * 0.1;
+           oc.height = img.height * 0.1;
+           octx.drawImage(img, 0, 0, oc.width, oc.height);
+           this.driverDetails.picFile = oc.toDataURL('image/jpeg');
+      }.bind(this);
+      img.src = URL.createObjectURL(file[0]);
+     }
     
-    img.onload = function(){
-     var oc = document.createElement('canvas'),
-       octx = oc.getContext('2d');
-  debugger;
-    oc.width = img.width * 0.1;
-    oc.height = img.height * 0.1;
-    octx.drawImage(img, 0, 0, oc.width, oc.height);
-     this.driverDetails.picFile = oc.toDataURL('image/jpeg');
-     
-    }.bind(this);
-    img.src = URL.createObjectURL(file[0]);
     if (file.length > 0) {
 //           this.getBase64(file[0]);
         }
