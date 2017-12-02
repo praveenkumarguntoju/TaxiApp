@@ -24,8 +24,7 @@ export class loginComponent implements OnInit {
      'username': '',
      'password':'',
      'email': '',
-     'emailVerfied':"",
-     'driver':""
+     'emailVerfied':""
       };
 
       // 'password': '',
@@ -96,6 +95,14 @@ export class loginComponent implements OnInit {
   dataGet(res){
     debugger;
     var data = JSON.parse(res._body);
+
+    if(data.dataDocs){
+      if(data.dataDocs.password !== this.userObj.password){
+       window.alert("Please enter correct password");
+       return false;
+      }
+     sessionStorage.isDriverActive = data.dataDocs.driverActive;
+    }
     if(data.dataToken && data.dataToken.length){
     let navigationExtras = {
       queryParams: { 'tokenData': data.dataToken}

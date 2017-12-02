@@ -56,10 +56,13 @@ export class DetailComponent implements OnInit {
 
  getDetails(id) {
     const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
-    const body = {'action': 'getData'};
+    if(sessionStorage.isDriverActive == "true"){
+         id = sessionStorage.userName;
+    }
+    const bodyData = {'driver':true};
     const options = new RequestOptions({ headers: header});
     var contactsUrl = '/app/contacts' + '/' + id;
-    this.http.get(contactsUrl,{ headers: header })
+    this.http.get(contactsUrl,{ headers: header,body:bodyData })
                  .toPromise()
                  .then((response)=>{
              debugger;

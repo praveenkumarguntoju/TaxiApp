@@ -20,6 +20,7 @@ export class HomeComponent implements OnInit {
 //   API = 'http://localhost:3000';
 //   path = 'app/jsonfiles/makes.json';
   people: any[] = [];
+  driverData:any;
   cmntData:any;
   id:any;
   token:any;
@@ -36,7 +37,13 @@ export class HomeComponent implements OnInit {
   ngOnInit(){
     this.subscription.unsubscribe();
     document.getElementById("myDiv").style.display = "block";
-    this.getAllPeople(this.people);
+    debugger;
+    if(sessionStorage.isDriverActive = "true"){
+      this.router.navigate(['details']);
+    }else{
+      this.getAllPeople(this.people);
+    }
+    
 
   }
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
@@ -155,7 +162,7 @@ commentGet(res){
       
   }
 
-   getAllPeople(people) {
+ getAllPeople(people) {
     const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     const body = {'action': 'getData'};
     const options = new RequestOptions({ headers: header});
@@ -164,6 +171,10 @@ commentGet(res){
                 this.dataGet(response);
        }).catch(this.handleError); 
   };
+
+ getDriverData(driverData){
+ 
+ }
   
   
    private handleError (error: any): Promise<any> {
