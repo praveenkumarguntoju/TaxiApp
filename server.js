@@ -236,7 +236,7 @@ app.post("/app/registeruser", function(req, res) {
   var mailOptions = {
     from: 'booktaxiready@gmail.com',
     to: newContact.email,
-    subject: 'Sending Email using Node.js',
+    subject: 'Email Verification to login the app',
     html: '<p>An absolute URL: <a href='+ url +'>Click on link to activate</a></p>'
     
   };
