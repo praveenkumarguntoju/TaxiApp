@@ -344,11 +344,14 @@ app.use(function(req, res, next) {
   
   app.get("/app/contacts/:id", function(req, res) {
     var name = req.body.username || req.query.username ;
+    var getObj;
     console.log(name);
     if(name){
-    
+      getObj = {username: name};
+    }else{
+      getObj = {_id:  ObjectId(req.params.id)};
     }
-    db.collection("driversData").findOne({_id:  ObjectId(req.params.id)},function(err, docs){
+    db.collection("driversData").findOne(getObj,function(err, docs){
     if (err) {
         console.log("ERROR: " + reason);
          res.status(code || 500).json({"error": message});
