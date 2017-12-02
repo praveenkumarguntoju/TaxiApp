@@ -347,10 +347,11 @@ app.use(function(req, res, next) {
     var getObj;
     console.log(name);
     if(name){
-      getObj = {username: name};
+      getObj = {USERNAME: name};
     }else{
       getObj = {_id:  ObjectId(req.params.id)};
     }
+    console.log(getObj);
     db.collection("driversData").findOne(getObj,function(err, docs){
     if (err) {
         console.log("ERROR: " + reason);
