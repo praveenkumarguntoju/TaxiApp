@@ -343,6 +343,12 @@ app.use(function(req, res, next) {
 });
   
   app.get("/app/contacts/:id", function(req, res) {
+    console.log(req.body);
+    if(req.body){
+      if(req.body.driver){
+        console.log("drive true");
+      }
+    }
     db.collection("driversData").findOne({_id:  ObjectId(req.params.id)},function(err, docs){
     if (err) {
         console.log("ERROR: " + reason);
