@@ -79,7 +79,7 @@ export class loginComponent implements OnInit {
                  .toPromise()
                  .then((response)=>{
                     debugger;
-                 alert("User  was successfully created..");
+                 alert("User created ...Please Verify Email for login..");
                  document.getElementById("myDiv").style.display = "none";
                 }).catch(this.handleError); 
      
