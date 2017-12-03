@@ -172,6 +172,7 @@ commentGet(res){
                             .toPromise()
                             .then((response)=>{
                                debugger;
+                            console.log(ele);
                             this.assignData(response);
                             alert("Cab was successfully booked..");
                             }).catch(this.handleError); 
