@@ -41,7 +41,6 @@ export class RegisterComponent implements OnInit {
    this.driverDetails.picFile = reader.result;
  }
   
- 
   
 //   document.getElementById('imageinput').addEventListener('change', function(event) {
 //     var img = new Image();
