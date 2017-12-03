@@ -28,7 +28,8 @@ export class RegisterComponent implements OnInit {
         'ZIPCODE': '',
         'COUNTRY': '',
         'PHNO': '',
-        'picFile': ''
+        'picFile': '',
+        'CABBOOKED':''
     };
     ele = document.getElementsByClassName('fileUpload');
 

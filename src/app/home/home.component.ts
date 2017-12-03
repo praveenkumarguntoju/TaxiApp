@@ -23,8 +23,10 @@ export class HomeComponent implements OnInit {
   driverDataTest:any;
   driverData:any;
   cmntData:any;
+  dataDriverObj:any;
   id:any;
   token:any;
+  cabBooked:boolean;
   comntObj:any;
   private subscription: Subscription;
   comments: any[] = [{ 
@@ -150,10 +152,33 @@ commentGet(res){
      debugger;
      this.router.navigate(['register'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
     }
-
+    assignData(res){
+     debugger;
+     this.cabBook = true;
+    }
 
        onBook(eve){
+               var driverObj = function(ele){
+                             return ele._id == eve._id;
+                           }
+               this.dataDriverObj =  this.people.find(driverObj);
+               this.dataDriverObj.CABBOOKED = "true";
                debugger;
+               const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
+               const body = {'action': 'updateDetail', 'data': this.dataDriverObj};
+               const options = new RequestOptions({ headers: header});
+               var contactsUrl = '/app/contacts' + '/' + eve._id;
+               this.http.put(contactsUrl,this.dataDriverObj,{ headers: header })
+                            .toPromise()
+                            .then((response)=>{
+                               debugger;
+                            this.assignData(response);
+                            alert("Cab was successfully booked..");
+                            }).catch(this.handleError); 
+     
+
+
+
              }
 
   dataGet(res){
