@@ -173,6 +173,8 @@ commentGet(res){
                             .then((response)=>{
                                debugger;
                             console.log(ele);
+                            ele.target.className = "btn btn-danger btn-sm";
+                            ele.target.innerText = "Cab Booked";
                             this.assignData(response);
                             alert("Cab was successfully booked..");
                             }).catch(this.handleError); 
