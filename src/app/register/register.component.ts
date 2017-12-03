@@ -85,9 +85,10 @@ export class RegisterComponent implements OnInit {
      const filEle = document.getElementsByClassName('fileUpload')[0];
      const file = filEle['files'];
      var img = new Image();
-     if(file[0].size < 1000141){
-      this.driverDetails.picFile = img.src = URL.createObjectURL(file[0]);
-      }else{
+    //  if(file[0].size < 1000141){
+       
+    //   this.driverDetails.picFile = img.src = URL.createObjectURL(file[0]);
+    //   }else{
       img.onload = function(){
            var oc = document.createElement('canvas'),
            octx = oc.getContext('2d');
@@ -98,7 +99,7 @@ export class RegisterComponent implements OnInit {
            this.driverDetails.picFile = oc.toDataURL('image/jpeg');
       }.bind(this);
       img.src = URL.createObjectURL(file[0]);
-     }
+    //  }
     
     if (file.length > 0) {
 //           this.getBase64(file[0]);
@@ -111,9 +112,9 @@ export class RegisterComponent implements OnInit {
   
      saveDetails(event){
        debugger;
-       
        const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
        this.driverDetails.USERNAME = sessionStorage.userName;
+       this.driverDetails.CABBOOKED = "false";
        for (var key in  this.driverDetails) {
         if ( this.driverDetails[key] == null ||  this.driverDetails[key] == ""){
           window.alert("Please fill the all details");
@@ -122,8 +123,7 @@ export class RegisterComponent implements OnInit {
            
          }
        
-         document.getElementById("myDiv").style.display = "block";
-
+       document.getElementById("myDiv").style.display = "block";
        const body = {'action': 'create', 'data': this.driverDetails};
        const options = new RequestOptions({ headers: header});
        
