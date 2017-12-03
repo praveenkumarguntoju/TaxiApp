@@ -154,7 +154,7 @@ commentGet(res){
     }
     assignData(res){
      debugger;
-     this.cabBook = true;
+     this.cabBooked = true;
     }
 
        onBook(eve){
