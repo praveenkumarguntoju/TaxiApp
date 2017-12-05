@@ -88,7 +88,7 @@ export class DetailComponent implements OnInit {
     const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
     const body = {'action': 'getData'};
     const options = new RequestOptions({ headers: header});
-    var contactsUrl = '/app/contacts/delete' + '/' + eve._id;
+    var contactsUrl = '/app/contacts/delete' + '/' + this.id;
     this.http.get(contactsUrl,{ headers: header })
                  .toPromise()
                  .then((response)=>{
