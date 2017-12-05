@@ -130,7 +130,7 @@
             <label class="col-md-4 control-label" for="phone">Text InputPhone</label>
             <div class="col-md-4">
                 <input id="phone" name="phone" type="text" placeholder="Phone#" class="form-control input-md"
-                       [(ngModel)]="driverDetails.PHNO"  [ngModelOptions]="{standalone: true}" required>
+                       [(ngModel)]="driverDetails.PHNO" pattern="^\d{4}-\d{10}$"  [ngModelOptions]="{standalone: true}" required>
             </div>
 <!--             <span class="rmessage" [hidden]="!frmRegister.phone.$valid">Phone is required</span> -->
         </div>

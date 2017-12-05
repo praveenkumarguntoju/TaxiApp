@@ -22,14 +22,20 @@
                   <div role="tabpanel" class="tab-pane active" id="login">
                      <form id="login-form" role="form" style="display: block;">
                             <div class="form-group">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input type="text" name="username" id="username" 
                                 [(ngModel)]="userObj.username" [ngModelOptions]="{standalone: true}"
                                 tabindex="1" class="form-control" placeholder="Username" value="" style="border:0px">
+                                </div>
                             </div>
                             <div class="form-group">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input type="password" name="password" id="password"
                                 [(ngModel)]="userObj.password" [ngModelOptions]="{standalone: true}"
                                 tabindex="2" class="form-control" placeholder="Password">
+                              </div>
                             </div>
                             <div class="form-group text-center">
                                 <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -58,19 +64,28 @@
                   <div role="tabpanel" class="tab-pane" id="register">
                     	<form id="register-form"  role="form" style="display:block;">
                             <div class="form-group">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                 <input type="text" name="username" id="username" 
                                 [(ngModel)]="userObj.username" [ngModelOptions]="{standalone: true}"
                                 tabindex="1" class="form-control" placeholder="Username" value="" style="border:0px">
+                                </div>
                             </div>
                             <div class="form-group">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-email"></i></span>
                                 <input type="email" name="email" id="email"
                                 [(ngModel)]="userObj.email" [ngModelOptions]="{standalone: true}"
                                 tabindex="1" class="form-control" placeholder="Email Address" value="" style="border:0px">
+                              </div>
                             </div>
                             <div class="form-group">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                 <input type="password" name="password" 
                                 [(ngModel)]="userObj.password" [ngModelOptions]="{standalone: true}"
                                  id="password" tabindex="2" class="form-control" placeholder="Password">
+                             </div>
                             </div>
                             <div class="form-group text-center">
                                     <label>
