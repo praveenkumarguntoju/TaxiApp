@@ -44,7 +44,7 @@
                 <button style="width:100%;" *ngIf="driverDetails.CABBOOKED" type="button" class="btn btn-warning btn-sm">Cab Booked</button>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
-                <button type="button" *ngIf="driverActive"  (click)="onDelete(x)" class="btn btn-info btn-sm">Delete</button>
+                <button type="button" *ngIf="driverActive"  (click)="onDelete($event)" class="btn btn-info btn-sm">Delete</button>
             </div>
     </div>
     <div class="row">
@@ -196,7 +196,10 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pull-right">
                  <!-- <button style="width:100%;" *ngIf="!x.CABBOOKED"  (click)="onBook($event,x)" class="btn btn-success btn-sm">Book Cab</button> -->
-            <button  *ngIf="driverActive" class="btn btn-primary navbar-btn"  (click)="updateDetails($event)">Update</button>
+             <button  *ngIf="driverActive" class="btn btn-primary navbar-btn"  
+             (click)="updateDetails($event)">Update</button>
+             <button  *ngIf="driverDetails.CABBOOKED" class="btn btn-primary navbar-btn"  
+             (click)="onCancel($event)">cancel Booking</button>
             </div>
         </div>
     </div>

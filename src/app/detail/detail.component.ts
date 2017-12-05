@@ -44,11 +44,16 @@ export class DetailComponent implements OnInit {
   onHome(eve){
      this.router.navigate(['home']);
    }
+   onCancel(eve){
+     this.driverDetails.CABBOOKED = false;
+     this.updateDetails(eve);
+   }
   
   assignData(response){
      var contacts = JSON.parse(response._body);
       if(contacts.data){
                    debugger;
+                    this.id = contacts.data._id;
                     this.driverDetails = contacts.data;
                     this.imageUrl = contacts.data.picFile;
       }else{
@@ -105,7 +110,9 @@ export class DetailComponent implements OnInit {
                     debugger;
                  this.assignData(response);
                  alert("Hello! User details was successfully updated..!");
+                 if(!this.driverActive){
                  this.router.navigate(['home']);
+                 }
                  }).catch(this.handleError); 
  };
   
