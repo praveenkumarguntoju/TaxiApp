@@ -77,6 +77,21 @@ export class DetailComponent implements OnInit {
                  this.assignData(response);
                  }).catch(this.handleError); 
   };
+   
+  // delete
+   onDelete(eve){
+    const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
+    const body = {'action': 'getData'};
+    const options = new RequestOptions({ headers: header});
+    var contactsUrl = '/app/contacts/delete' + '/' + eve._id;
+    this.http.get(contactsUrl,{ headers: header })
+                 .toPromise()
+                 .then((response)=>{
+             window.alert("Data was successfully deleted");
+        this.router.navigate(['register'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
+                 
+       }).catch(this.handleError); 
+  };
 
 
   updateDetails(evt) {
