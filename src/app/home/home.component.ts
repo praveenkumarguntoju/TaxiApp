@@ -162,7 +162,7 @@ commentGet(res){
                              return ele._id == eve._id;
                            }
                this.dataDriverObj =  this.people.find(driverObj);
-               this.dataDriverObj.CABBOOKED = "true";
+               this.dataDriverObj.CABBOOKED = true;
                debugger;
                const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
                const body = {'action': 'updateDetail', 'data': this.dataDriverObj};

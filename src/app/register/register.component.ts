@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
         'COUNTRY': '',
         'PHNO': '',
         'picFile': '',
-        'CABBOOKED':''
+        'CABBOOKED':'',
     };
     ele = document.getElementsByClassName('fileUpload');
 
@@ -113,7 +113,7 @@ export class RegisterComponent implements OnInit {
        debugger;
        const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
        this.driverDetails.USERNAME = sessionStorage.userName;
-       this.driverDetails.CABBOOKED = "false";
+       this.driverDetails.CABBOOKED = false;
        for (var key in  this.driverDetails) {
         if ( this.driverDetails[key] == null ||  this.driverDetails[key] == ""){
           window.alert("Please fill the all details");

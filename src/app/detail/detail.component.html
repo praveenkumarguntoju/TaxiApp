@@ -188,6 +188,8 @@
 </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pull-right">
+                    <button style="width:100%;" *ngIf="driverDetails.CABBOOKED" type="button" class="btn btn-warning btn-sm">Cab Booked</button>
+                    <!-- <button style="width:100%;" *ngIf="!x.CABBOOKED"  (click)="onBook($event,x)" class="btn btn-success btn-sm">Book Cab</button> -->
             <button  *ngIf="driverActive" class="btn btn-primary navbar-btn"  (click)="updateDetails($event)">Update</button>
             </div>
         </div>
