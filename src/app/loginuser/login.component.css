@@ -1,7 +1,6 @@
 .login {
-    position: absolute;
-    left: 10%;
-    top: 37%;
+    background: #2c3e50;
+    box-shadow: 0 1px 62px rgba(0, 0, 2, 0.3), 8px 19px 40px rgba(0, 0, 0, 0.1) inset;
 }
 
 .form-group {
@@ -19,7 +18,9 @@ html, body {
   }
   
   .jumbotron.vertical-center {
-    margin-bottom: 0; /* Remove the default bottom margin of .jumbotron */
+    margin-bottom: 0; 
+    color: white !important;
+    background-color: #18bc9c;
   }
   
   .vertical-center {
