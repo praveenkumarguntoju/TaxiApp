@@ -23,7 +23,7 @@
   </div>
 </nav>
 
-<div class="container" style="background-color: #4988bd;">
+<!-- <div class="container" style="background-color: #4988bd;">
 <div class="row">
  <div class="columns col-sm-6 col-md-3" *ngFor="let x of people" style="padding:10px;">
   <ul class="price">
@@ -42,9 +42,9 @@
         <span class="glyphicon glyphicon-home"><label style="font-size:20px;padding-left: 10px;">{{ x.CITY}}</label></span>
       </li>
     <li class="footer">
-      <button type="button" (click)="onClickMe(x)" class="btn btn-info btn-sm">Get Details</button>
+      <button type="button" (click)="onClickMe(x)" class="btn btn-info btn-sm">Get Details</button> -->
     <!-- Button trigger modal -->
-      <button type="button" class="btn btn-warning btn-sm" (click)="onClickReview(x)" data-toggle="modal"
+      <!-- <button type="button" class="btn btn-warning btn-sm" (click)="onClickReview(x)" data-toggle="modal"
        data-target="#myModal">
       Reviews
      </button>
@@ -57,7 +57,53 @@
   </ul>
 </div>
 </div>
-</div>
+</div> -->
+
+
+<div class="container" style="background-color: #4988bd;">
+    <div class="row">
+     <div class="columns col-sm-6 col-md-3" *ngFor="let x of people" style="padding:10px;">
+      <ul class="price">
+        <li class="header">
+          <div class="col-sm-3 col-md-3">
+          <img src="{{x.picFile}}" alt="Paris" width="120" height="120">
+          </div>
+          <div class="col-sm-9 col-md-9">
+              <h2>
+                  <span  title="{{x.DRVFNAME}}">{{x.DRVFNAME}}</span>
+              </h2>
+          </div>
+        </li>
+        <!-- <li></li> -->
+        <li style="height:15px;font-size: 15px;
+        color: #a94442;">{{ x.CARNAME}}</li>
+        <li style="height:15px;font-size:15px;
+        color: #a94442;">{{ x.CARNUM}}</li>
+        <li style="height:15px;">
+          <span class="glyphicon glyphicon-earphone"><label style="font-size:20px;padding-left: 10px;">{{ x.PHNO}}</label></span>
+        </li>
+        <li style="height:15px;">
+            <span class="glyphicon glyphicon-home"><label style="font-size:20px;padding-left: 10px;">{{ x.CITY}}</label></span>
+          </li>
+        <li class="footer">
+          <button type="button" (click)="onClickMe(x)" class="btn btn-info btn-sm">Get Details</button>
+        <!-- Button trigger modal -->
+          <button type="button" class="btn btn-warning btn-sm" (click)="onClickReview(x)" data-toggle="modal"
+           data-target="#myModal">
+          Reviews
+         </button>
+         <button type="button" *ngIf="driverDataTest" (click)="onDelete(x)" class="btn btn-info btn-sm">Delete</button>
+        </li>
+         <li class="book" style="padding:0px;">
+          <button style="width:100%;" *ngIf="x.CABBOOKED" type="button" class="btn btn-warning btn-sm">Cab Booked</button>
+          <button style="width:100%;" *ngIf="!x.CABBOOKED"  (click)="onBook($event,x)" class="btn btn-success btn-sm">Book Cab</button>
+        </li>
+      </ul>
+    </div>
+    </div>
+    </div>
+
+
 
 
 <!-- modal popup review -->
