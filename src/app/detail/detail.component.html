@@ -49,11 +49,11 @@
     </div>
     <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                 <h4><span class="label ">First Name</span></h4>
                 </div>
-                <div class="col-md-6">
-                 <h4 *ngIf="displayDetail"><span class="label">{{driverDetails.DRVFNAME}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                 <h4 *ngIf="displayDetail"><span class="">{{driverDetails.DRVFNAME}}</span></h4>
                     <input *ngIf="!displayDetail" [(ngModel)]="driverDetails.DRVFNAME"
                            class="form-control iedit"
                            type="text"
@@ -62,11 +62,11 @@
 
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h4><span class="label ">Last Name</span></h4>
                 </div>
-                <div class="col-md-6">
-                 <h4 *ngIf="displayDetail"><span class="label">{{driverDetails.DRVLNAME}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                 <h4 *ngIf="displayDetail"><span class="">{{driverDetails.DRVLNAME}}</span></h4>
                     <input *ngIf="!displayDetail" [(ngModel)]="driverDetails.DRVLNAME"
                            class="form-control iedit"
                            type="text"
@@ -80,29 +80,29 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h4><span class="label ">Car Number</span></h4>
                 </div>
-                <div class="col-md-6">
-                    <h4><span class="label">{{driverDetails.CARNUM}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                    <h4><span class="">{{driverDetails.CARNUM}}</span></h4>
                 </div>
 
             </div>
             <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h4><span class="label ">Car Name</span></h4>
                 </div>
-                <div class="col-md-6">
-                    <h4><span class="label">{{driverDetails.CARNAME}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                    <h4><span class="">{{driverDetails.CARNAME}}</span></h4>
                 </div>
 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h4><span class="label">Address</span></h4>
                 </div>
-                <div class="col-md-6">
-                <h4 *ngIf="displayDetail"><span class="label">{{driverDetails.ADDRS1}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                <h4 *ngIf="displayDetail"><span class="">{{driverDetails.ADDRS1}}</span></h4>
                     <input *ngIf="!displayDetail" [(ngModel)]="driverDetails.ADDRS1"
                            class="form-control iedit"
                            type="text"
@@ -115,11 +115,11 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="col-md-6">
-                    <h4><span class="label ">Alternate Address</span></h4>
+                <div class="col-xs-6 col-md-6">
+                    <h4><span class="label">Alternate Address</span></h4>
                 </div>
-                <div class="col-md-6">
-                <h4 *ngIf="displayDetail"><span class="label">{{driverDetails.ADDRS2}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                <h4 *ngIf="displayDetail"><span class="">{{driverDetails.ADDRS2}}</span></h4>
                     <input *ngIf="!displayDetail" [(ngModel)]="driverDetails.ADDRS2"
                            class="form-control iedit"
                            type="text"
@@ -130,11 +130,11 @@
 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h4><span class="label ">City</span></h4>
                 </div>
-                <div class="col-md-6">
-                     <h4 *ngIf="displayDetail"><span class="label">{{driverDetails.CITY}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                     <h4 *ngIf="displayDetail"><span class="">{{driverDetails.CITY}}</span></h4>
                     <input *ngIf="!displayDetail" [(ngModel)]="driverDetails.CITY"
                            class="form-control iedit"
                            type="text"
@@ -145,11 +145,11 @@
 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h4><span class="label">Zip Code</span></h4>
                 </div>
-                <div class="col-md-6">
-                    <h4 *ngIf="displayDetail"><span class="label">{{driverDetails.ZIPCODE}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                    <h4 *ngIf="displayDetail"><span class="">{{driverDetails.ZIPCODE}}</span></h4>
                     <input *ngIf="!displayDetail" [(ngModel)]="driverDetails.ZIPCODE"
                            class="form-control iedit"
                            type="text"
@@ -160,11 +160,11 @@
         </div>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h4><span class="label ">Country</span></h4>
                 </div>
-                <div class="col-md-6">
-                <h4 *ngIf="displayDetail"><span class="label">{{driverDetails.COUNTRY}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                <h4 *ngIf="displayDetail"><span class="">{{driverDetails.COUNTRY}}</span></h4>
                     <input *ngIf="!displayDetail"  [(ngModel)]="driverDetails.COUNTRY"
                            class="form-control iedit"
                            type="text"
@@ -174,11 +174,11 @@
 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h4><span class="label ">Mobile Number</span></h4>
                 </div>
-                <div class="col-md-6">
-                 <h4 *ngIf="displayDetail"><span class="label">{{driverDetails.PHNO}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                 <h4 *ngIf="displayDetail"><span class="">{{driverDetails.PHNO}}</span></h4>
                     <input *ngIf="!displayDetail" [(ngModel)]="driverDetails.PHNO"
                            class="form-control iedit"
                            type="text"
@@ -188,11 +188,11 @@
 
             </div>
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
-                <div class="col-md-6">
+                <div class="col-xs-6 col-md-6">
                     <h4><span class="label">Age</span></h4>
                 </div>
-                <div class="col-md-6">
-                    <h4 *ngIf="displayDetail"><span class="label">{{driverDetails.DRVAGE}}</span></h4>
+                <div class="col-xs-6 col-md-6">
+                    <h4 *ngIf="displayDetail"><span class="">{{driverDetails.DRVAGE}}</span></h4>
                     <input *ngIf="!displayDetail" [(ngModel)]="driverDetails.DRVAGE"
                            class="form-control iedit"
                            type="text"
