@@ -15,8 +15,8 @@
       <ul class="nav navbar-nav">
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><button style="margin-right:15px;margin-top:7px;" *ngIf="driverActive" (click)="onEdit(x)" > <span class="glyphicon glyphicon-edit"></span> Edit</button> </li>
-        <li><button style="margin-top:7px;" *ngIf="driverActive" (click)="onDisplay(x)"><span class="glyphicon glyphicon-eye-open"></span> Display</button></li>
+        <li><button style="margin-right:15px;margin-top:7px;" class="btn btn-sm" *ngIf="driverActive" (click)="onEdit(x)" > <span class="glyphicon glyphicon-edit"></span> Edit</button> </li>
+        <li><button style="margin-top:7px;" *ngIf="driverActive" class="btn btn-sm" (click)="onDisplay(x)"><span class="glyphicon glyphicon-eye-open"></span> Display</button></li>
       </ul>
     </div>
   </div>
@@ -44,7 +44,7 @@
                 <button style="width:100%;" *ngIf="driverDetails.CABBOOKED" type="button" class="btn btn-warning btn-sm">Cab Booked</button>
             </div>
             <div class="col-xs-3 col-sm-3 col-md-4 col-lg-2">
-                <button type="button" *ngIf="driverActive"  (click)="onDelete($event)" class="btn btn-info btn-sm">Delete</button>
+               
             </div>
     </div>
     <div class="row">
@@ -203,10 +203,14 @@
             </div>
 </div>
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pull-right" style="padding-left: 30px;">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 pull-right" style="padding-left:30px;">
                  <!-- <button style="width:100%;" *ngIf="!x.CABBOOKED"  (click)="onBook($event,x)" class="btn btn-success btn-sm">Book Cab</button> -->
              <button  *ngIf="driverActive" class="btn btn-primary navbar-btn"  
              (click)="updateDetails($event)">Update</button>
+
+             <button type="button" *ngIf="driverActive"  (click)="onDelete($event)" 
+             class="btn btn-info btn-sm">Delete</button>
+
              <button  *ngIf="driverDetails.CABBOOKED" class="btn btn-primary navbar-btn"  
              (click)="onCancel($event)">cancel Booking</button>
             </div>

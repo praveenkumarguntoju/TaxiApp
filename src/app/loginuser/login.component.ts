@@ -19,6 +19,7 @@ export class loginComponent implements OnInit {
   id:any;
   comments: any[] = [];
   driverActive:boolean;
+  rememberMe:boolean;
  
   userObj: any = {
      'username': '',
@@ -34,8 +35,15 @@ export class loginComponent implements OnInit {
 
 
   ngOnInit(){
-    
-   }
+   if(localStorage.taxiUrl == location.origin) { 
+    if(!localStorage.taxiUsername){
+     this.userObj.username =  localStorage.taxiUsername
+    }
+    if(!localStorage.taxipassword){
+     this.userObj.password = localStorage.taxiPassword ;
+    }
+  }  
+  }
   
    constructor(private http: Http, private router: Router) {}
   
@@ -104,6 +112,17 @@ export class loginComponent implements OnInit {
      sessionStorage.isDriverActive = data.dataDocs.driverActive;
     }
     if(data.dataToken && data.dataToken.length){
+      if(this.rememberMe){
+        if(!localStorage.taxiUsername){
+          localStorage.taxiUsername = data.dataDocs.username;
+        }
+        if(!localStorage.taxipassword){
+          localStorage.taxiPassword = data.dataDocs.password;
+        }
+        if(!localStorage.taxiUrl){
+          localStorage.taxiUrl = location.origin;
+        }
+      }
     let navigationExtras = {
       queryParams: { 'tokenData': data.dataToken}
     };
