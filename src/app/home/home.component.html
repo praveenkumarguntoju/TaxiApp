@@ -80,16 +80,13 @@
                     <div class="card-buttons">
                         <button type="button" (click)="onClickMe(x)" class="btn btn-info btn-sm">Get Details</button>
                         <!-- Button trigger modal -->
-                          <button type="button" class="btn btn-warning btn-sm" (click)="onClickReview(x)"
-                           data-toggle="modal" data-target="#myModal">
+                      <button type="button" class="btn btn-warning btn-sm" (click)="onClickReview(x)"  data-toggle="modal" data-target="#myModal">
                           Reviews</button>
                    </div>
               </div>
                  <div class="footer">
-                    <button style="width:100%;" *ngIf="x.CABBOOKED" 
-                    type="button" class="btn btn-warning btn-sm">Cab Booked</button>
-                    <button style="width:100%;" *ngIf="!x.CABBOOKED"  (click)="onBook($event,x)"
-                    class="btn btn-success btn-sm">Book Cab</button>
+                    <button style="width:100%;" *ngIf="x.CABBOOKED" type="button" class="btn btn-warning btn-sm">Cab Booked</button>
+                    <button style="width:100%;" *ngIf="!x.CABBOOKED"  (click)="onBook($event,x)" class="btn btn-success btn-sm">Book Cab</button>
                </div>
             </div> 
         </div>  
