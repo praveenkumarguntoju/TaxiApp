@@ -36,10 +36,10 @@ export class loginComponent implements OnInit {
 
   ngOnInit(){
    if(localStorage.taxiUrl  && localStorage.taxiUrl == location.origin) { 
-    if(!localStorage.taxiUsername){
+    if(localStorage.taxiUsername){
      this.userObj.username =  localStorage.taxiUsername
     }
-    if(!localStorage.taxipassword){
+    if(localStorage.taxiPassword){
      this.userObj.password = localStorage.taxiPassword ;
     }
   }  
