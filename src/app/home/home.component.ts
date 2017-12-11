@@ -147,6 +147,18 @@ commentGet(res){
     this.router.navigate(['usertravel']);
    }
 
+  
+    if (navigator) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        this.dataDriverObj.lat = position.coords.latitude;
+        this.dataDriverObj.lng = position.coords.longitude;
+
+      }.bind(this), function() {
+         debugger;
+      });
+    };
+   
+
     onRegister(eve){
      // tslint:disable-next-line:no-debugger
      debugger;

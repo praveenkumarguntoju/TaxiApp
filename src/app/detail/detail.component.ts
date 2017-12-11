@@ -19,6 +19,7 @@ export class DetailComponent implements OnInit {
   driverActive:boolean;
   displayDetail:any = true;
   private subscription: Subscription;
+  userAddress:any;
 
   constructor(private actRoute: ActivatedRoute,private http: Http, private router: Router) {
     // tslint:disable-next-line:no-debugger
@@ -56,7 +57,10 @@ export class DetailComponent implements OnInit {
                     this.id = contacts.data._id;
                     this.driverDetails = contacts.data;
                     this.imageUrl = contacts.data.picFile;
-      }else{
+                    if(contacts.data.lat){
+                    this.userAddress = "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ contacts.data.lat+ ','+ contacts.data.lng;
+                    }
+                  }else{
         this.router.navigate(['register'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
       }
     document.getElementById("myDiv").style.display = "none";
