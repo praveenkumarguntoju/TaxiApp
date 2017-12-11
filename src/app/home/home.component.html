@@ -67,7 +67,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 col-sm-3  col-lg-3" *ngFor="let x of people">
-        <div id="watermark">
+        <div id="watermark" *ngIf="x.CABBOOKED">
           Booked
         </div>
         
@@ -102,7 +102,7 @@
             </div>
         </div>
         <div class="footer">
-          <button style="width:100%;" *ngIf="x.CABBOOKED" type="button" class="btn btn-warning btn-sm">Cab Booked</button>
+          <!-- <button style="width:100%;" *ngIf="x.CABBOOKED" type="button" class="btn btn-warning btn-sm">Cab Booked</button> -->
           <button style="width:100%;" *ngIf="!x.CABBOOKED" (click)="onBook($event,x)" class="btn btn-success btn-sm">Book Cab</button>
         </div>
       </div>
