@@ -26,6 +26,8 @@ export class HomeComponent implements OnInit {
   dataDriverObj:any;
   id:any;
   token:any;
+  userLat:any;
+  userLng:any;
   cabBooked:boolean;
   comntObj:any;
   private subscription: Subscription;
@@ -47,6 +49,7 @@ export class HomeComponent implements OnInit {
     }else{
       this.getAllPeople(this.people);
     }
+    this.onLocateMe();
     
 
   }
@@ -147,17 +150,17 @@ commentGet(res){
     this.router.navigate(['usertravel']);
    }
 
-  
+   onLocateMe(){
     if (navigator) {
       navigator.geolocation.getCurrentPosition(function(position) {
-        this.dataDriverObj.lat = position.coords.latitude;
-        this.dataDriverObj.lng = position.coords.longitude;
+        this.userLat = position.coords.latitude;
+        this.userLng = position.coords.longitude;
 
       }.bind(this), function() {
          debugger;
       });
     };
-   
+   }
 
     onRegister(eve){
      // tslint:disable-next-line:no-debugger
@@ -175,6 +178,8 @@ commentGet(res){
                            }
                this.dataDriverObj =  this.people.find(driverObj);
                this.dataDriverObj.CABBOOKED = true;
+               this.dataDriverObj.lat = this.userLat;
+               this.dataDriverObj.lng = this.userLng;
                debugger;
                const header = new Headers({ 'Content-Type': 'application/json','x-access-token': sessionStorage.token });
                const body = {'action': 'updateDetail', 'data': this.dataDriverObj};
