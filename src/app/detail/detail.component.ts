@@ -58,7 +58,7 @@ export class DetailComponent implements OnInit {
                     this.driverDetails = contacts.data;
                     this.imageUrl = contacts.data.picFile;
                     if(contacts.data.lat){
-                    this.userAddress = "https://maps.googleapis.com/maps/?q="+ contacts.data.lat+ ','+ contacts.data.lng;
+                    this.userAddress = "https://maps.google.com/maps/?q="+ contacts.data.lat+ ','+ contacts.data.lng;
                     }
                   }else{
         this.router.navigate(['register'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
