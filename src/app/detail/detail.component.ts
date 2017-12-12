@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
+declare var google:any;
+declare var jQuery:any;
 
 @Component({
   selector: 'app-detail',
@@ -17,6 +19,9 @@ export class DetailComponent implements OnInit {
   public id: string;
   token:any;
   driverActive:boolean;
+  map:any;
+  directionsService:any;
+  directionsDisplay:any;
   displayDetail:any = true;
   private subscription: Subscription;
   userAddress:any;
@@ -57,7 +62,18 @@ export class DetailComponent implements OnInit {
                     this.id = contacts.data._id;
                     this.driverDetails = contacts.data;
                     this.imageUrl = contacts.data.picFile;
+
+          
                     if(contacts.data.lat){
+                      this.directionsService = new google.maps.DirectionsService();
+                      this.directionsDisplay = new google.maps.DirectionsRenderer();
+                      this.map = new google.maps.Map(document.getElementById('map'), {
+                        zoom: 12,
+                        center: { lat: contacts.data.lat, lng: contacts.data.lng}
+                      });
+                     this.directionsDisplay.setMap(this.map);
+
+
                     this.userAddress = "https://maps.google.com/maps/?q="+ contacts.data.lat+ ','+ contacts.data.lng;
                     }
                   }else{
