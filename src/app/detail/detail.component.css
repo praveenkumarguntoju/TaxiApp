@@ -4,6 +4,6 @@
 
 #map {
     height: 20%;
-    position: fixed;
+    position: fixed !important;
     width: 20%;
   }
