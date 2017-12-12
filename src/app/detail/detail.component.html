@@ -213,7 +213,7 @@
 
              <button  *ngIf="driverDetails.CABBOOKED" class="btn btn-primary navbar-btn"  
              (click)="onCancel($event)">cancel Booking</button>
-             <div *ngIf="driverActive && driverDetails.CABBOOKED" id="map"></div>
+             <div id="map"></div>
              <a *ngIf="driverActive && driverDetails.CABBOOKED" target="_blank" href= {{userAddress}} class="btn btn-info" role="button">Customer Adrress link</a>
             </div>
         </div>

@@ -18,6 +18,7 @@ export class DetailComponent implements OnInit {
   driverDetails: any = {};
   public id: string;
   token:any;
+  mapTrue:boolean;
   driverActive:boolean;
   map:any;
   directionsService:any;
@@ -62,8 +63,6 @@ export class DetailComponent implements OnInit {
                     this.id = contacts.data._id;
                     this.driverDetails = contacts.data;
                     this.imageUrl = contacts.data.picFile;
-
-          
                     if(contacts.data.lat){
                       this.directionsService = new google.maps.DirectionsService();
                       this.directionsDisplay = new google.maps.DirectionsRenderer();
@@ -72,9 +71,7 @@ export class DetailComponent implements OnInit {
                         center: { lat: contacts.data.lat, lng: contacts.data.lng}
                       });
                      this.directionsDisplay.setMap(this.map);
-
-
-                    this.userAddress = "https://maps.google.com/maps/?q="+ contacts.data.lat+ ','+ contacts.data.lng;
+                     this.userAddress = "https://maps.google.com/maps/?q="+ contacts.data.lat+ ','+ contacts.data.lng;
                     }
                   }else{
         this.router.navigate(['register'], {queryParams: {'qdata': 200}, preserveQueryParams: true});
