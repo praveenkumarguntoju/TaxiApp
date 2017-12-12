@@ -64,14 +64,14 @@ export class DetailComponent implements OnInit {
                     this.driverDetails = contacts.data;
                     this.imageUrl = contacts.data.picFile;
                     if(contacts.data.lat){
-                      var myLatLng = new google.maps.LatLng(contacts.data.lat,contacts.data.lng),
+                      var myLatLng = new google.maps.LatLng(contacts.data.lat,contacts.data.lng);
                       this.directionsService = new google.maps.DirectionsService();
                       this.directionsDisplay = new google.maps.DirectionsRenderer();
                       this.map = new google.maps.Map(document.getElementById('map'), {
                         zoom: 8,
                         center: myLatLng 
                       });
-                     this.directionsDisplay.setMap(this.map);
+                    this.directionsDisplay.setMap(this.map);
                     var marker = new google.maps.Marker({
                       position: myLatLng,
                       map: this.map
