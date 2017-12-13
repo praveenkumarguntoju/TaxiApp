@@ -221,11 +221,15 @@
  <!-- added div -->
        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="margin-top:10px;">
         <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-12" style="padding-left:30px;">
-                    <a target="_blank" href= {{userAddress}}>
-                            <div id="map"></div>
-                         </a>
-            </div>
+                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:30px;">
+                        <button  *ngIf="driverActive" class="btn btn-primary navbar-btn"  
+                        (click)="updateDetails($event)">Update</button>
+                        <button type="button" *ngIf="driverActive"  (click)="onDelete($event)" 
+                        class="btn btn-info btn-sm">Delete</button>
+                        <button  *ngIf="driverDetails.CABBOOKED" class="btn btn-primary navbar-btn"  
+                        (click)="onCancel($event)">cancel Booking</button>
+                       </div>
+           
           </div>
         <!--  -->
         </div>
@@ -235,14 +239,11 @@
 
       </div> 
       <div class="row">
-                   <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" style="padding-left:30px;">
-                    <button  *ngIf="driverActive" class="btn btn-primary navbar-btn"  
-                    (click)="updateDetails($event)">Update</button>
-                    <button type="button" *ngIf="driverActive"  (click)="onDelete($event)" 
-                    class="btn btn-info btn-sm">Delete</button>
-                    <button  *ngIf="driverDetails.CABBOOKED" class="btn btn-primary navbar-btn"  
-                    (click)="onCancel($event)">cancel Booking</button>
-                   </div>
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-12" style="padding-left:30px;">
+                    <a target="_blank" href= {{userAddress}}>
+                            <div id="map"></div>
+                         </a>
+            </div>     
       </div>
     </div>
 </div>
