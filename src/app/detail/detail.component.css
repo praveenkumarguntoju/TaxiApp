@@ -3,7 +3,6 @@
 }
 
 #map {
-    height: 30%;
-    position: fixed !important;
-    width: 25%;
+    height: 150%;
+    /* position: fixed !important; */
   }
