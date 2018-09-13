@@ -229,6 +229,9 @@ app.post("/app/registeruser", function(req, res) {
     auth: {
       user: 'booktaxiready@gmail.com',
       pass: 'chintu1234'
+    },
+    tls: {
+        rejectUnauthorized: false
     }
   });
   var url = "https://book-taxi.herokuapp.com/app/verify/?token=" + token +'&email=' + 
