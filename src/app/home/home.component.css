@@ -160,7 +160,7 @@ img {
 
 .reviewBody{
     overflow: scroll !important;
-    height: 550px;
+    height: 450px;
     background-color: rgba(0, 0, 0, 0.09);
 }
 
