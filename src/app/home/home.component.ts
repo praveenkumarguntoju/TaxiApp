@@ -95,7 +95,7 @@ commentGet(res){
      var d= new Date();
      this.comments.push({ 
        "userId": this.id,
-       "username":"Praveen",
+       "username": sessionStorage.userName,
        "rate" : "sentiment_dissatisfied",
        "comment" : this.cmntData,
        "date" : d.toDateString()
@@ -103,7 +103,7 @@ commentGet(res){
    
    this.comntObj = { 
        "userId": this.id,
-       "username":"Praveen",
+       "username": sessionStorage.userName,
        "rate" : "sentiment_dissatisfied",
        "comment" : this.cmntData,
        "date" : d.toDateString()
