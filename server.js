@@ -225,13 +225,15 @@ app.post("/app/registeruser", function(req, res) {
   
   console.log(newContact.email);
   var transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
+    service: 'Gmail',
     secure: false,
     auth: {
       user: 'booktaxiready@gmail.com',
       pass: 'chintu1234'
-    }
+    },
+     tls: {
+            rejectUnauthorized: false
+         }
   });
   var url = "https://book-taxi.herokuapp.com/app/verify/?token=" + token +'&email=' + 
                     newContact.email + '&username=' + newContact.username;
