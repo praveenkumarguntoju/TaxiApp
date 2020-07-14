@@ -246,19 +246,20 @@ app.post("/app/registeruser", function(req, res) {
   
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-      console.log(error);
+      res.status(code || 500).json({"error": error});
     } else {
       console.log('Email sent: ' + info.response);
-    }
+        db.collection("userData").insertOne(newContact, function(err, doc) {
+           if (err) {
+               console.log("ERROR: " + reason);
+               res.status(code || 500).json({"error": message});
+               } else {
+                 res.status(201).json(doc.ops[0]);
+               }
+            });
+        }
   });
-  db.collection("userData").insertOne(newContact, function(err, doc) {
-    if (err) {
-     console.log("ERROR: " + reason);
-         res.status(code || 500).json({"error": message});
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
+
 });
 
 
