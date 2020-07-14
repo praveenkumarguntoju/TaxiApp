@@ -250,7 +250,10 @@ app.post("/app/registeruser", function(req, res) {
       res.status(code || 500).json({"error": 'not sucesss'});
     } else {
       console.log('Email sent: ' + info.response);
-        db.collection("userData").insertOne(newContact, function(err, doc) {
+      
+        }
+  });
+    db.collection("userData").insertOne(newContact, function(err, doc) {
            if (err) {
                console.log("ERROR: " + reason);
                res.status(code || 500).json({"error": 'not successs'});
@@ -258,8 +261,6 @@ app.post("/app/registeruser", function(req, res) {
                  res.status(201).json(doc.ops[0]);
                }
             });
-        }
-  });
 
 });
 
