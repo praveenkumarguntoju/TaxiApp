@@ -81,7 +81,7 @@ export class loginComponent implements OnInit {
     }else{
       this.userObj.driverActive = "false";
     }
-
+    //test
 
      this.http.post('/app/registeruser',this.userObj)
                  .toPromise()
