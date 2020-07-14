@@ -247,13 +247,13 @@ app.post("/app/registeruser", function(req, res) {
   
   transporter.sendMail(mailOptions, function(error, info){
     if (error) {
-      res.status(code || 500).json({"error": error});
+      res.status(code || 500).json({"error": 'not sucesss'});
     } else {
       console.log('Email sent: ' + info.response);
         db.collection("userData").insertOne(newContact, function(err, doc) {
            if (err) {
                console.log("ERROR: " + reason);
-               res.status(code || 500).json({"error": message});
+               res.status(code || 500).json({"error": 'not successs'});
                } else {
                  res.status(201).json(doc.ops[0]);
                }
